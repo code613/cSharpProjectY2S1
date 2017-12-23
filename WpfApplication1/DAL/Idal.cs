@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    interface Idal//what is a interface that it looks like a reguler class??
-    {
+    public interface Idal//what is a interface that it looks like a reguler class??
+    {//what is the point of an interface if it is private
         void addNanny();//maybe a nanny should be called care lady!?!
         void deleteNanny();//don't need to define what varibles reciving???
         void updateNannyDetalis();

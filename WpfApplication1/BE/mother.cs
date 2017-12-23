@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 
 namespace BE   // create read update dealte   crud
 {
-    class Mother : person
+    public class Mother : Person
     {
-        private string phone { get; set; }
+        private string housePhone { get; set; }
+        private string cellPhone { get; set; }
         private string googleAddress { get; set; }
-        private string searchArea { get; set; }
-        public bool[] needNanny = new bool[7];
-        public DateTime[][] TimeTable = new DateTime[2][];
-        private string comandes { get; set; }
+        private string searchArea { get; set; }//neiberhood?? is better?
+        public bool[] daysNeedNanny = new bool[7];
+        public DateTime[][] serviseNeededTimeTable = new DateTime[2][];
+        //other feilds that will be needed
+        private string commints { get; set; }//what is this??
 
         public override string ToString()
         {
-            return "mother:" + firstName + " " + lastName + " " + phone + " " + googleAddress;
+            return "mother:" + firstName + " " + lastName + " " + cellPhone + " " + googleAddress;
         }
         //constructer
         public Mother(string id, string first_name, string last_name, DateTime Birthday) : base(id, first_name, last_name, Birthday)

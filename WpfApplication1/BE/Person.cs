@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class person
+    public class Person
     {
         protected string ID { get; }
         protected string firstName { get; }
-        protected string lastName { get; }
+        public string lastName { get; }//for child made public
         protected DateTime Birthday { get; }
-        public person(string inID, string infirst_name, string inlast_name, DateTime inBirthday)
+        public Person(string inID, string infirst_name, string inlast_name, DateTime inBirthday)
         {
             ID = inID; firstName = infirst_name; lastName = inlast_name; Birthday = inBirthday;
         }

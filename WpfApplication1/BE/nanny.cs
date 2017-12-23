@@ -6,25 +6,22 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class nanny : person
+    public class Nanny : Person
     {
-        //private string ID { get; }
-        //private string first_name { get; }
-        //private string last_name { get; }
-        //private DateTime Birthday { get; }
-        private string phone { get; set; }//5
+        private string phone { get; set; }
         private string googleAddress { get; set; }
         private bool is_elevator { get; set; }
         private int floor { get; set; }
-        private int experience { get; set; }
-        private int max_kids { get; set; }//10
-        private int MinAge { get; }
-        private int MaxAge { get; }
-        private bool HourRateTorF { get; }
-        public bool[] WorkWeek = new bool[7];//like this??
+        private int yearsOfExperience { get; set; }
+        private int max_kids { get; set; }
+        private int MinMonthAge { get; }
+        private int MaxMonthAge { get; }
+        private bool HourRateTorF { get; }//what is this??
+        public bool[] WorkWeek = new bool[7];//like this?? think so!
         public DateTime[][] TimeTable = new DateTime[2][];//i don't know if this works
         private bool GovVacation { get; set; }
         private string Refrinces { get; }
+//other functions as needed
         public override string ToString()
         {
             return "nanny: " + firstName + " " + lastName + " " + phone + " " + googleAddress;
@@ -36,8 +33,11 @@ namespace BE
         //    person()
         //{
         //}
-        public nanny(string id, string first_name, string last_name, DateTime Birthday) : base(id, first_name, last_name, Birthday)
+        public Nanny(string id, string first_name, string last_name, DateTime Birthday) : base(id, first_name, last_name, Birthday)
         {
+        }
+    }
+}
             //string phone;
             //string googleAddress;
             //bool is_elevator;
@@ -55,6 +55,3 @@ namespace BE
 
             //Console.WriteLine("now enter your phone number press enter and then google address");
             //phone = Console.Read();
-        }
-    }
-}

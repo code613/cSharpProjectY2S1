@@ -3,36 +3,32 @@
   <Class Name="BE.Child" Collapsed="true">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAkAAACAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>child.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAgAEAAAAAIAAABAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Child.cs</FileName>
+      <NewMemberFileName>child.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.Contract" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAACAQAAAAAAkEACAQAAAAgAAAAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>AAIAQAABQAAAAAAkEAAAAAAAAAAAAAAAAAAAgAEAAAk=</HashCode>
       <FileName>Contract.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.Mother" Collapsed="true">
     <Position X="5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABIAIAAAAEAAAAAAAAAABAAAAgAAAAAAIAAAA=</HashCode>
-      <FileName>mother.cs</FileName>
+      <HashCode>CAAAAAABAAIAAAIEAAAACAAAAAAAAAoAAAAAAAAAAAA=</HashCode>
+      <FileName>Mother.cs</FileName>
+      <NewMemberFileName>mother.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BE.nanny" Collapsed="true">
+  <Class Name="BE.Nanny" Collapsed="true">
     <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAABAAAAAAAEAQAIAQAAAgBAAEAgAABAAAAAAIA=</HashCode>
-      <FileName>nanny.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BE.person" Collapsed="true">
-    <Position X="2.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAgAAAAAAAAAAAAAAIAAAAAAAACAAAAAA=</HashCode>
-      <FileName>Person.cs</FileName>
+      <HashCode>BAAAAAABEAAAAAAEAAAIAAAAAgBQgEAgAAAAAAAAAIA=</HashCode>
+      <FileName>Nanny.cs</FileName>
+      <NewMemberFileName>nanny.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

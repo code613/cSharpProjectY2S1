@@ -8,7 +8,8 @@ namespace BE
 {
     public class Nanny : Person
     {
-        private string phone { get; set; }
+
+        private string phone { get;  set; }
         private string googleAddress { get; set; }
         private bool is_elevator { get; set; }
         private int floor { get; set; }

@@ -3,48 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL;
+using BE;
 
-namespace DS 
+namespace BL
 {
-    class Dal_imp : Idal
+    class MyBL : IBL
     {
-        public void addChild()
+        public void addChild(Child ch)
         {
             throw new NotImplementedException();
         }
 
-        public void addContract()
+        public void addContract(Contract con)
         {
             throw new NotImplementedException();
         }
 
-        public void addMother()
+        public void addMother(Mother mom)
         {
             throw new NotImplementedException();
         }
 
-        public void addNanny()
+        public void addNanny(Nanny nan)
+        {
+            nan
+        }
+
+        public void deleteChild(Child ch)
         {
             throw new NotImplementedException();
         }
 
-        public void deleteChild()
+        public void deleteContract(Contract con)
         {
             throw new NotImplementedException();
         }
 
-        public void deleteContract()
+        public void deleteMother(Mother mom)
         {
             throw new NotImplementedException();
         }
 
-        public void deleteMother()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void deleteNanny()
+        public void deleteNanny(Nanny nan)
         {
             throw new NotImplementedException();
         }
@@ -69,24 +69,25 @@ namespace DS
             throw new NotImplementedException();
         }
 
-        public void updateChildDetalis()
+        public void updateChildDetalis(Child ch)
         {
             throw new NotImplementedException();
         }
 
-        public void updateContractDetalis()
+        public void updateContractDetalis(Contract con)
         {
             throw new NotImplementedException();
         }
 
-        public void updateMotherDetalis()
+        public void updateMotherDetalis(Mother mom)
         {
             throw new NotImplementedException();
         }
 
-        public void updateNannyDetalis()
+        public void updateNannyDetalis(Nanny nan)
         {
             throw new NotImplementedException();
         }
+
     }
 }

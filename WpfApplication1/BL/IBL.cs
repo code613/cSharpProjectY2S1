@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE;
-
-namespace DAL
+namespace BL
 {
-    public interface Idal   //what is a interface that it looks like a reguler class??
-    {//interface who ever harited must implement the interface functions
+    public interface  IBL
+    {
+
         void addNanny(Nanny nan);
         void deleteNanny(Nanny nan);
         void updateNannyDetalis(Nanny nan);
@@ -34,3 +34,5 @@ namespace DAL
         List<int> getListOfContracts();
     }
 }
+
+

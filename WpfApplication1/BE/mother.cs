@@ -9,10 +9,10 @@ namespace BE   // create read update dealte   crud
 {
     public class Mother : Person
     {
-        private string housePhone { get; set; }
-        private string cellPhone { get; set; }
-        private string googleAddress { get; set; }
-        private string searchArea { get; set; }//neiberhood?? is better?
+       public string housePhone { get; set; }
+       public string cellPhone { get; set; }
+       public string googleAddress { get; set; }
+       public string searchArea { get; set; }//neiberhood?? is better?
         public bool[] daysNeedNanny = new bool[7];
         public DateTime[][] serviseNeededTimeTable = new DateTime[2][];
         //other feilds that will be needed

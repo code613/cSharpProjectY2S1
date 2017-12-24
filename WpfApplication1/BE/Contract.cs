@@ -8,16 +8,16 @@ namespace BE
 {
     public class Contract
     {
-        private string contract_ID { get; set; }//8 digit??
-        private string nanny_ID { get; }
-        private string child_ID { get; }
-        private bool meeting { get; set; }//what is this??
-        private bool contractIsSighned { get; set; }
-        private float paymentPerHour { get; set; }
-        private float paymentPerMonth { get; set; }
-        private string monthOrHourContract { get; set; }
-        private DateTime starts { get; set; }
-        private DateTime ends { get; set; }
+       public string contract_ID { get; set; }//8 digit??
+       public string nanny_ID { get; }
+       public string child_ID { get; }
+       public bool meeting { get; set; }//what is this??
+       public bool contractIsSighned { get; set; }
+       public float paymentPerHour { get; set; }
+       public float paymentPerMonth { get; set; }
+       public string monthOrHourContract { get; set; }
+       public DateTime starts { get; set; }
+       public DateTime ends { get; set; }
         //other feilds as needed
         public override string ToString()
         {

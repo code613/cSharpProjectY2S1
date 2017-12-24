@@ -4,11 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE;
+using DS;
+using DAL;
 
 namespace BL
 {
     class MyBL : IBL
     {
+        #region Singleton
+        private static readonly MyBL instance = new MyBL();
+
+        public static MyBL Instance
+        {
+            get { return instance; }
+        }
+        #endregion
+
+        static Idal MyDal;
+       
+
+
         public void addChild(Child ch)
         {
             throw new NotImplementedException();
@@ -16,17 +31,45 @@ namespace BL
 
         public void addContract(Contract con)
         {
-            throw new NotImplementedException();
+            
         }
 
-        public void addMother(Mother mom)
+        
+
+
+         public void addMother(Mother mom)
         {
             throw new NotImplementedException();
         }
 
         public void addNanny(Nanny nan)
         {
-            nan
+            if (is18(nan))
+                MyDal.addNanny(nan);
+        }
+
+        private static bool is18(Nanny nan)
+        {
+            
+            int age = DateTime.Today.Year - nan.Birthday.Year;
+            if (age > 18)
+                return true;
+            else if (age < 18)
+                return false;
+            else //if (age == 18)
+            {
+                if (DateTime.Today.Month > nan.Birthday.Month)
+                    return true;
+                else if (DateTime.Today.Month < nan.Birthday.Month)
+                    return false;
+                else //if (DateTime.Today.Month == nan.Birthday.Month)
+                {
+                    if (DateTime.Today.Day < nan.Birthday.Day)
+                        return false;
+                    else
+                        return true;
+                }
+            }
         }
 
         public void deleteChild(Child ch)

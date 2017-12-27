@@ -12,7 +12,7 @@
                 <TabItem Header="addMother">
                     <TabItem.Content>
                         <StackPanel>
-                            <Button Content="Add mother"/>
+                            <Button Content="Add mother" Click="Button_Click"/>
                             
                         </StackPanel>
                     </TabItem.Content>

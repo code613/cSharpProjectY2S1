@@ -10,9 +10,27 @@ namespace DAL
 {
     class Dal_imp : Idal
     {
-        public Child find(string child_ID)///need to fix
+        public Person find(string ID)///need to fix
         {
-            
+            List<Mother> help = getListOfMothers();
+            List<Child> help1 = getListOfChildren();
+            List<Nanny> help2 = getListOfNannies();
+            foreach (var item in help)
+            {
+                if (item.ID == ID)
+                    return item;
+            }
+            foreach (var item in help1)
+            {
+                if (item.ID == ID)
+                    return item;
+            }
+            foreach (var item in help2)
+            {
+                if (item.ID == ID)
+                    return item;
+            }
+            throw "the person was not found";
         }
         public void addChild(Child ch )
         {
@@ -64,7 +82,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public List<Child> getListOfMothersChildren()
+        public List<Mother> getListOfMothersChildren()
         {
             throw new NotImplementedException();
         }
@@ -90,6 +108,11 @@ namespace DAL
         }
 
         public void updateNannyDetalis(Nanny nan)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Child> getListOfChildren()
         {
             throw new NotImplementedException();
         }

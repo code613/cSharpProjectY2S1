@@ -8,7 +8,7 @@ namespace BE
 {
     public class Person
     {
-        protected string ID { get; }
+        public string ID { get; }
         public  string firstName { get; }
         public string lastName { get; }//for child made public
         public  DateTime Birthday { get; }

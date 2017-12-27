@@ -25,9 +25,12 @@ namespace DAL
         void deleteContract(Contract co);
         void updateContractDetalis(Contract co);
 
+        List<Child> getListOfChildren();
         List<Nanny> getListOfNannies();
         List<Mother> getListOfMothers();                                                                     
-        List<Child> getListOfMothersChildren();
+        List<Mother> getListOfMothersChildren();
         List<Contract> getListOfContracts();
+
+        Person find(string ID);
     }
 }

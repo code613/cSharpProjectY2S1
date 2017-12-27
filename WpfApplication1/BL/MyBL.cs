@@ -31,27 +31,26 @@ namespace BL
 
         public void addContract(Contract con)
         {
-            Child ch=find(con.child_ID);
-            if (!is3Month(ch))
+            Person per= MyDal.find(con.child_ID);
+            if (!is3Month(per))
                 throw " the child under the minimal age";
-
              MyDal.addContract(con);
         }
 
-        private bool is3Month(Child ch)
+        private bool is3Month(Person per)
         {
-            if (DateTime.Today.Month > ch.Birthday.Month)
+            if (DateTime.Today.Month > per.Birthday.Month)
                 return true;
-            else if (DateTime.Today.Month < ch.Birthday.Month)
+            else if (DateTime.Today.Month < per.Birthday.Month)
                 return false;
             else //if (DateTime.Today.Month == nan.Birthday.Month)
             {
-                if (DateTime.Today.Day < ch.Birthday.Day)
+                if (DateTime.Today.Day < per.Birthday.Day)
                     return false;
                 else
                     return true;
             }
-        }
+        }*/
 
        
 
@@ -62,8 +61,9 @@ namespace BL
 
         public void addNanny(Nanny nan)
         {
-            if (is18(nan))
-                MyDal.addNanny(nan);
+            if (!is18(nan))
+                throw "the nanny under minimal age"
+            MyDal.addNanny(nan);
         }
 
         private static bool is18(Nanny nan)

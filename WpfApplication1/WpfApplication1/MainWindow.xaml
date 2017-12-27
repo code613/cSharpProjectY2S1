@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <TabControl>
+            <TabControl.Items>
+                <TabItem Header="addMother">
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Button Content="Add mother"/>
+                            
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem >
+            </TabControl.Items>
+        </TabControl>
+
     </Grid>
+            
+
+    
 </Window>

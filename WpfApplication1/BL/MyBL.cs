@@ -31,13 +31,31 @@ namespace BL
 
         public void addContract(Contract con)
         {
-            
+            Child ch=find(con.child_ID);
+            if (!is3Month(ch))
+                throw " the child under the minimal age";
+
+             MyDal.addContract(con);
         }
 
-        
+        private bool is3Month(Child ch)
+        {
+            if (DateTime.Today.Month > ch.Birthday.Month)
+                return true;
+            else if (DateTime.Today.Month < ch.Birthday.Month)
+                return false;
+            else //if (DateTime.Today.Month == nan.Birthday.Month)
+            {
+                if (DateTime.Today.Day < ch.Birthday.Day)
+                    return false;
+                else
+                    return true;
+            }
+        }
 
+       
 
-         public void addMother(Mother mom)
+        public void addMother(Mother mom)
         {
             throw new NotImplementedException();
         }

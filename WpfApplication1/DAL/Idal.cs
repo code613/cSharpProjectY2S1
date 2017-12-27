@@ -25,12 +25,9 @@ namespace DAL
         void deleteContract(Contract co);
         void updateContractDetalis(Contract co);
 
-        List<int> getListOfNannies();//and then recive it in VAR; or just send a IEnumerable
-        List<int> getListOfMothers();//and can covert with ToList().    
-                                     //no diff from String and string (like int and System.Int32)
-                                     //rather genirlly practiced to use sting for object and
-                                     //String refiring spaciflly to the class
-        List<int> getListOfMothersChildren();
-        List<int> getListOfContracts();
+        List<Nanny> getListOfNannies();
+        List<Mother> getListOfMothers();                                                                     
+        List<Child> getListOfMothersChildren();
+        List<Contract> getListOfContracts();
     }
 }

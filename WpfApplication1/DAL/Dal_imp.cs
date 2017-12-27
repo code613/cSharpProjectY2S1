@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DS;
 using BE;
 
 namespace DAL
 {
     class Dal_imp : Idal
     {
+        public Child find(string child_ID)///need to fix
+        {
+            
+        }
         public void addChild(Child ch )
         {
             throw new NotImplementedException();
@@ -50,22 +54,22 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public List<int> getListOfContracts()
+        public List<Contract> getListOfContracts()
         {
             throw new NotImplementedException();
         }
 
-        public List<int> getListOfMothers()
+        public List<Mother> getListOfMothers()
         {
             throw new NotImplementedException();
         }
 
-        public List<int> getListOfMothersChildren()
+        public List<Child> getListOfMothersChildren()
         {
             throw new NotImplementedException();
         }
 
-        public List<int> getListOfNannies()
+        public List<Nanny> getListOfNannies()
         {
             throw new NotImplementedException();
         }

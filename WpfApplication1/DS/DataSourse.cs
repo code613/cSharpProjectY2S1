@@ -9,9 +9,9 @@ namespace DS
 {
     public class DataSourse//list of things
     {
-        static List<Child> listOfChildren;
-        static List<Mother> listOfMothers;
-        static List<Nanny> listOfNannys;
-        static List<Contract> listOfConntracts;
+        public static List<Child> listOfChildren;
+        public static List<Mother> listOfMothers;
+        public static List<Nanny> listOfNannys;
+        public static List<Contract> listOfConntracts;
     }
 }

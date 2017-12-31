@@ -31,10 +31,32 @@ namespace BL
 
         public void addContract(Contract con)
         {
-            Person per= MyDal.find(con.child_ID);
+            Person per= find(con.child_ID);
             if (!is3Month(per))
                 throw " the child under the minimal age";
              MyDal.addContract(con);
+        }
+        public Person find(string ID)
+        {
+            List<Mother> help =MyDal.getListOfMothers();
+            List<Child> help1 =MyDal.getListOfChildren();
+            List<Nanny> help2 =MyDal. getListOfNannies();
+            foreach (var item in help)
+            {
+                if (item.ID == ID)
+                    return item;
+            }
+            foreach (var item in help1)
+            {
+                if (item.ID == ID)
+                    return item;
+            }
+            foreach (var item in help2)
+            {
+                if (item.ID == ID)
+                    return item;
+            }
+            throw "the person was not found";
         }
 
         private bool is3Month(Person per)
@@ -50,7 +72,7 @@ namespace BL
                 else
                     return true;
             }
-        }*/
+        }
 
        
 

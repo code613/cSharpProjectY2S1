@@ -31,6 +31,6 @@ namespace DAL
         List<Mother> getListOfMothersChildren();
         List<Contract> getListOfContracts();
 
-        Person find(string ID);
+        
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace BE
 {
-    public class Child : Person///
+    public class Child : Person
     {
         public Mother myMother { get; } //a feild that says who the mother is
         public bool hasSpecialNeeds { get; set; }

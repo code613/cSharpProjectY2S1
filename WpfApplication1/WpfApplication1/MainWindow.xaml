@@ -9,17 +9,30 @@
     <Grid>
         <TabControl>
             <TabControl.Items>
+                <TabItem Header="addNanny">
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Button Content="Add Nanny" Click="Button_Click"/>
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+                
                 <TabItem Header="addMother">
                     <TabItem.Content>
                         <StackPanel>
                             <Button Content="Add mother" Click="Button_Click"/>
-                            
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem >
+                <TabItem Header="addContract">
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Button Content="Add contract" Click="Button_Click"/>
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem >
             </TabControl.Items>
         </TabControl>
-
     </Grid>
             
 

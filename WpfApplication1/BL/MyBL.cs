@@ -33,8 +33,21 @@ namespace BL
         {
             Person per= find(con.child_ID);
             if (!is3Month(per))
-                throw " the child under the minimal age";
-             MyDal.addContract(con);
+                throw new ArgumentException(" the child under the minimal age");
+            MyDal.addContract(con);
+        }
+                
+        private void salary (Contract con)
+        {
+            float nannySalary;
+            if (con.monthOrHourContract=="perMonth")
+            {
+                nannySalary = con.paymentPerMonth;
+            }
+            else //if (con.monthOrHourContract=="perHour")
+            {
+
+            }
         }
         public Person find(string ID)
         {
@@ -56,7 +69,7 @@ namespace BL
                 if (item.ID == ID)
                     return item;
             }
-            throw "the person was not found";
+            throw new ArgumentException("the person wasnt found");
         }
 
         private bool is3Month(Person per)
@@ -84,7 +97,7 @@ namespace BL
         public void addNanny(Nanny nan)
         {
             if (!is18(nan))
-                throw "the nanny under minimal age"
+                throw new ArgumentException("the nanny under minimal age");
             MyDal.addNanny(nan);
         }
 

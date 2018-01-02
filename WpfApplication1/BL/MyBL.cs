@@ -310,14 +310,26 @@ namespace BL   //this layer it to chech that everything is in order so that it c
             }
             return vocation_acording_to_gov;
         }
-        public delegate bool someDelegate(Contract con);
-        someDelegate myDelegate;
-        public List<Contract> contractFeetToCondition(someDelegate someDele)
+       
+        public IEnumerable<Contract> contractFeetToCondition(Func<Contract ,bool> someDel)
         {
-            if ()
-            {
+            return from  con in getListOfContracts()
+                   where someDel(con)
+                   select con;
+        }
+        public IEnumerable<string> FeetToCondition(Func<Contract, bool> someDel)
+        {
+            return from con in getListOfContracts()
+                   where someDel(con)
+                   select con.contract_ID;
+        }
 
-            }
+        public IEnumerable<IGrouping<int, Nanny>> perAge(bool maxAge=false)
+        {
+            IEnumerable<IGrouping<int, Nanny>> query = from nan in getListOfNannies()
+                                                       group nan by nan.MaxMonthAge / 3;                      
+            return query;
+            
         }
     }
 }

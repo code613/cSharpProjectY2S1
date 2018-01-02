@@ -41,7 +41,21 @@ namespace BL   //this layer it to chech that everything is in order so that it c
         {
             throw new NotImplementedException();
         }
-        #endregion
+        public List<Child> getListOfChildren()
+        {
+            throw new NotImplementedException();
+        }
+        public Child findChild(string ID)
+        {
+            List<Child> help = MyDal.getListOfChildren();
+
+            foreach (var item in help)
+            {
+                if (item.ID == ID)
+                    return item;
+            }
+            throw new ArgumentException("the child wasn't found");
+        }
         private bool is3Month(Person per)
         {
             DateTime now = DateTime.Now;
@@ -51,6 +65,7 @@ namespace BL   //this layer it to chech that everything is in order so that it c
             else 
                 return false;
         }
+        #endregion
 
         #region Nanny
         public void addNanny(Nanny nan)
@@ -93,7 +108,6 @@ namespace BL   //this layer it to chech that everything is in order so that it c
             }
             throw new ArgumentException("the nanny was not found");
         }
-        #endregion
         private static bool is18(Nanny nan)
         {    
             DateTime now = DateTime.Now;
@@ -103,6 +117,7 @@ namespace BL   //this layer it to chech that everything is in order so that it c
             else 
                 return false;    
         }
+        #endregion
 
         #region mother
         public void addMother(Mother mom)
@@ -138,13 +153,32 @@ namespace BL   //this layer it to chech that everything is in order so that it c
         public void addContract(Contract con)
         {
             Nanny nan = findNanny(con.nanny_ID);
-            Person per= find(con.child_ID);
-            if (!is3Month(per))
+            Child ch = findChild(con.child_ID);
+            if (!is3Month(ch))
                 throw new ArgumentException(" the child under the minimal age");
             con.paymentPerHour = nan.perHour;
             con.paymentPerMonth = salary(con);
+            if (isFull(con, nan))
+                throw new ArgumentException("this nanny is full and she can't take more children");
             MyDal.addContract(con);
         }
+
+        private bool isFull(Contract con, Nanny nan)
+        {
+            int sum = 0;
+            foreach (var item in getListOfContracts())
+            {
+                if (item.nanny_ID == con.nanny_ID)
+                {
+                    sum++;
+                }
+            }
+            if (sum == nan.max_kids)
+                return true;
+            return false;
+                
+        }
+
         public void deleteContract(Contract con)
         {
             throw new NotImplementedException();
@@ -179,6 +213,7 @@ namespace BL   //this layer it to chech that everything is in order so that it c
             }
             List<Child> childrenList = getListOfMothersChildren(mo);
             List<Contract> contractList = getListOfContracts();
+            //
             foreach (var contract in contractList)
             {
                 if (contract.nanny_ID == nan.ID)
@@ -187,13 +222,12 @@ namespace BL   //this layer it to chech that everything is in order so that it c
                     {
                         if (contract.child_ID == child.ID)
                         {
-                            nannySalary *= 9.8;
+                            nannySalary *= 0.98;
                         }
                     }
                 }
             }
             return nannySalary;
-
         }
         public Person find(string ID)
         {
@@ -216,6 +250,74 @@ namespace BL   //this layer it to chech that everything is in order so that it c
                     return item;
             }
             throw new ArgumentException("the person wasnt found");
+        }
+        public List<Nanny> matchingNannies(Mother mo)
+        {
+            List<Nanny> matchingNannies = new List<Nanny>();
+            bool isEmpty = true;
+            foreach (var item in getListOfNannies())
+            {
+                bool isMatch = true;
+                for (int i = 0; i < 6; i++)
+                {
+                    if (mo.serviseNeededTimeTable[i][0]<item.TimeTable[i][0] || mo.serviseNeededTimeTable[i][1] > item.TimeTable[i][1])
+                    {
+                        isMatch = false;
+                    }
+                }
+                if(isMatch)
+                {
+                    matchingNannies.Add(item);
+                    isEmpty = false;
+                }
+            }
+            if(isEmpty)
+                Console.WriteLine("didn't found matching nannies,here is the 5 closest:");
+            matchingNannies = closestToMotherNeeds( mo);
+            return matchingNannies;
+        }
+        private List<Nanny> closestToMotherNeeds(Mother mo)
+        {
+            
+        }
+
+        public List<Child> childrenWithoutNanny()
+        {
+            List<Child> children_without_nanny = new List<Child>();
+            foreach (var ch in getListOfChildren())
+            {
+                bool asNanny = false;
+                foreach (var con in getListOfContracts())
+                {
+                    if (ch.ID==con.child_ID)
+                    {
+                        asNanny = true;
+                        break;
+                    }
+                }
+                if (!asNanny)
+                    children_without_nanny.Add(ch);
+            }
+            return children_without_nanny;
+        }
+        public List<Nanny> vocationAcordingToGov()
+        {
+            List<Nanny> vocation_acording_to_gov = new List<Nanny>();
+            foreach (var item in getListOfNannies())
+            {
+                if (item.GovVacation)
+                    vocation_acording_to_gov.Add(item);
+            }
+            return vocation_acording_to_gov;
+        }
+        public delegate bool someDelegate(Contract con);
+        someDelegate myDelegate;
+        public List<Contract> contractFeetToCondition(someDelegate someDele)
+        {
+            if ()
+            {
+
+            }
         }
     }
 }

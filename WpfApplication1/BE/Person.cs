@@ -10,7 +10,7 @@ namespace BE
     {
         public string ID { get; }
         public  string firstName { get; }
-        public string lastName { get; }//for child made public
+        public string lastName { get; set; }//for child made public
         public  DateTime Birthday { get; }
         public Person(string inID, string infirst_name, string inlast_name, DateTime inBirthday)
         {

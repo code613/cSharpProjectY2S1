@@ -10,11 +10,12 @@ namespace BE
     {
        public string contract_ID { get; set; }//8 digit??
        public string nanny_ID { get; }
+       public string mother_ID { get; }
        public string child_ID { get; }
        public bool meeting { get; set; }//what is this??
        public bool contractIsSighned { get; set; }
-       public float paymentPerHour { get; set; }
-       public float paymentPerMonth { get; set; }
+       public double paymentPerHour { get; set; }
+       public double paymentPerMonth { get; set; }
        public string monthOrHourContract { get; set; }
        public DateTime starts { get; set; }
        public DateTime ends { get; set; }

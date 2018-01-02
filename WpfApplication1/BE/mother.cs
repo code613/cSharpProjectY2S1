@@ -15,8 +15,9 @@ namespace BE   // create read update dealte   crud
         public string searchArea { get; set; }//neiberhood?? is better?
         public bool[] daysNeedNanny = new bool[7];
         public DateTime[][] serviseNeededTimeTable = new DateTime[2][];
+        public bool isSingalParent { get; set; }
         //other feilds that will be needed
-        private string comments { get; set; }//what is this??
+        private string comments { get; set; }
 
         public override string ToString()
         {

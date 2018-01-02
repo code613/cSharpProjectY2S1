@@ -9,19 +9,21 @@ namespace BE
     public class Nanny : Person
     {
 
-       public  string phone { get;  set; }
-       public  string googleAddress { get; set; }
-       public  bool is_elevator { get; set; }
-       public  int floor { get; set; }
-       public  int yearsOfExperience { get; set; }
-       public  int max_kids { get; set; }
-       public  int MinMonthAge { get; }
-       public  int MaxMonthAge { get; }
-       public  bool HourRateTorF { get; }//what is this??
-       public bool[] WorkWeek = new bool[7];//like this?? think so!
-       public DateTime[][] TimeTable = new DateTime[2][];//i don't know if this works
-       public  bool GovVacation { get; set; }
-       public  string Refrinces { get; }
+        public  string phone { get;  set; }
+        public  string googleAddress { get; set; }
+        public  bool is_elevator { get; set; }
+        public  int floor { get; set; }
+        public  int yearsOfExperience { get; set; }
+        public  int max_kids { get; set; }
+        public  int MinMonthAge { get; }
+        public  int MaxMonthAge { get; }
+        public  bool isPerHout { get; }
+        public float perHour { get; set; }
+        public float perMonth { get; set; }
+        public bool[] WorkWeek = new bool[7];
+        public DateTime[][] TimeTable = new DateTime[2][];
+        public  bool GovVacation { get; set; }
+        public  string Refrinces { get; }
 //other functions as needed
         public override string ToString()
         {

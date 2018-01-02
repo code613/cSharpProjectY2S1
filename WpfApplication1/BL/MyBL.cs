@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using BE;
 using DS;
 using DAL;
+using GoogleMapsApi.Entities.Directions.Request;
+using GoogleMapsApi.Entities.Directions.Response;
+using GoogleMapsApi;
 
 namespace BL   //this layer it to chech that everything is in order so that it can be passed to the
     //DAL layer in order to reach the data center
@@ -330,6 +333,20 @@ namespace BL   //this layer it to chech that everything is in order so that it c
                                                        group nan by nan.MaxMonthAge / 3;                      
             return query;
             
+        }
+
+        public static int CalculateDistance(string source, string dest)
+        {
+            var drivingDirectionRequest = new DirectionsRequest
+            {
+                TravelMode = TravelMode.Walking,
+                Origin = source,
+                Destination = dest,
+            };
+            DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
+            Route route = drivingDirections.Routes.First();
+            Leg leg = route.Legs.First();
+            return leg.Distance.Value;
         }
     }
 }

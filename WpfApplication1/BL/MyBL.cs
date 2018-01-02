@@ -7,7 +7,8 @@ using BE;
 using DS;
 using DAL;
 
-namespace BL
+namespace BL   //this layer it to chech that everything is in order so that it can be passed to the
+    //DAL layer in order to reach the data center
 {
     class MyBL : IBL
     {
@@ -36,24 +37,19 @@ namespace BL
         {
             throw new NotImplementedException();
         }
-        public List<Child> getListOfChildrenMother(Mother mo)
+        public List<Child> getListOfMothersChildren(Mother mo)
         {
             throw new NotImplementedException();
         }
         #endregion
         private bool is3Month(Person per)
         {
-            if (DateTime.Today.Month > per.Birthday.Month)
+            DateTime now = DateTime.Now;
+            int age = now.Month - per.Birthday.Month;
+            if (age > 3 || age == 3)
                 return true;
-            else if (DateTime.Today.Month < per.Birthday.Month)
+            else 
                 return false;
-            else //if (DateTime.Today.Month == nan.Birthday.Month)
-            {
-                if (DateTime.Today.Day < per.Birthday.Day)
-                    return false;
-                else
-                    return true;
-            }
         }
 
         #region Nanny
@@ -99,27 +95,13 @@ namespace BL
         }
         #endregion
         private static bool is18(Nanny nan)
-        {
-            
-            int age = DateTime.Today.Year - nan.Birthday.Year;
-            if (age > 18)
+        {    
+            DateTime now = DateTime.Now;
+            int age = now.Year - nan.Birthday.Year;
+            if (age > 18 || age == 18)
                 return true;
-            else if (age < 18)
-                return false;
-            else //if (age == 18)
-            {
-                if (DateTime.Today.Month > nan.Birthday.Month)
-                    return true;
-                else if (DateTime.Today.Month < nan.Birthday.Month)
-                    return false;
-                else //if (DateTime.Today.Month == nan.Birthday.Month)
-                {
-                    if (DateTime.Today.Day < nan.Birthday.Day)
-                        return false;
-                    else
-                        return true;
-                }
-            }
+            else 
+                return false;    
         }
 
         #region mother
@@ -167,7 +149,7 @@ namespace BL
         {
             throw new NotImplementedException();
         }
-        public List<int> getListOfContracts()
+        public List<Contract> getListOfContracts()
         {
             throw new NotImplementedException();
         }
@@ -176,15 +158,14 @@ namespace BL
             throw new NotImplementedException();
         }
         #endregion
-                
-        public double salary (Contract con)
+        public double salary(Contract con)
         {
             Nanny nan = findNanny(con.nanny_ID);
             Mother mo = findMother(con.mother_ID);
             double nannySalary = 0;
-            if (con.monthOrHourContract=="perMonth")
+            if (con.monthOrHourContract == "perMonth")
             {
-                nannySalary =con.paymentPerMonth;
+                nannySalary = con.paymentPerMonth;
             }
             else //if (con.monthOrHourContract=="perHour")
             {
@@ -192,10 +173,26 @@ namespace BL
                 for (int i = 0; i < 6; i++)
                 {
                     TimeSpan diff = mo.serviseNeededTimeTable[i][1] - mo.serviseNeededTimeTable[i][0];
-                    hours +=  diff.TotalHours;
+                    hours += diff.TotalHours;
                 }
-                nannySalary=(double)4 * hours * nan.perHour;
+                nannySalary = (double)4 * hours * nan.perHour;
             }
+            List<Child> childrenList = getListOfMothersChildren(mo);
+            List<Contract> contractList = getListOfContracts();
+            foreach (var contract in contractList)
+            {
+                if (contract.nanny_ID == nan.ID)
+                {
+                    foreach (var child in childrenList)
+                    {
+                        if (contract.child_ID == child.ID)
+                        {
+                            nannySalary *= 9.8;
+                        }
+                    }
+                }
+            }
+            return nannySalary;
 
         }
         public Person find(string ID)
@@ -220,19 +217,5 @@ namespace BL
             }
             throw new ArgumentException("the person wasnt found");
         }
-
-
-       
-
-
-
-        
-
-
-        
-
-
-
-
     }
 }

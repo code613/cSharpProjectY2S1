@@ -27,7 +27,7 @@ namespace BL
 
         List<int> getListOfNannies();
         List<int> getListOfMothers();                                              
-        List<int> getListOfChildrenMother();
+        List<int> getListOfMothersChildren();
         List<int> getListOfContracts();
     }
 }

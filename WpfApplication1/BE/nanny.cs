@@ -10,51 +10,48 @@ namespace BE
     {
 
         public  string phone { get;  set; }
-        public  string googleAddress { get; set; }
-        public  bool is_elevator { get; set; }
+        public  string Address { get; set; }
+        public  bool elevator { get; set; }
         public  int floor { get; set; }
-        public  int yearsOfExperience { get; set; }
+        public  int experience { get; set; }
         public  int max_kids { get; set; }
-        public  int MinMonthAge { get; }
-        public  int MaxMonthAge { get; }
-        public  bool isPerHout { get; }
-        public float perHour { get; set; }
-        public float perMonth { get; set; }
+        public  int MinAge { get; }
+        public  int MaxAge { get; }
+        public  bool isPerHour { get; }
+        public float HourSalary { get; set; }
+        public float MonthSalary { get; set; }
         public bool[] WorkWeek = new bool[7];
         public DateTime[][] TimeTable = new DateTime[2][];
         public  bool GovVacation { get; set; }
-        public  string Refrinces { get; }
-//other functions as needed
+        public  string References { get; }
         public override string ToString()
         {
-            return "nanny: " + firstName + " " + lastName + " " + phone + " " + googleAddress;
+            return "nanny: " + firstName + " " + lastName + " " + phone + " " + Address;
         }
-        //public nanny(string inID, string infirst_name, string inlast_name  //first 3
-        //    , DateTime inbirthday, string inphone, string ingoogleAddr       // 6
-        //    , bool inis_elevator, int infloor, int inexperience, int inmax_kids  //10
-        //    , int inMinAge, int inMaxAge, bool inHourRateTorF, bool inGovVacation, string inRefrinces)
-        //    person()
-        //{
-        //}
-        public Nanny(string id, string first_name, string last_name, DateTime Birthday) : base(id, first_name, last_name, Birthday)
-        {
-        }
+        
+      //ctor
+        public Nanny(string id, string first_name, string last_name  
+            , DateTime birthday, string inphone, string Addr       
+            , bool is_elevator, int infloor, int inexperience, int inmax_kids  
+            , int inMinAge, int inMaxAge, bool per_hour, bool inGovVacation, string inReferences): base(id, first_name, last_name, birthday)
+            {
+            phone= inphone;
+            Address= Addr;
+            elevator= is_elevator;
+            floor= infloor;
+            experience = inexperience;
+            max_kids = inmax_kids;
+            MinAge = inMinAge;
+            MaxAge = inMaxAge;
+            isPerHour = per_hour;
+            bool[] WorkWeek = new bool[7];
+            DateTime[][] TimeTable = new DateTime[2][];
+            GovVacation= inGovVacation;
+            References= inReferences;
+            }
     }
 }
-            //string phone;
-            //string googleAddress;
-            //bool is_elevator;
-            //int floor;
-            //int experience;
-            //int max_kids;
-            //int MinAge;
-            //int MaxAge;
-            //bool HourRateTorF;
-            //bool[] WorkWeek = new bool[7];//like this??
-            //DateTime[][] TimeTable = new DateTime[2][];
-            //bool GovVacation; 
-            //string Refrinces;
 
 
-            //Console.WriteLine("now enter your phone number press enter and then google address");
-            //phone = Console.Read();
+
+

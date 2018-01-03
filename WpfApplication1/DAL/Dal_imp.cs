@@ -8,12 +8,13 @@ using BE;
 
 namespace DAL
 {
+
     class Dal_imp : Idal
     {
-        
-        public void addChild(Child ch )
+
+        public void addChild(Child ch)
         {
-            throw new NotImplementedException();
+
         }
 
         public void addContract(Contract con)
@@ -61,7 +62,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public List<Mother> getListOfMothersChildren()
+        public List<Child> getListOfMothersChildren()
         {
             throw new NotImplementedException();
         }
@@ -71,7 +72,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public void updateChildDetalis(Child ch)
+        public void updateChildDetalis(Child ch,string needs)
         {
             throw new NotImplementedException();
         }
@@ -81,14 +82,19 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public void updateMotherDetalis(Mother mom)
+        public void updateMotherDetalis(Mother mom,string comands)
         {
             throw new NotImplementedException();
         }
 
-        public void updateNannyDetalis(Nanny nan)
+        public void updateNannyDetalis(Nanny nan, string last_name)
         {
-            throw new NotImplementedException();
+            List<Nanny> nannyList = getListOfNannies();
+            var nanny = nannyList.Where(n => n.ID == nan.ID).FirstOrDefault();
+            if (nanny != null)
+            {
+                nanny.lastName = last_name;
+            }
         }
 
         public List<Child> getListOfChildren()

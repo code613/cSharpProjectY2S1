@@ -8,12 +8,12 @@ namespace BE
 {
     public class Contract
     {
-       public string contract_ID { get; set; }//8 digit??
-       public string nanny_ID { get; }
-       public string mother_ID { get; }
-       public string child_ID { get; }
-       public bool meeting { get; set; }//what is this??
-       public bool contractIsSighned { get; set; }
+       public string contract_number { get; set; }
+       public string nanny_ID { get; set; }
+       public string mother_ID { get; set; }
+       public string child_ID { get; set; }
+       public bool meeting { get; set; }
+       public bool Sighned { get; set; }
        public double paymentPerHour { get; set; }
        public double paymentPerMonth { get; set; }
        public string monthOrHourContract { get; set; }
@@ -22,14 +22,18 @@ namespace BE
         //other feilds as needed
         public override string ToString()
         {
-            return " contract:" + contract_ID;
+            return " contract:" + contract_number;
         }
         //ctor
-        public Contract(string contractNumber, string Nanny_ID, string Child_ID)
+        public Contract(string contractNumber, string Nanny_ID, string Child_ID ,string mother_id
+            ,bool haveTheyMet,bool is_Sighnd)
         {
-            contract_ID = contractNumber;
+            contract_number = contractNumber;
             nanny_ID = Nanny_ID;
             child_ID = Child_ID;
+            mother_ID=
+            Sighned=is_Sighned;
+            meeting= haveTheyMet
         }
     }
 }

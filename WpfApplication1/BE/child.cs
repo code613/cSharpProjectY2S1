@@ -7,7 +7,7 @@ namespace BE
 {
     public class Child : Person
     {
-        public Mother myMother { get; } //a feild that says who the mother is
+        public Mother myMother { get; } 
         public bool hasSpecialNeeds { get; set; }
         public string specificationOfNeeds { get; set; }
         public int monthsOld { get; set; }
@@ -16,9 +16,13 @@ namespace BE
             return "child:" + firstName + " " + lastName;
         }
         //ctor
-        public Child(string id, string first_name,  DateTime Birthday, Mother theMother) : base(id, first_name, theMother.lastName, Birthday)
+        public Child(string id, string first_name,  DateTime Birthday, Mother mom,
+            bool SpecialNeeds,string needs,int ageInMonth) : base(id, first_name, mom.lastName, Birthday)
         {
-            myMother = theMother;
-        }
+            myMother = mom;
+            hasSpecialNeeds = SpecialNeeds;
+            specificationOfNeeds = needs;
+            monthsOld = ageInMonth;
+       }
     }
 }

@@ -11,9 +11,9 @@ using GoogleMapsApi.Entities.Directions.Response;
 using GoogleMapsApi;
 
 namespace BL   //this layer it to chech that everything is in order so that it can be passed to the
-    //DAL layer in order to reach the data center
+               //DAL layer in order to reach the data center
 {
-    class MyBL : IBL
+    public class MyBL : IBL
     {
         #region Singleton
         private static readonly MyBL instance = new MyBL();
@@ -34,19 +34,19 @@ namespace BL   //this layer it to chech that everything is in order so that it c
         }
         public void deleteChild(Child ch)
         {
-            
+            MyDal.deleteChild(ch);
         }
-        public void updateChildDetalis(Child ch)
+        public void updateChildDetalis(Child ch, string whatIsNeeds)
         {
-            throw new NotImplementedException();
+            MyDal.updateChildDetalis(ch, whatIsNeeds);
         }
         public List<Child> getListOfMothersChildren(Mother mo)
         {
-            throw new NotImplementedException();
+            return MyDal.getListOfMothersChildren();
         }
         public List<Child> getListOfChildren()
         {
-            throw new NotImplementedException();
+            return MyDal.getListOfChildren();
         }
         public Child findChild(string ID)
         {
@@ -65,7 +65,7 @@ namespace BL   //this layer it to chech that everything is in order so that it c
             int age = now.Month - per.Birthday.Month;
             if (age > 3 || age == 3)
                 return true;
-            else 
+            else
                 return false;
         }
         #endregion
@@ -79,26 +79,15 @@ namespace BL   //this layer it to chech that everything is in order so that it c
         }
         public void deleteNanny(Nanny nan)
         {
-            List<Nanny> nannyList = getListOfNannies();
-            foreach (var item in nannyList)
-            {
-                if (nan == item)
-                    nannyList.Remove(item);
-                break;
-            }
+            MyDal.deleteNanny(nan);
         }
         public List<Nanny> getListOfNannies()
         {
             return MyDal.getListOfNannies();
         }
-        public void updateNannyDetalis(Nanny nan,string last_name)
+        public void updateNannyDetalis(Nanny nan, string last_name)
         {
-            List<Nanny> nannyList = getListOfNannies();
-            var nanny = nannyList.Where(n => n.ID == nan.ID).FirstOrDefault();
-            if (nanny != null)
-            {
-                nanny.lastName = last_name;
-            }
+            MyDal.updateNannyDetalis(nan, last_name);
         }
         public Nanny findNanny(string ID)
         {
@@ -112,37 +101,37 @@ namespace BL   //this layer it to chech that everything is in order so that it c
             throw new ArgumentException("the nanny was not found");
         }
         private static bool is18(Nanny nan)
-        {    
+        {
             DateTime now = DateTime.Now;
             int age = now.Year - nan.Birthday.Year;
             if (age > 18 || age == 18)
                 return true;
-            else 
-                return false;    
+            else
+                return false;
         }
         #endregion
 
         #region mother
         public void addMother(Mother mom)
         {
-            throw new NotImplementedException();
+            MyDal.addMother(mom);
         }
         public void deleteMother(Mother mom)
         {
-            throw new NotImplementedException();
+            MyDal.deleteMother(mom);
         }
-        public void updateMotherDetalis(Mother mom)
+        public void updateMotherDetalis(Mother mom, string commandes)
         {
-            throw new NotImplementedException();
+            MyDal.updateMotherDetalis(mom, commandes);
         }
-        public List<int> getListOfMothers()
+        public List<Mother> getListOfMothers()
         {
-            throw new NotImplementedException();
+            return MyDal.getListOfMothers();
         }
         public Mother findMother(string ID)
         {
             List<Mother> help = MyDal.getListOfMothers();
-            
+
             foreach (var item in help)
             {
                 if (item.ID == ID)
@@ -179,7 +168,7 @@ namespace BL   //this layer it to chech that everything is in order so that it c
             if (sum == nan.max_kids)
                 return true;
             return false;
-                
+
         }
 
         public void deleteContract(Contract con)
@@ -234,9 +223,9 @@ namespace BL   //this layer it to chech that everything is in order so that it c
         }
         public Person find(string ID)
         {
-            List<Mother> help =MyDal.getListOfMothers();
-            List<Child> help1 =MyDal.getListOfChildren();
-            List<Nanny> help2 =MyDal. getListOfNannies();
+            List<Mother> help = MyDal.getListOfMothers();
+            List<Child> help1 = MyDal.getListOfChildren();
+            List<Nanny> help2 = MyDal.getListOfNannies();
             foreach (var item in help)
             {
                 if (item.ID == ID)
@@ -263,25 +252,26 @@ namespace BL   //this layer it to chech that everything is in order so that it c
                 bool isMatch = true;
                 for (int i = 0; i < 6; i++)
                 {
-                    if (mo.serviseNeededTimeTable[i][0]<item.TimeTable[i][0] || mo.serviseNeededTimeTable[i][1] > item.TimeTable[i][1])
+                    if (mo.serviseNeededTimeTable[i][0] < item.TimeTable[i][0] || mo.serviseNeededTimeTable[i][1] > item.TimeTable[i][1])
                     {
                         isMatch = false;
                     }
                 }
-                if(isMatch)
+                if (isMatch)
                 {
                     matchingNannies.Add(item);
                     isEmpty = false;
                 }
             }
-            if(isEmpty)
+            if (isEmpty)
                 Console.WriteLine("didn't found matching nannies,here is the 5 closest:");
-            matchingNannies = closestToMotherNeeds( mo);
+            matchingNannies = closestToMotherNeeds(mo);
             return matchingNannies;
         }
+
         private List<Nanny> closestToMotherNeeds(Mother mo)
         {
-            
+            throw new NotImplementedException();
         }
 
         public List<Child> childrenWithoutNanny()
@@ -292,7 +282,7 @@ namespace BL   //this layer it to chech that everything is in order so that it c
                 bool asNanny = false;
                 foreach (var con in getListOfContracts())
                 {
-                    if (ch.ID==con.child_ID)
+                    if (ch.ID == con.child_ID)
                     {
                         asNanny = true;
                         break;
@@ -313,10 +303,10 @@ namespace BL   //this layer it to chech that everything is in order so that it c
             }
             return vocation_acording_to_gov;
         }
-       
-        public IEnumerable<Contract> contractFeetToCondition(Func<Contract ,bool> someDel)
+
+        public IEnumerable<Contract> contractFeetToCondition(Func<Contract, bool> someDel)
         {
-            return from  con in getListOfContracts()
+            return from con in getListOfContracts()
                    where someDel(con)
                    select con;
         }
@@ -327,12 +317,12 @@ namespace BL   //this layer it to chech that everything is in order so that it c
                    select con.contract_ID;
         }
 
-        public IEnumerable<IGrouping<int, Nanny>> perAge(bool maxAge=false)
+        public IEnumerable<IGrouping<int, Nanny>> perAge(bool maxAge = false)
         {
             IEnumerable<IGrouping<int, Nanny>> query = from nan in getListOfNannies()
-                                                       group nan by nan.MaxMonthAge / 3;                      
+                                                       group nan by nan.MaxMonthAge / 3;
             return query;
-            
+
         }
 
         public static int CalculateDistance(string source, string dest)
@@ -350,3 +340,4 @@ namespace BL   //this layer it to chech that everything is in order so that it c
         }
     }
 }
+

@@ -7,19 +7,19 @@ using BE;
 
 namespace DAL
 {
-    public interface Idal   //what is a interface that it looks like a reguler class??
-    {//interface who ever harited must implement the interface functions
+    public interface Idal
+    {
         void addNanny(Nanny nan);
         void deleteNanny(Nanny nan);
-        void updateNannyDetalis(Nanny nan);
+        void updateNannyDetalis(Nanny nan,string last_name);
 
         void addMother(Mother mom);
         void deleteMother(Mother mom);
-        void updateMotherDetalis(Mother mom);
+        void updateMotherDetalis(Mother mom,string commands);
 
         void addChild(Child ch);
         void deleteChild(Child ch);
-        void updateChildDetalis(Child ch);
+        void updateChildDetalis(Child ch,string needs);
 
         void addContract(Contract co);
         void deleteContract(Contract co);
@@ -27,10 +27,10 @@ namespace DAL
 
         List<Child> getListOfChildren();
         List<Nanny> getListOfNannies();
-        List<Mother> getListOfMothers();                                                                     
-        List<Mother> getListOfMothersChildren();
+        List<Mother> getListOfMothers();
+        List<Child> getListOfMothersChildren();
         List<Contract> getListOfContracts();
 
-        
+
     }
 }

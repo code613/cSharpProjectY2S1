@@ -59,7 +59,7 @@ namespace BL   //this layer it to chech that everything is in order so that it c
             }
             throw new ArgumentException("the child wasn't found");
         }
-        private bool is3Month(Person per)
+        public bool is3Month(Person per)
         {
             DateTime now = DateTime.Now;
             int age = now.Month - per.Birthday.Month;

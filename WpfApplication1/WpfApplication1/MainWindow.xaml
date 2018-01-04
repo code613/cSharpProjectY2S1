@@ -5,29 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" ResizeMode="NoResize" Topmost="False"
+        SizeToContent="WidthAndHeight" WindowState="Maximized" Icon="./resources/single pink flower.png">
+    <!-- Here's a valid comment. Notice it's outside the <UserControl> tag's braces -->
+    <Window.Resources>
+        <!--how is this diffrent then a Grid??-->
+        <Style TargetType="Button">
+            
+        </Style>
+    </Window.Resources>
     <Grid>
         <TabControl>
             <TabControl.Items>
                 <TabItem Header="addNanny">
                     <TabItem.Content>
                         <StackPanel>
-                            <Button Content="Add Nanny" Click="Button_Click"/>
+                            <Button Content="Add Nanny" Click="ButtonToAddNanny_Click"/>
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem>
-                
-                <TabItem Header="addMother">
+                <TabItem Header="Add Child">
                     <TabItem.Content>
                         <StackPanel>
-                            <Button Content="Add mother" Click="Button_Click"/>
+                            <Button Content="Add Child" Click="ButtonToAddChild_Click"/>
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem >
-                <TabItem Header="addContract">
+                <TabItem Header="Add Mother">
                     <TabItem.Content>
                         <StackPanel>
-                            <Button Content="Add contract" Click="Button_Click"/>
+                            <Button Content="Add Mother" Click="ButtonToAddMother_Click"/>
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem >
+                <TabItem Header="Add Contract">
+                    <TabItem.Content>
+                        <StackPanel>
+                            <Button Content="Add Contract" Click="ButtonToAddContract_Click"/>
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem >

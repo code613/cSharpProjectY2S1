@@ -94,8 +94,9 @@ namespace ConsolePL
         {
             string inID, infirst_name, inlast_name; DateTime inBirthday;
             Console.WriteLine("please enter ID ");
-            Console.ReadLine.inID();
+            inID = Console.ReadLine();
             Console.WriteLine("please enter first_name ");
+            inID = Console.ReadLine();
             Console.WriteLine("please enter last_name ");
             Console.WriteLine("please enter Birthday ");
 

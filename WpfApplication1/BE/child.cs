@@ -10,19 +10,17 @@ namespace BE
         public Mother myMother { get; } 
         public bool hasSpecialNeeds { get; set; }
         public string specificationOfNeeds { get; set; }
-        public int monthsOld { get; set; }
         public override string ToString()
         {
             return "child:" + firstName + " " + lastName;
         }
         //ctor
         public Child(string id, string first_name,  DateTime Birthday, Mother mom,
-            bool SpecialNeeds,string needs,int ageInMonth) : base(id, first_name, mom.lastName, Birthday)
+            bool SpecialNeeds = false,string needs = null) : base(id, first_name, mom.lastName, Birthday)
         {
             myMother = mom;
             hasSpecialNeeds = SpecialNeeds;
             specificationOfNeeds = needs;
-            monthsOld = ageInMonth;
        }
     }
 }

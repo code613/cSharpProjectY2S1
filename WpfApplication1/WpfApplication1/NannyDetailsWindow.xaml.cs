@@ -19,6 +19,22 @@ namespace WpfApplication1
     /// </summary>
     public partial class NannyDetailsWindow : Window
     {
+        public string Windowphone;
+        public string WindowAddress;
+        public bool Windowelevator;
+        public int Windowfloor;
+        public int Windowexperience;
+        public int Windowmax_kids;
+        public int WindowMinAge;
+        public int WindowMaxAge;
+        public bool WindowisPerHour;
+        public float WindowHourSalary;
+        public float WindowMonthSalary;
+        public bool[] WindowWorkWeek = new bool[7];
+        public DateTime[][] WindowTimeTable = new DateTime[2][];
+        public bool WindowGovVacation;
+        public string WindowReferences;
+
         public NannyDetailsWindow()
         {
             InitializeComponent();
@@ -27,6 +43,25 @@ namespace WpfApplication1
         private void finishButton_Click(object sender, RoutedEventArgs e)
         {
             //adding changes??
+
+        }
+        private void HandleCheck(object sender, RoutedEventArgs e)
+        {
+            text1.Text = "The CheckBox is checked.";
+        }
+
+        private void HandleUnchecked(object sender, RoutedEventArgs e)
+        {
+            text1.Text = "The CheckBox is unchecked.";
+        }
+
+        private void HandleThirdState(object sender, RoutedEventArgs e)
+        {
+            text1.Text = "The CheckBox is in the indeterminate state.";
+        }
+
+        private void HourRateHandleCheck(object sender, RoutedEventArgs e)
+        {
 
         }
     }

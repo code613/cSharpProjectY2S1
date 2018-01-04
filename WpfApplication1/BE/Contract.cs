@@ -8,7 +8,7 @@ namespace BE
 {
     public class Contract
     {
-       public string contract_number { get; set; }
+       public int contract_number { get; set; }
        public string nanny_ID { get; set; }
        public string mother_ID { get; set; }
        public string child_ID { get; set; }
@@ -19,21 +19,27 @@ namespace BE
        public string monthOrHourContract { get; set; }
        public DateTime starts { get; set; }
        public DateTime ends { get; set; }
-        //other feilds as needed
         public override string ToString()
         {
             return " contract:" + contract_number;
         }
         //ctor
-        public Contract(string contractNumber, string Nanny_ID, string Child_ID ,string mother_id
-            ,bool haveTheyMet,bool is_Sighnd)
+        public Contract(string Nanny_ID, string Child_ID ,string mother_id
+            ,bool haveTheyMet,bool is_Sighned,double inPaymentPerHour, double inPaymentPerMonth,
+            string monthOrHour, DateTime startsOfCon, DateTime endsOfCon)
         {
-            contract_number = contractNumber;
+            
             nanny_ID = Nanny_ID;
             child_ID = Child_ID;
-            mother_ID=
-            Sighned=is_Sighned;
-            meeting= haveTheyMet
+            mother_ID = mother_id;
+            Sighned= is_Sighned;
+            meeting = haveTheyMet;
+            paymentPerHour= inPaymentPerHour;
+            paymentPerMonth=  inPaymentPerMonth;
+            monthOrHourContract= monthOrHour;
+            starts= startsOfCon;
+            ends= endsOfCon;
+
         }
     }
 }

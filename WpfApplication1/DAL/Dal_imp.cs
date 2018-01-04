@@ -9,97 +9,166 @@ using BE;
 namespace DAL
 {
 
-    class Dal_imp : Idal
+    public class Dal_imp : Idal
     {
 
-        public void addChild(Child ch)
+        static Random r = new Random();
+        #region child
+        public void addChild(Child child)
         {
-
+            Child ch = findChild(child.ID);
+            if (ch!= null)
+                throw new Exception("child with the same id already exists...");
+            DS.DataSourse.listOfChildren.Add(child);
         }
-
-        public void addContract(Contract con)
+        public void deleteChild(string id)
         {
-            throw new NotImplementedException();
+            Child ch= findChild(id);
+            if (ch == null)
+                throw new Exception("child  not found...");
+            DS.DataSourse.listOfChildren.Remove(ch);
         }
-
-        public void addMother(Mother mom)
+        public void updateChildDetalis(Child child)
         {
-            throw new NotImplementedException();
+            int index = DS.DataSourse.listOfChildren.FindIndex(c => c.ID == child.ID);
+            if (index == -1)
+                throw new Exception("child not found...");
+            DS.DataSourse.listOfChildren[index] = child;
         }
-
-        public void addNanny(Nanny nan)
+        public Child findChild(string ID)
         {
-            throw new NotImplementedException();
+            return DS.DataSourse.listOfChildren.FirstOrDefault(c => c.ID == ID);
         }
+        #endregion
 
-        public void deleteChild(Child ch)
+        #region nanny
+        public void addNanny(Nanny nanny)
         {
-            throw new NotImplementedException();
-        }
+            Nanny nan = findNanny(nanny.ID);
+            if (nan != null)
+                throw new Exception("nanny not found...");
 
-        public void deleteContract(Contract con)
+            DS.DataSourse.listOfNannys.Add(nanny);
+        }
+        public void deleteNanny(string id)
         {
-            throw new NotImplementedException();
+            Nanny nan = findNanny(id);
+            if (nan == null)
+                throw new Exception("nanny not found...");
+            DS.DataSourse.listOfNannys.Remove(nan);
         }
-
-        public void deleteMother(Mother mom)
+        public void updateNannyDetalis(Nanny nan)
         {
-            throw new NotImplementedException();
+            int index = DS.DataSourse.listOfNannys.FindIndex(n => n.ID == nan.ID);
+            if (index == -1)
+                throw new Exception("nanny not found...");
+            DS.DataSourse.listOfNannys[index] = nan;
         }
-
-        public void deleteNanny(Nanny nan)
+        public Nanny findNanny(string ID)
         {
-            throw new NotImplementedException();
+            return DS.DataSourse.listOfNannys.FirstOrDefault(n =>n.ID==ID);
         }
+        #endregion
 
-        public List<Contract> getListOfContracts()
+        #region mother
+        public void addMother(Mother mother)
         {
-            throw new NotImplementedException();
-        }
+            Mother mom = findMother(mother.ID);
+            if (mom != null)
+                throw new Exception("mother not found...");
 
-        public List<Mother> getListOfMothers()
+            DS.DataSourse.listOfMothers.Add(mother);
+        }
+        public void deleteMother(string id)
         {
-            throw new NotImplementedException();
+            Mother mom  = findMother(id);
+            if (mom == null)
+                throw new Exception("mom  not found...");
+            DS.DataSourse.listOfMothers.Remove(mom);
         }
-
-        public List<Child> getListOfMothersChildren()
+        public void updateMotherDetalis(Mother mom)
         {
-            throw new NotImplementedException();
+            int index = DS.DataSourse.listOfMothers.FindIndex(m => m.ID == mom.ID);
+            if (index == -1)
+                throw new Exception("mother not found...");
+            DS.DataSourse.listOfMothers[index] = mom;
         }
-
-        public List<Nanny> getListOfNannies()
+        public Mother findMother(string ID)
         {
-            throw new NotImplementedException();
+            return DS.DataSourse.listOfMothers.FirstOrDefault(m => m.ID == ID);
         }
+        #endregion
 
-        public void updateChildDetalis(Child ch,string needs)
+        #region contract
+        public void addContract(Contract contract)
         {
-            throw new NotImplementedException();
-        }
+            int number = r.Next(100000000, 399999999);
+            while (findContract(number)!=null)
+            {
+                number = r.Next(100000000, 399999999);
+            }
+            contract.contract_number = number;
 
+            Mother mom = findMother(contract.mother_ID);
+            Nanny nan = findNanny(contract.nanny_ID);
+            if (nan == null || mom == null)
+                throw new Exception("error in nanny or mother id...");
+            Contract con = findContract(contract.contract_number);
+            if (con != null)
+                throw new Exception("contract with same number already found...");
+            DS.DataSourse.listOfConntracts.Add(contract);
+        }
+        public void deleteContract(int number)
+        {
+            Contract con = findContract(number);
+            if (con == null)
+                throw new Exception("contract  not found...");
+            DS.DataSourse.listOfConntracts.Remove(con);
+        }
         public void updateContractDetalis(Contract con)
         {
-            throw new NotImplementedException();
+            int index = DS.DataSourse.listOfConntracts.FindIndex(c => c.contract_number ==con.contract_number);
+            if (index == -1)
+                throw new Exception("contract not found...");
+            DS.DataSourse.listOfConntracts[index] = con;
         }
-
-        public void updateMotherDetalis(Mother mom,string comands)
+        public Contract findContract(int contract_number)
         {
-            throw new NotImplementedException();
+            return DS.DataSourse.listOfConntracts.FirstOrDefault(c => c.contract_number == contract_number);
         }
+        #endregion
 
-        public void updateNannyDetalis(Nanny nan, string last_name)
+        
+        public List<Contract> getListOfContracts()
         {
-            List<Nanny> nannyList = getListOfNannies();
-            var nanny = nannyList.Where(n => n.ID == nan.ID).FirstOrDefault();
-            if (nanny != null)
+            return DS.DataSourse.listOfConntracts;
+        }
+        public List<Mother> getListOfMothers()
+        {
+            return DS.DataSourse.listOfMothers;
+        }
+        public List<Child> getListOfMothersChildren(Mother mom)
+        {
+            List<Child> myKidsList = new List<Child>(); 
+            foreach (var item in getListOfChildren())
             {
-                nanny.lastName = last_name;
+                if (item.myMother == mom)
+                    myKidsList.Add(item);
             }
-        }
+            
+            return myKidsList;
 
+
+        }
+        public List<Nanny> getListOfNannies()
+        {
+            return DS.DataSourse.listOfNannys;
+        }
         public List<Child> getListOfChildren()
         {
-            throw new NotImplementedException();
+            return DS.DataSourse.listOfChildren;
         }
+
+
     }
 }

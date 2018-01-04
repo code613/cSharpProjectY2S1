@@ -36,7 +36,7 @@ namespace ConsoleApplication2
                     first_name = Console.ReadLine();
                     last_name = Console.ReadLine();
                     birthday =DateTime.Parse( Console.ReadLine());
-                    Nanny nan =new Nanny (ID, first_name, last_name, birthday);
+                    Nanny nan =new Nanny ();
                     bl.addNanny(nan);
                         break;
                /* case 2:

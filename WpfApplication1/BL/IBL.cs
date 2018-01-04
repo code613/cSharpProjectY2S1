@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using BE;
 namespace BL
 {
-    public interface  IBL
+    public interface IBL
     {
 
         void addNanny(Nanny nan);
@@ -26,11 +26,9 @@ namespace BL
         void updateContractDetalis(Contract con);
 
         List<Nanny> getListOfNannies();
-        List<Mother> getListOfMothers();                                              
+        List<Mother> getListOfMothers();
         List<Child> getListOfMothersChildren(Mother mom);
         List<Contract> getListOfContracts();
         List<Child> getListOfChildren();
     }
 }
-
-

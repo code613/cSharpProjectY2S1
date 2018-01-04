@@ -17,13 +17,13 @@ namespace DAL
         public void addChild(Child child)
         {
             Child ch = findChild(child.ID);
-            if (ch!= null)
+            if (ch != null)
                 throw new Exception("child with the same id already exists...");
             DS.DataSourse.listOfChildren.Add(child);
         }
         public void deleteChild(string id)
         {
-            Child ch= findChild(id);
+            Child ch = findChild(id);
             if (ch == null)
                 throw new Exception("child  not found...");
             DS.DataSourse.listOfChildren.Remove(ch);
@@ -46,7 +46,7 @@ namespace DAL
         {
             Nanny nan = findNanny(nanny.ID);
             if (nan != null)
-                throw new Exception("nanny not found...");
+                throw new Exception("nanny with the same id already exsist...");
 
             DS.DataSourse.listOfNannys.Add(nanny);
         }
@@ -66,7 +66,7 @@ namespace DAL
         }
         public Nanny findNanny(string ID)
         {
-            return DS.DataSourse.listOfNannys.FirstOrDefault(n =>n.ID==ID);
+            return DS.DataSourse.listOfNannys.FirstOrDefault(n => n.ID == ID);
         }
         #endregion
 
@@ -75,13 +75,13 @@ namespace DAL
         {
             Mother mom = findMother(mother.ID);
             if (mom != null)
-                throw new Exception("mother not found...");
+                throw new Exception("mother with the same id already exsist...");
 
             DS.DataSourse.listOfMothers.Add(mother);
         }
         public void deleteMother(string id)
         {
-            Mother mom  = findMother(id);
+            Mother mom = findMother(id);
             if (mom == null)
                 throw new Exception("mom  not found...");
             DS.DataSourse.listOfMothers.Remove(mom);
@@ -103,7 +103,7 @@ namespace DAL
         public void addContract(Contract contract)
         {
             int number = r.Next(100000000, 399999999);
-            while (findContract(number)!=null)
+            while (findContract(number) != null)
             {
                 number = r.Next(100000000, 399999999);
             }
@@ -127,7 +127,7 @@ namespace DAL
         }
         public void updateContractDetalis(Contract con)
         {
-            int index = DS.DataSourse.listOfConntracts.FindIndex(c => c.contract_number ==con.contract_number);
+            int index = DS.DataSourse.listOfConntracts.FindIndex(c => c.contract_number == con.contract_number);
             if (index == -1)
                 throw new Exception("contract not found...");
             DS.DataSourse.listOfConntracts[index] = con;
@@ -138,7 +138,7 @@ namespace DAL
         }
         #endregion
 
-        
+
         public List<Contract> getListOfContracts()
         {
             return DS.DataSourse.listOfConntracts;
@@ -149,13 +149,13 @@ namespace DAL
         }
         public List<Child> getListOfMothersChildren(Mother mom)
         {
-            List<Child> myKidsList = new List<Child>(); 
+            List<Child> myKidsList = new List<Child>();
             foreach (var item in getListOfChildren())
             {
                 if (item.myMother == mom)
                     myKidsList.Add(item);
             }
-            
+
             return myKidsList;
 
 

@@ -29,6 +29,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{0DE3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolePL", "ConsoleApplication2\ConsolePL.csproj", "{120FA685-F858-42E3-94B4-F2F3AD6FC7B6}"
 EndProject
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "GitHubDesktop", "..\..\..\..\AppData\Local\GitHubDesktop\GitHubDesktop.exe", "{4396550E-3CB6-421D-8027-C6C5302A609C}"
+	ProjectSection(DebuggerProjectSystem) = preProject
+		PortSupplier = 00000000-0000-0000-0000-000000000000
+		Executable = C:\Users\zeev\AppData\Local\GitHubDesktop\GitHubDesktop.exe
+		RemoteMachine = LAPTOP-9PQ56LUE
+		StartingDirectory = C:\Users\zeev\AppData\Local\GitHubDesktop
+		Environment = Default
+		LaunchingEngine = 00000000-0000-0000-0000-000000000000
+		UseLegacyDebugEngines = No
+		LaunchSQLEngine = No
+		AttachLaunchAction = No
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +124,12 @@ Global
 		{120FA685-F858-42E3-94B4-F2F3AD6FC7B6}.Release|x64.Build.0 = Release|Any CPU
 		{120FA685-F858-42E3-94B4-F2F3AD6FC7B6}.Release|x86.ActiveCfg = Release|Any CPU
 		{120FA685-F858-42E3-94B4-F2F3AD6FC7B6}.Release|x86.Build.0 = Release|Any CPU
+		{4396550E-3CB6-421D-8027-C6C5302A609C}.Debug|Any CPU.ActiveCfg = Release|x86
+		{4396550E-3CB6-421D-8027-C6C5302A609C}.Debug|x64.ActiveCfg = Release|x86
+		{4396550E-3CB6-421D-8027-C6C5302A609C}.Debug|x86.ActiveCfg = Release|x86
+		{4396550E-3CB6-421D-8027-C6C5302A609C}.Release|Any CPU.ActiveCfg = Release|x86
+		{4396550E-3CB6-421D-8027-C6C5302A609C}.Release|x64.ActiveCfg = Release|x86
+		{4396550E-3CB6-421D-8027-C6C5302A609C}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

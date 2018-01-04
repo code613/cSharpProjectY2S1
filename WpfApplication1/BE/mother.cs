@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace BE   
+namespace BE
 {
     public class Mother : Person
     {

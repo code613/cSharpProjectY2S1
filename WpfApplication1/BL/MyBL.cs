@@ -10,21 +10,66 @@ using GoogleMapsApi.Entities.Directions.Request;
 using GoogleMapsApi.Entities.Directions.Response;
 using GoogleMapsApi;
 
-namespace BL   //this layer it to chech that everything is in order so that it can be passed to the
-               //DAL layer in order to reach the data center
+namespace BL
+
 {
     public class MyBL : IBL
     {
-        #region Singleton
-        private static readonly MyBL instance = new MyBL();
-
-        public static MyBL Instance
-        {
-            get { return instance; }
-        }
-        #endregion
-
         static Idal MyDal;
+        public MyBL()
+        {
+            MyDal = DAL.DALFactory.FactoryDAL.GetDAL();
+            init();
+        }
+        void init()
+        {
+            Nanny shifi_levy = new Nanny
+            {
+                ID = "123",
+                firstName = "shifi",
+                lastName = "levy",
+                Birthday = DateTime.Parse("31.12.88"),
+                Address = "HaRav Shalom Shabazi St 12, Jerusalem",
+                elevator = true,
+                floor = 2,
+                Expirence = 3,
+                phone = "0529344513",
+                MaxAge = 15,
+                MinAge = 3,
+                MaxChildren = 8,
+                isPerHour = false,
+                SallaryPerMonths = 900,
+                GovVacation = false,
+                WorkWeek = new bool[] { true, true, true, true, true, true, false },
+                Recommendations = ""
+
+            };
+            Nanny Tsipi_Hotoveli = new Nanny
+            {
+                ID = "654",
+                firstName = "Tsipi",
+                lastName = "Hotoveli",
+                Birthday = new DateTime(1989, 3, 29),
+                Address = "HaRav Kuk St 8, Jerusalem",
+                elevator = true,
+                floor = 2,
+                Expirence = 3,
+                phone = "0521001001",
+                MaxAge = 18,
+                MinAge = 3,
+                MaxChildren = 8,
+                isPerHour = true,
+                HourSallary = 10,
+                SallaryPerMonths = 900,
+                GovVacation = true,
+                WorkWeek = new bool[] { true, true, true, true, true, false, false },
+
+
+
+                Recommendations = ""
+            };
+        }
+
 
 
         #region child
@@ -32,17 +77,17 @@ namespace BL   //this layer it to chech that everything is in order so that it c
         {
             MyDal.addChild(ch);
         }
-        public void deleteChild(Child ch)
+        public void deleteChild(string id)
         {
-            MyDal.deleteChild(ch);
+            MyDal.deleteChild(id);
         }
-        public void updateChildDetalis(Child ch, string whatIsNeeds)
+        public void updateChildDetalis(Child ch)
         {
-            MyDal.updateChildDetalis(ch, whatIsNeeds);
+            MyDal.updateChildDetalis(ch);
         }
         public List<Child> getListOfMothersChildren(Mother mo)
         {
-            return MyDal.getListOfMothersChildren();
+            return MyDal.getListOfMothersChildren(mo);
         }
         public List<Child> getListOfChildren()
         {
@@ -50,19 +95,12 @@ namespace BL   //this layer it to chech that everything is in order so that it c
         }
         public Child findChild(string ID)
         {
-            List<Child> help = MyDal.getListOfChildren();
-
-            foreach (var item in help)
-            {
-                if (item.ID == ID)
-                    return item;
-            }
-            throw new ArgumentException("the child wasn't found");
+            return MyDal.findChild(ID);
         }
-        public bool is3Month(Person per)
+        private bool is3Month(Child ch)
         {
             DateTime now = DateTime.Now;
-            int age = now.Month - per.Birthday.Month;
+            int age = now.Month - ch.Birthday.Month;
             if (age > 3 || age == 3)
                 return true;
             else
@@ -74,31 +112,24 @@ namespace BL   //this layer it to chech that everything is in order so that it c
         public void addNanny(Nanny nan)
         {
             if (!is18(nan))
-                throw new ArgumentException("the nanny under minimal age");
+                throw new Exception("the nanny under minimal age");
             MyDal.addNanny(nan);
         }
-        public void deleteNanny(Nanny nan)
+        public void deleteNanny(string id)
         {
-            MyDal.deleteNanny(nan);
+            MyDal.deleteNanny(id);
         }
         public List<Nanny> getListOfNannies()
         {
             return MyDal.getListOfNannies();
         }
-        public void updateNannyDetalis(Nanny nan, string last_name)
+        public void updateNannyDetalis(Nanny nan)
         {
-            MyDal.updateNannyDetalis(nan, last_name);
+            MyDal.updateNannyDetalis(nan);
         }
         public Nanny findNanny(string ID)
         {
-            List<Nanny> help = MyDal.getListOfNannies();
-
-            foreach (var item in help)
-            {
-                if (item.ID == ID)
-                    return item;
-            }
-            throw new ArgumentException("the nanny was not found");
+            return MyDal.findNanny(ID);
         }
         private static bool is18(Nanny nan)
         {
@@ -116,13 +147,13 @@ namespace BL   //this layer it to chech that everything is in order so that it c
         {
             MyDal.addMother(mom);
         }
-        public void deleteMother(Mother mom)
+        public void deleteMother(string id)
         {
-            MyDal.deleteMother(mom);
+            MyDal.deleteMother(id);
         }
-        public void updateMotherDetalis(Mother mom, string commandes)
+        public void updateMotherDetalis(Mother mom)
         {
-            MyDal.updateMotherDetalis(mom, commandes);
+            MyDal.updateMotherDetalis(mom);
         }
         public List<Mother> getListOfMothers()
         {
@@ -130,14 +161,7 @@ namespace BL   //this layer it to chech that everything is in order so that it c
         }
         public Mother findMother(string ID)
         {
-            List<Mother> help = MyDal.getListOfMothers();
-
-            foreach (var item in help)
-            {
-                if (item.ID == ID)
-                    return item;
-            }
-            throw new ArgumentException("the mother wasnt found");
+            return MyDal.findMother(ID);
         }
         #endregion
 
@@ -147,15 +171,19 @@ namespace BL   //this layer it to chech that everything is in order so that it c
             Nanny nan = findNanny(con.nanny_ID);
             Child ch = findChild(con.child_ID);
             if (!is3Month(ch))
-                throw new ArgumentException(" the child under the minimal age");
-            con.paymentPerHour = nan.perHour;
-            con.paymentPerMonth = salary(con);
+                throw new Exception(" the child under the minimal age");
             if (isFull(con, nan))
-                throw new ArgumentException("this nanny is full and she can't take more children");
+                throw new Exception("this nanny is full and she can't take more children");
+            int childAge = DateTime.Now.Month - ch.Birthday.Month;
+            if (childAge > nan.MaxAge || childAge < nan.MinAge)
+                throw new Exception("this nanny dosn't take kids at this age");
+            con.paymentPerHour = nan.HourSallary;
+            con.paymentPerMonth = sallary(con);
+
             MyDal.addContract(con);
         }
 
-        private bool isFull(Contract con, Nanny nan)
+        public bool isFull(Contract con, Nanny nan)
         {
             int sum = 0;
             foreach (var item in getListOfContracts())
@@ -165,26 +193,33 @@ namespace BL   //this layer it to chech that everything is in order so that it c
                     sum++;
                 }
             }
-            if (sum == nan.max_kids)
+            if (sum == nan.MaxChildren)
                 return true;
             return false;
 
         }
 
-        public void deleteContract(Contract con)
+        public void deleteContract(int number)
         {
-            throw new NotImplementedException();
+            MyDal.deleteContract(number);
         }
         public List<Contract> getListOfContracts()
         {
-            throw new NotImplementedException();
+            return MyDal.getListOfContracts();
         }
         public void updateContractDetalis(Contract con)
         {
-            throw new NotImplementedException();
+            MyDal.updateContractDetalis(con);
         }
+        public Contract findContract(int number)
+        {
+            return MyDal.findContract(number);
+        }
+
         #endregion
-        public double salary(Contract con)
+
+
+        public double sallary(Contract con)
         {
             Nanny nan = findNanny(con.nanny_ID);
             Mother mo = findMother(con.mother_ID);
@@ -201,7 +236,7 @@ namespace BL   //this layer it to chech that everything is in order so that it c
                     TimeSpan diff = mo.serviseNeededTimeTable[i][1] - mo.serviseNeededTimeTable[i][0];
                     hours += diff.TotalHours;
                 }
-                nannySalary = (double)4 * hours * nan.perHour;
+                nannySalary = (double)4 * hours * nan.HourSallary;
             }
             List<Child> childrenList = getListOfMothersChildren(mo);
             List<Contract> contractList = getListOfContracts();
@@ -221,58 +256,52 @@ namespace BL   //this layer it to chech that everything is in order so that it c
             }
             return nannySalary;
         }
-        public Person find(string ID)
-        {
-            List<Mother> help = MyDal.getListOfMothers();
-            List<Child> help1 = MyDal.getListOfChildren();
-            List<Nanny> help2 = MyDal.getListOfNannies();
-            foreach (var item in help)
-            {
-                if (item.ID == ID)
-                    return item;
-            }
-            foreach (var item in help1)
-            {
-                if (item.ID == ID)
-                    return item;
-            }
-            foreach (var item in help2)
-            {
-                if (item.ID == ID)
-                    return item;
-            }
-            throw new ArgumentException("the person wasnt found");
-        }
-        public List<Nanny> matchingNannies(Mother mo)
+        /// <summary>
+        /// return list of nannies that matching to mother needs
+        /// </summary>
+        /// <param name="mo"></param>
+        /// <returns></returns>
+        public List<Nanny> matchingNannies(Mother mo, Child ch)
         {
             List<Nanny> matchingNannies = new List<Nanny>();
-            bool isEmpty = true;
             foreach (var item in getListOfNannies())
             {
+
                 bool isMatch = true;
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < 7; i++)//check if the days are matching
+                {
+                    if (mo.daysNeedNanny[i] && !item.WorkWeek[i])
+                        isMatch = false;
+                }
+                for (int i = 0; i < 6; i++)//check if the hours are matching
                 {
                     if (mo.serviseNeededTimeTable[i][0] < item.TimeTable[i][0] || mo.serviseNeededTimeTable[i][1] > item.TimeTable[i][1])
-                    {
                         isMatch = false;
-                    }
                 }
+                int childAge = DateTime.Now.Month - ch.Birthday.Month;
+                if (childAge > item.MaxAge || childAge < item.MinAge)//check if the nanny get child in that age
+                    isMatch = false;
                 if (isMatch)
                 {
                     matchingNannies.Add(item);
-                    isEmpty = false;
                 }
             }
-            if (isEmpty)
-                Console.WriteLine("didn't found matching nannies,here is the 5 closest:");
-            matchingNannies = closestToMotherNeeds(mo);
+            if (matchingNannies.Count == 0)
+            {
+                throw new Exception("didn't find nanny match to mother needs");
+            }
             return matchingNannies;
         }
 
-        private List<Nanny> closestToMotherNeeds(Mother mo)
-        {
-            throw new NotImplementedException();
-        }
+        /* private List<Nanny> closestToMotherNeeds(Mother mo)
+          {
+
+          }*/
+
+        //public List<Nanny> Preferred_distance(Mother mo)
+        //{
+        //    return distance(mo);
+        //}
 
         public List<Child> childrenWithoutNanny()
         {
@@ -293,6 +322,7 @@ namespace BL   //this layer it to chech that everything is in order so that it c
             }
             return children_without_nanny;
         }
+
         public List<Nanny> vocationAcordingToGov()
         {
             List<Nanny> vocation_acording_to_gov = new List<Nanny>();
@@ -310,17 +340,36 @@ namespace BL   //this layer it to chech that everything is in order so that it c
                    where someDel(con)
                    select con;
         }
-        public IEnumerable<string> FeetToCondition(Func<Contract, bool> someDel)
+        public IEnumerable<int> FeetToCondition(Func<Contract, bool> someDel)
         {
             return from con in getListOfContracts()
                    where someDel(con)
-                   select con.contract_ID;
+                   select con.contract_number;
         }
 
         public IEnumerable<IGrouping<int, Nanny>> perAge(bool maxAge = false)
         {
+            if (maxAge)
+            {
+                IEnumerable<IGrouping<int, Nanny>> query = from nan in getListOfNannies()
+                                                           group nan by nan.MaxAge / 3;
+                return query;
+            }
+            else
+            {
+                IEnumerable<IGrouping<int, Nanny>> query = from nan in getListOfNannies()
+                                                           group nan by nan.MinAge / 3;
+                return query;
+            }
+
+
+
+        }
+        public IEnumerable<IGrouping<int, Nanny>> distance(Mother mo)
+        {
+
             IEnumerable<IGrouping<int, Nanny>> query = from nan in getListOfNannies()
-                                                       group nan by nan.MaxMonthAge / 3;
+                                                       group nan by CalculateDistance(mo.searchArea, nan.Address) / 5;
             return query;
 
         }
@@ -340,4 +389,3 @@ namespace BL   //this layer it to chech that everything is in order so that it c
         }
     }
 }
-

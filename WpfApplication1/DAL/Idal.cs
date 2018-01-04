@@ -36,7 +36,7 @@ namespace DAL
         void updateContractDetalis(Contract co);
         Contract findContract(int contractNum);
         #endregion
-        
+
         List<Child> getListOfChildren();
         List<Nanny> getListOfNannies();
         List<Mother> getListOfMothers();
@@ -46,3 +46,4 @@ namespace DAL
 
     }
 }
+

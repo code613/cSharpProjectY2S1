@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{0DE3
 		{90DFBDF5-FCC5-47D9-98A0-10916160ACC5} = {90DFBDF5-FCC5-47D9-98A0-10916160ACC5}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication2", "ConsoleApplication2\ConsoleApplication2.csproj", "{120FA685-F858-42E3-94B4-F2F3AD6FC7B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolePL", "ConsoleApplication2\ConsolePL.csproj", "{120FA685-F858-42E3-94B4-F2F3AD6FC7B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

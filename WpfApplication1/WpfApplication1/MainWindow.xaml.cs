@@ -35,10 +35,10 @@ namespace WpfApplication1
         {
             Child theChild;
             Person tempPer ;
-            MessageBox.Show("please fill in the child's details");
-            this.Close();//i don't understand .. where are we commanding it to butten. close.??
+            //MessageBox.Show("please fill in the child's details");
+          //  this.Close();//i don't understand .. where are we commanding it to butten. close.??
             personDeitailsWindow per = new personDeitailsWindow();
-            per.Show();//i think i need this to open up the window after it was created above
+            per.ShowDialog();//i think i need this to open up the window after it was created above
             tempPer = per.temp;//how dose this work ?? with a copyconstructer??
             #region threeMonthSaga commented out
             //bool Month3flag;

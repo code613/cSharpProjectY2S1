@@ -34,7 +34,7 @@
                 <TabItem Header="Add Mother">
                     <TabItem.Content>
                         <StackPanel>
-                            <Button Content="Add Mother" Click="ButtonToAddMother_Click"/>
+                            <Button Content="Add Mother" />
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem >

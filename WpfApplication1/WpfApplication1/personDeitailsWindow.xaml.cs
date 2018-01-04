@@ -25,12 +25,15 @@ namespace WpfApplication1
         public personDeitailsWindow()
         {
             InitializeComponent();
+//temp = new Person(IDtextBox.Text, FNtextBox.Text, LNtextBox.Text, BirthdaytextBox.SelectedDate.Value.Date);
+
         }
 
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             temp = new Person(IDtextBox.Text, FNtextBox.Text, LNtextBox.Text, BirthdaytextBox.SelectedDate.Value.Date);
+            this.Close();
         }
     }
 }

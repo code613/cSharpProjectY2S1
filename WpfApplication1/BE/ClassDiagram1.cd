@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="BE.Child" Collapsed="true">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+    <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAEAAAAAIAAABAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Child.cs</FileName>
@@ -9,14 +9,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BE.Contract" Collapsed="true">
-    <Position X="7.5" Y="1.25" Width="1.5" />
+    <Position X="7.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAQAABQAAAAAAkEACAAAAAAAAAAAAAAAAAAAAAAAk=</HashCode>
       <FileName>Contract.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.Mother" Collapsed="true">
-    <Position X="5" Y="1.75" Width="1.5" />
+    <Position X="5.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAgCAABAAIAAAAEAAAACAAAAAAAAAoAAAAAAAAAAAA=</HashCode>
       <FileName>Mother.cs</FileName>
@@ -24,11 +24,18 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BE.Nanny" Collapsed="true">
-    <Position X="2.75" Y="1.75" Width="1.5" />
+    <Position X="3.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAACgAAAAgAAAEAQAIAQAAAgBAAUAiAAAAAAAAAQA=</HashCode>
+      <HashCode>AAAAACAAIAAgAAAEAQAIAQAAAgBQAEAiAABAAAQAAIA=</HashCode>
       <FileName>Nanny.cs</FileName>
       <NewMemberFileName>nanny.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.Person" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAgAAAAAAAAAAAAAAIAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Person.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

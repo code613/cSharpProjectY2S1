@@ -26,7 +26,7 @@ namespace WpfApplication1
 
         private void finishButton_Click(object sender, RoutedEventArgs e)
         {
-
+            //adding changes??
         }
     }
 }

@@ -342,7 +342,7 @@ namespace BL
         }
         public IEnumerable<int> FeetToCondition(Func<Contract, bool> someDel)
         {
-            return from con in getListOfContracts()
+            return from Contract con in getListOfContracts()
                    where someDel(con)
                    select con.contract_number;
         }

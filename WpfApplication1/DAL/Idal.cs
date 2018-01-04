@@ -20,6 +20,11 @@ namespace DAL
         void addMother(Mother mom);
         void deleteMother(string id);
         void updateMotherDetalis(Mother mom);
+        /// <summary>
+        /// returns the mother by ID
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         Mother findMother(string ID);
         #endregion
 
@@ -27,6 +32,11 @@ namespace DAL
         void addChild(Child ch);
         void deleteChild(string id);
         void updateChildDetalis(Child ch);
+        /// <summary>
+        /// returns the mother by ID
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         Child findChild(string ID);
         #endregion
 
@@ -34,6 +44,11 @@ namespace DAL
         void addContract(Contract co);
         void deleteContract(int contractNum);
         void updateContractDetalis(Contract co);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="contractNum"></param>
+        /// <returns></returns>
         Contract findContract(int contractNum);
         #endregion
 

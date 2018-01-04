@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="Child.cs" />
     <Compile Include="Contract.cs" />
-    <Compile Include="Enums.cs" />
     <Compile Include="Mother.cs" />
     <Compile Include="Nanny.cs" />
     <Compile Include="Person.cs" />

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" ResizeMode="NoResize" Topmost="False"
-        SizeToContent="WidthAndHeight" WindowState="Maximized" Icon="./resources/single pink flower.png">
+        SizeToContent="Width" WindowState="Maximized" Icon="./resources/single pink flower.png">
     <!-- Here's a valid comment. Notice it's outside the <UserControl> tag's braces -->
     <Window.Resources>
         <!--how is this diffrent then a Grid??-->
@@ -34,7 +34,7 @@
                 <TabItem Header="Add Mother">
                     <TabItem.Content>
                         <StackPanel>
-                            <Button Content="Add Mother" />
+                            <Button Content="Add Mother" Click="Button_Click" />
                         </StackPanel>
                     </TabItem.Content>
                 </TabItem >

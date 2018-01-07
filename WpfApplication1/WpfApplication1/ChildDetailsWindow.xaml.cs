@@ -49,6 +49,7 @@ namespace WpfApplication1
         {
             momID = textBox.Text;
             finishSpecalData = specailNeedsData;//wait so what happens if non? is it null?
+            Close();
         }
     }
 }

@@ -34,6 +34,7 @@ namespace WpfApplication1
         {
             temp = new Person(IDtextBox.Text, FNtextBox.Text, LNtextBox.Text, BirthdaytextBox.SelectedDate.Value.Date);
             this.Close();
+            //need to only alow to click butten if all information is inside securly(with progress bar)
         }
     }
 }

@@ -39,12 +39,13 @@ namespace WpfApplication1
             if(data != null)
             {
                 yesNeeds = true;
+                Close();//put here not below so not to close if pushed yes with nothing inside
             }
         }
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
     }
 }

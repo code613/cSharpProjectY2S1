@@ -17,6 +17,7 @@ namespace BE
         public DateTime[][] serviseNeededTimeTable = new DateTime[2][];
         public bool isSingalParent { get; set; }
         public string comments { get; set; }
+        public string needNannyAddress { get; set; }
 
         public override string ToString()
         {

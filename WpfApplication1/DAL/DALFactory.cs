@@ -8,6 +8,17 @@ namespace DAL
 {
     public sealed class DALFactory
     {
+        #region Singleton
+        private static readonly DALFactory instance = new DALFactory();
+
+        static DALFactory() { }
+        private DALFactory() { }
+
+        public static DALFactory Instance
+        {
+            get { return instance; }
+        }
+        #endregion
         public class FactoryDAL
         {
             static Idal MyDal = null;

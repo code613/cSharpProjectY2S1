@@ -8,6 +8,8 @@ namespace BL
 {
     public sealed class BLFactory
     {
+        
+
         public class FactoryBL
         {
             static IBL bl = null;

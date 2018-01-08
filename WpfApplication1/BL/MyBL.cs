@@ -77,9 +77,7 @@ namespace BL
        //         Recommendations = ""
        //     };
        // }
-
-
-
+       
         #region child
         public void addChild(Child ch)
         {
@@ -226,7 +224,11 @@ namespace BL
 
         #endregion
 
-
+        /// <summary>
+        /// calculate the sallary of nanny in contract
+        /// </summary>
+        /// <param name="con"></param>
+        /// <returns></returns>
         public double sallary(Contract con)
         {
             Nanny nan = findNanny(con.nanny_ID);
@@ -264,6 +266,7 @@ namespace BL
             }
             return nannySalary;
         }
+
         /// <summary>
         /// return list of nannies that matching to mother needs
         /// </summary>
@@ -305,7 +308,8 @@ namespace BL
           {
 
           }*/
-          /// <summary>
+
+        /// <summary>
           /// return's all nannies that are close to mother required location(15 km)
           /// </summary>
           /// <param name="mom"></param>
@@ -316,6 +320,7 @@ namespace BL
                    where CalculateDistance(n.Address,(mom.needNannyAddress == "" ? mom.googleAddress : mom.needNannyAddress)) <= 15000
                    select n;
         }
+
         /// <summary>
         /// return's all kids that left without nanny
         /// </summary>
@@ -339,6 +344,7 @@ namespace BL
             }
             return children_without_nanny;
         }
+
         /// <summary>
         /// check's if the nanny vocation is suited to govrement
         /// </summary>
@@ -353,6 +359,19 @@ namespace BL
             }
             return vocation_acording_to_gov;
         }
+
+        /// <summary>
+        /// return's all the nannies that are feet to some condition
+        /// </summary>
+        /// <param name="someDel"></param>
+        /// <returns></returns>
+        public IEnumerable<Nanny> NannyFeetToCondition(Func<Nanny, bool> someDel)
+        {
+            return from  n in getListOfNannies()
+                   where someDel(n)
+                   select n;
+        }
+
         /// <summary>
         /// return's all the contracts that are feet to some condition
         /// </summary>
@@ -364,18 +383,24 @@ namespace BL
                    where someDel(con)
                    select con;
         }
+
         /// <summary>
-        /// return's the number of the contracts that are feet to some condition
+        /// return's the con_number of the contracts that are feet to some condition
         /// </summary>
         /// <param name="someDel"></param>
         /// <returns></returns>
-        public IEnumerable<int> FeetToCondition(Func<Contract, bool> someDel)
+        public IEnumerable<int> conFeetToCondition(Func<Contract, bool> someDel)
         {
             return from Contract con in getListOfContracts()
                    where someDel(con)
                    select con.contract_number;
         }
 
+        /// <summary>
+        /// return's the nannies acording to nax/min age of children
+        /// </summary>
+        /// <param name="maxAge"></param>
+        /// <returns></returns>
         public IEnumerable<IGrouping<int, Nanny>> perAge(bool maxAge = false)
         {
             if (maxAge)
@@ -394,6 +419,12 @@ namespace BL
 
 
         }
+
+        /// <summary>
+        /// return groups of nannies acording to their distance
+        /// </summary>
+        /// <param name="mo"></param>
+        /// <returns></returns>
         public IEnumerable<IGrouping<int, Nanny>> Distance(Mother mo)
         {
 
@@ -403,6 +434,12 @@ namespace BL
 
         }
 
+        /// <summary>
+        /// calculate distance from source to destenation using google maps
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="dest"></param>
+        /// <returns></returns>
         public static int CalculateDistance(string source, string dest)
         {
             var drivingDirectionRequest = new DirectionsRequest

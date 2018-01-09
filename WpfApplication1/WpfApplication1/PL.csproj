@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="childWindow2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="contractWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,6 +84,9 @@
     </Compile>
     <Compile Include="childNeedsWindow.xaml.cs">
       <DependentUpon>childNeedsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="childWindow2.xaml.cs">
+      <DependentUpon>childWindow2.xaml</DependentUpon>
     </Compile>
     <Compile Include="contractWindow.xaml.cs">
       <DependentUpon>contractWindow.xaml</DependentUpon>

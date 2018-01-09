@@ -36,8 +36,9 @@ namespace WpfApplication1
         {
             Child theChild;
             Person tempPer  = personWindow();//get person window
-            if (tempPer == null) { return; }//if exed of window then returns as detils not filled in
+            if (tempPer == null) { return; }//if exit of window then returns as detils not filled in
             theChild = theChildWindow(tempPer);//get child window (w/o mistakes)
+            if (theChild == null) { return; }
             MessageBox.Show("CONGRADUALATIONS!! welcome {0} to {1} ", tempPer.firstName);//, theTitle);
             TheBL.addChild(theChild);
         }
@@ -66,7 +67,7 @@ namespace WpfApplication1
                 catch (Exception err)
                 {
                  MessageBox.Show(err.Message);//need yes and no if no the return else flag = true 
-
+                    return null;
                 }  
             } while (flag);
         }

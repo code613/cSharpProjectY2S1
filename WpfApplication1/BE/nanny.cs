@@ -13,6 +13,7 @@ namespace BE
         public string Address { get; set; }
         public bool elevator { get; set; }
         public int floor { get; set; }
+        
         public int Expirence { get; set; }
         public int MaxChildren { get; set; }
         public int MinAge { get; set; }

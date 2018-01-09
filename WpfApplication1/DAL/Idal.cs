@@ -14,6 +14,7 @@ namespace DAL
         void deleteNanny(string id);
         void updateNannyDetalis(Nanny nan);
         Nanny findNanny(string ID);
+        List<Nanny> getListOfNannies();
         #endregion
 
         #region mother
@@ -26,6 +27,8 @@ namespace DAL
         /// <param name="ID"></param>
         /// <returns></returns>
         Mother findMother(string ID);
+        List<Mother> getListOfMothers();
+        List<Child> getListOfMothersChildren(Mother mom);
         #endregion
 
         #region child
@@ -38,6 +41,7 @@ namespace DAL
         /// <param name="ID"></param>
         /// <returns></returns>
         Child findChild(string ID);
+        List<Child> getListOfChildren();
         #endregion
 
         #region contract
@@ -50,15 +54,11 @@ namespace DAL
         /// <param name="contractNum"></param>
         /// <returns></returns>
         Contract findContract(int contractNum);
-        #endregion
-
-        List<Child> getListOfChildren();
-        List<Nanny> getListOfNannies();
-        List<Mother> getListOfMothers();
-        List<Child> getListOfMothersChildren(Mother mom);
         List<Contract> getListOfContracts();
-
+        #endregion
 
     }
 }
+
+
 

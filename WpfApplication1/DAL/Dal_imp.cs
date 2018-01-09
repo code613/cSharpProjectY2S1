@@ -39,6 +39,10 @@ namespace DAL
         {
             return DS.DataSourse.listOfChildren.FirstOrDefault(c => c.ID == ID);
         }
+        public List<Child> getListOfChildren()
+        {
+            return DS.DataSourse.listOfChildren;
+        }
         #endregion
 
         #region nanny
@@ -68,6 +72,10 @@ namespace DAL
         {
             return DS.DataSourse.listOfNannys.FirstOrDefault(n => n.ID == ID);
         }
+        public List<Nanny> getListOfNannies()
+        {
+            return DS.DataSourse.listOfNannys;
+        }
         #endregion
 
         #region mother
@@ -96,6 +104,23 @@ namespace DAL
         public Mother findMother(string ID)
         {
             return DS.DataSourse.listOfMothers.FirstOrDefault(m => m.ID == ID);
+        }
+        public List<Mother> getListOfMothers()
+        {
+            return DS.DataSourse.listOfMothers;
+        }
+        public List<Child> getListOfMothersChildren(Mother mom)
+        {
+            List<Child> myKidsList = new List<Child>();
+            foreach (var item in getListOfChildren())
+            {
+                if (item.myMother == mom)
+                    myKidsList.Add(item);
+            }
+
+            return myKidsList;
+
+
         }
         #endregion
 
@@ -136,38 +161,13 @@ namespace DAL
         {
             return DS.DataSourse.listOfConntracts.FirstOrDefault(c => c.contract_number == contract_number);
         }
-        #endregion
-
-
         public List<Contract> getListOfContracts()
         {
             return DS.DataSourse.listOfConntracts;
         }
-        public List<Mother> getListOfMothers()
-        {
-            return DS.DataSourse.listOfMothers;
-        }
-        public List<Child> getListOfMothersChildren(Mother mom)
-        {
-            List<Child> myKidsList = new List<Child>();
-            foreach (var item in getListOfChildren())
-            {
-                if (item.myMother == mom)
-                    myKidsList.Add(item);
-            }
-
-            return myKidsList;
+        #endregion
 
 
-        }
-        public List<Nanny> getListOfNannies()
-        {
-            return DS.DataSourse.listOfNannys;
-        }
-        public List<Child> getListOfChildren()
-        {
-            return DS.DataSourse.listOfChildren;
-        }
 
 
     }

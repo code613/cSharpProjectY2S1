@@ -32,7 +32,7 @@ namespace WpfApplication1
         }
 
 
-        private void ButtonToAddChild_Click(object sender, RoutedEventArgs e)
+        private void AddChild_Click(object sender, RoutedEventArgs e)
         {
             Child theChild;
             Person tempPer  = personWindow();//get person window
@@ -96,6 +96,73 @@ namespace WpfApplication1
             Person tempPer = personWindow();
             if (tempPer == null) { return; }
         }
+        private void SetVisibilty()
+        {
+            AddMother.Visibility = Visibility.Hidden;
+            DeleteMother.Visibility = Visibility.Hidden;
+            UpdateMother.Visibility = Visibility.Hidden;
+            AddNanny.Visibility = Visibility.Hidden;
+            DeleteNanny.Visibility = Visibility.Hidden;
+            UpdateNanny.Visibility = Visibility.Hidden;
+            AddChild.Visibility = Visibility.Hidden;
+            DeleteChild.Visibility = Visibility.Hidden;
+            UpdateChild.Visibility = Visibility.Hidden;
+            AddContract.Visibility = Visibility.Hidden;
+            DeleteContract.Visibility = Visibility.Hidden;
+            UpdateContract.Visibility = Visibility.Hidden;
+            MotherList.Visibility = Visibility.Hidden;
+            NannyList.Visibility = Visibility.Hidden;
+            ChildrenList.Visibility = Visibility.Hidden;
+
+        }
+
+        private void Mother_Click(object sender, RoutedEventArgs e)
+        {
+            SetVisibilty();
+            AddMother.Visibility = Visibility.Visible;
+            DeleteMother.Visibility = Visibility.Visible;
+            UpdateMother.Visibility = Visibility.Visible; 
+        }
+
+        private void Nanny_Click(object sender, RoutedEventArgs e)
+        {
+            SetVisibilty();
+            AddNanny.Visibility = Visibility.Visible;
+            DeleteNanny.Visibility = Visibility.Visible;
+            UpdateNanny.Visibility = Visibility.Visible;
+        }
+
+        private void Child_Click(object sender, RoutedEventArgs e)
+        {
+            SetVisibilty();
+            AddChild.Visibility = Visibility.Visible;
+            DeleteChild.Visibility = Visibility.Visible;
+            UpdateChild.Visibility = Visibility.Visible;
+        }
+
+        private void Contract_Click(object sender, RoutedEventArgs e)
+        {
+            SetVisibilty();
+            AddContract.Visibility = Visibility.Visible;
+            DeleteContract.Visibility = Visibility.Visible;
+            UpdateContract.Visibility = Visibility.Visible;
+        }
+
+        private void Data_Base_Click(object sender, RoutedEventArgs e)
+        {
+            SetVisibilty();
+            MotherList.Visibility = Visibility.Visible;
+            NannyList.Visibility = Visibility.Visible;
+            ChildrenList.Visibility = Visibility.Visible;
+        }
+
+        private void AddMother_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+       
+        
 
 
         /* example of meesige box this example will help for initilzing a value of id 

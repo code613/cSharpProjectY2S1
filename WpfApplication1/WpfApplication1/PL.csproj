@@ -57,14 +57,34 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddChildWindow.xaml.cs">
+      <DependentUpon>AddChildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddContractWindow.xaml.cs">
+      <DependentUpon>AddContractWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddMotherWindow.xaml.cs">
+      <DependentUpon>AddMotherWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddNannyWindow.xaml.cs">
+      <DependentUpon>AddNannyWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="undateNanny1.xaml.cs">
       <DependentUpon>undateNanny1.xaml</DependentUpon>
     </Compile>
-    <Page Include="ChildDetailsWindow.xaml">
+    <Page Include="AddChildWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="childNeedsWindow.xaml">
+    <Page Include="AddContractWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddMotherWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddNannyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,12 +104,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="ChildDetailsWindow.xaml.cs">
-      <DependentUpon>ChildDetailsWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="childNeedsWindow.xaml.cs">
-      <DependentUpon>childNeedsWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="childWindow2.xaml.cs">
       <DependentUpon>childWindow2.xaml</DependentUpon>
     </Compile>
@@ -107,26 +121,12 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NannyWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="personDeitailsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="undateNanny1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NannyWindow.xaml.cs">
-      <DependentUpon>NannyWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="personDeitailsWindow.xaml.cs">
-      <DependentUpon>personDeitailsWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

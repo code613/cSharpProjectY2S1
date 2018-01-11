@@ -8,7 +8,17 @@ namespace BL
 {
     public interface IBL
     {
-
+         double sallary(Contract con);
+        List<Nanny> matchingNannies(Mother mo, Child ch);
+         IEnumerable<Nanny> proximityNannies(Mother mom);
+        List<Child> childrenWithoutNanny();
+        List<Nanny> vocationAcordingToGov();
+        IEnumerable<Nanny> NannyFeetToCondition(Func<Nanny, bool> someDel);
+        IEnumerable<Contract> contractFeetToCondition(Func<Contract, bool> someDel);
+        IEnumerable<int> conFeetToCondition(Func<Contract, bool> someDel);
+        IEnumerable<IGrouping<int, Nanny>> perAge(bool maxAge = false);
+        IEnumerable<IGrouping<int, Nanny>> Distance(Mother mo);
+        
         void addNanny(Nanny nan);
         void deleteNanny(string id);
         void updateNannyDetalis(Nanny nan);

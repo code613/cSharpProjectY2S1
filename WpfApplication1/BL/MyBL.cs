@@ -23,10 +23,10 @@ namespace BL
             get { return instance; }
         }
         #endregion
-        static Idal MyDal;
+        Idal MyDal = DALFactory.FactoryDAL.GetDAL();
         public MyBL()
         {
-            MyDal = DAL.DALFactory.FactoryDAL.GetDAL();
+            
           //  init();
         }
        //// void init()

@@ -16,9 +16,9 @@ namespace DAL
         #region child
         public void addChild(Child child)
         {
-            Child ch = findChild(child.ID);
-            if (ch != null)
-                throw new Exception("child with the same id already exists...");
+            //Child ch = findChild(child.ID);
+            //if (ch != null)
+            //    throw new Exception("child with the same id already exists...");
             DS.DataSourse.listOfChildren.Add(child);
         }
         public void deleteChild(string id)
@@ -37,7 +37,7 @@ namespace DAL
         }
         public Child findChild(string ID)
         {
-            return DS.DataSourse.listOfChildren.FirstOrDefault(c => c.ID == ID);
+            return DataSourse.listOfChildren.FirstOrDefault(c => c.ID == ID);
         }
         public List<Child> getListOfChildren()
         {
@@ -114,7 +114,8 @@ namespace DAL
             List<Child> myKidsList = new List<Child>();
             foreach (var item in getListOfChildren())
             {
-                if (item.myMother == mom)
+
+                if (findMother(item.MotherID) == mom)
                     myKidsList.Add(item);
             }
 

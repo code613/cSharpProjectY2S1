@@ -32,25 +32,25 @@ namespace BE
 
         //ctor
         public Nanny() { }
-        public Nanny(string id, string first_name, string last_name
-            , DateTime birthday, string inphone, string Addr
-            , bool is_elevator, int infloor, int inexperience, int inmax_kids
-            , int inMinAge, int inMaxAge, bool per_hour, bool inGovVacation, string inReferences) : base(id, first_name, last_name, birthday)
-        {
-            phone = inphone;
-            Address = Addr;
-            elevator = is_elevator;
-            floor = infloor;
-            Expirence = inexperience;
-            MaxChildren = inmax_kids;
-            MinAge = inMinAge;
-            MaxAge = inMaxAge;
-            isPerHour = per_hour;
-            bool[] WorkWeek = new bool[7];
-            DateTime[][] TimeTable = new DateTime[2][];
-            GovVacation = inGovVacation;
-            Recommendations = inReferences;
-        }
+        //public Nanny(string id, string first_name, string last_name
+        //    , DateTime birthday, string inphone, string Addr
+        //    , bool is_elevator, int infloor, int inexperience, int inmax_kids
+        //    , int inMinAge, int inMaxAge, bool per_hour, bool inGovVacation, string inReferences) : base(id, first_name, last_name, birthday)
+        //{
+        //    phone = inphone;
+        //    Address = Addr;
+        //    elevator = is_elevator;
+        //    floor = infloor;
+        //    Expirence = inexperience;
+        //    MaxChildren = inmax_kids;
+        //    MinAge = inMinAge;
+        //    MaxAge = inMaxAge;
+        //    isPerHour = per_hour;
+        //    bool[] WorkWeek = new bool[7];
+        //    DateTime[][] TimeTable = new DateTime[2][];
+        //    GovVacation = inGovVacation;
+        //    Recommendations = inReferences;
+        //}
     }
 }
 

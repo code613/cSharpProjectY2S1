@@ -6,20 +6,18 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    public sealed class BLFactory
+    public class BLFactory
     {
-        
 
-        public class FactoryBL
+        private static IBL instance = null;
+
+        public static IBL getBL()
         {
-            static IBL bl = null;
-            public static IBL GetBL()
+            if (instance == null)
             {
-                if (bl == null)
-                    bl = new MyBL();
-                return bl;
+                instance = new MyBL();
             }
+            return instance;
         }
-
     }
 }

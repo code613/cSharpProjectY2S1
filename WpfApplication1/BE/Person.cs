@@ -14,9 +14,9 @@ namespace BE
         public DateTime Birthday { get; set; }
         //ctor
         public Person() { }
-        public Person(string inID, string infirst_name, string inlast_name, DateTime inBirthday)
-        {
-            ID = inID; firstName = infirst_name; lastName = inlast_name; Birthday = inBirthday;
-        }
+        //public Person(string inID, string infirst_name, string inlast_name, DateTime inBirthday)
+        //{
+        //    ID = inID; firstName = infirst_name; lastName = inlast_name; Birthday = inBirthday;
+        //}
     }
 }

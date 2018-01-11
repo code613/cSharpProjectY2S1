@@ -23,10 +23,10 @@ namespace BE
         {
             return "mother:" + firstName + " " + lastName + " " + cellPhone + " " + googleAddress;
         }
-        //constructer
-        public Mother(string id, string first_name, string last_name, DateTime Birthday) : base(id, first_name, last_name, Birthday)
-        {
+        ////constructer
+        //public Mother(string id, string first_name, string last_name, DateTime Birthday) : base(id, first_name, last_name, Birthday)
+        //{
 
-        }
+        //}
     }
 }

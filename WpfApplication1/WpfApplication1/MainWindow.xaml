@@ -1,9 +1,9 @@
-﻿<Window x:Class="WpfApplication1.MainWindow"
+﻿<Window x:Class="PL.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApplication1"
+        xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" WindowState="Maximized"  WindowStartupLocation="CenterScreen" Background="Pink"
         SizeToContent="Width"  Icon="./resources/single pink flower.png">
@@ -36,16 +36,16 @@
         <Button x:Name="Child" Content="Child" Grid.Column="2" HorizontalAlignment="Left" Margin="39,65,0,0" VerticalAlignment="Top" Width="100" Click="Child_Click"/>
         <Button x:Name="Contract" Content="Contract" Grid.Column="3" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top" Width="100" Click="Contract_Click"/>
         <Button x:Name="Data_Base" Content="Data Base" Grid.Column="4" HorizontalAlignment="Left" Margin="42,65,0,0" VerticalAlignment="Top" Width="100" Click="Data_Base_Click"/>
-        <Button x:Name="AddMother" Content="Add Mother" HorizontalAlignment="Left" Margin="35,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <Button x:Name="AddMother" Content="Add Mother" HorizontalAlignment="Left" Margin="35,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden" Click="addMother_Click"/>
         <Button x:Name="DeleteMother" Content="Delete Mother" HorizontalAlignment="Left" Margin="35,56,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
         <Button x:Name="UpdateMother" Content="Update Mother" HorizontalAlignment="Left" Margin="35,69,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
-        <Button x:Name="AddNanny"  Content="Add Nanny" Grid.Column="1" HorizontalAlignment="Left" Margin="32,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <Button x:Name="AddNanny"  Content="Add Nanny" Grid.Column="1" HorizontalAlignment="Left" Margin="32,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden"  Click="addNanny_Click"/>
         <Button x:Name="DeleteNanny" Content="Delete Nanny" Grid.Column="1" HorizontalAlignment="Left" Margin="32,56,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
         <Button x:Name="UpdateNanny" Content="Update Nanny" Grid.Column="1" HorizontalAlignment="Left" Margin="32,69,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
-        <Button x:Name="AddChild" Content="Add Child" Grid.Column="2" HorizontalAlignment="Left" Margin="39,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden"  Click="AddChild_Click"/>
+        <Button x:Name="AddChild" Content="Add Child" Grid.Column="2" HorizontalAlignment="Left" Margin="39,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden"  Click="addChild_Click"/>
         <Button x:Name="DeleteChild" Content="Delete Child" Grid.Column="2" HorizontalAlignment="Left" Margin="39,56,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
         <Button x:Name="UpdateChild" Content="Update Child" Grid.Column="2" HorizontalAlignment="Left" Margin="39,69,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
-        <Button x:Name="AddContract" Content="Add Contract" Grid.Column="3" HorizontalAlignment="Left" Margin="30,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <Button x:Name="AddContract" Content="Add Contract" Grid.Column="3" HorizontalAlignment="Left" Margin="30,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden" Click="addContract_Click"/>
         <Button x:Name="DeleteContract" Content="Delete Contract" Grid.Column="3" HorizontalAlignment="Left" Margin="30,56,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
         <Button x:Name="UpdateContract" Content="Update Contract" Grid.Column="3" HorizontalAlignment="Left" Margin="30,69,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
         <Button x:Name="MotherList"  Content="get list of mothers" Grid.Column="4" HorizontalAlignment="Left" Margin="42,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>

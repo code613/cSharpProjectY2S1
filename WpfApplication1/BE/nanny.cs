@@ -8,12 +8,22 @@ namespace BE
 {
     public class Nanny : Person
     {
+        //public Nanny()
+        //{
+        //    WorkWeek = new DayOfWork[6];
+        //    for (int i = 0; i < 6; i++)
+        //    {
+        //        WorkWeek[i] = new DayOfWork();
+        //    }
+        //    DayOfWork=
+
+
+        //}
 
         public string phone { get; set; }
         public string Address { get; set; }
         public bool elevator { get; set; }
         public int floor { get; set; }
-        
         public int Expirence { get; set; }
         public int MaxChildren { get; set; }
         public int MinAge { get; set; }
@@ -22,16 +32,17 @@ namespace BE
         public float HourSallary { get; set; }
         public float SallaryPerMonths { get; set; }
         public bool[] WorkWeek = new bool[7];
-        public DateTime[][] TimeTable = new DateTime[2][];
+        public DayOfWork[] Week_of_work { get; set; }
         public bool GovVacation { get; set; }
         public string Recommendations { get; set; }
         public override string ToString()
         {
             return "nanny: " + firstName + " " + lastName + " " + phone + " " + Address;
         }
+       
 
         //ctor
-        public Nanny() { }
+       
         //public Nanny(string id, string first_name, string last_name
         //    , DateTime birthday, string inphone, string Addr
         //    , bool is_elevator, int infloor, int inexperience, int inmax_kids

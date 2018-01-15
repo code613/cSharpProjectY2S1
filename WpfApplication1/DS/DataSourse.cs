@@ -7,7 +7,7 @@ using BE;
 
 namespace DS
 {
-    public class DataSourse//list of things
+    public class DataSourse
     {
         public static List<Child> listOfChildren;
         public static List<Mother> listOfMothers;

@@ -6,13 +6,11 @@
         xmlns:local="clr-namespace:PL"
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PL.AddMotherWindow"
         mc:Ignorable="d"
-        Title="AddMotherWindow" Height="300" Width="300" Loaded="Window_Loaded">
-    <Window.Resources>
-        <CollectionViewSource x:Key="motherViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Mother}, CreateList=True}"/>
-    </Window.Resources>
+        Title="AddMotherWindow" Height="580" Width="300" >
+    
     <Grid>
 
-        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="10,-50,0,-33" HorizontalAlignment="Left" DataContext="{StaticResource motherViewSource}" Width="282">
+        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="10,28,0,0" HorizontalAlignment="Left" Width="282">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -53,6 +51,7 @@
             <Label VerticalAlignment="Center" Grid.Row="10" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="search Area:"/>
             <TextBox x:Name="searchAreaTextBox" Width="120" VerticalAlignment="Center" Text="{Binding searchArea, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="10" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
         </Grid>
+        <Button x:Name="AddMotherButoon" Content="Add mother" HorizontalAlignment="Left" Margin="105,425,0,0" VerticalAlignment="Top" Width="75" Click="AddMotherButoon_Click"/>
 
     </Grid>
 </Window>

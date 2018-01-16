@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:PL"
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PL.AddMotherWindow"
         mc:Ignorable="d"
-        Title="AddMotherWindow" Height="700" Width="300" >
-
+        Title="AddMotherWindow" Height="580" Width="300" >
+    
     <Grid>
 
-        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="10,0,0,-12" HorizontalAlignment="Left"  Width="282">
+        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="10,28,0,0" HorizontalAlignment="Left" Width="282">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -28,30 +28,30 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="ID:"/>
-            <TextBox x:Name="iDTextBox" Width="120" VerticalAlignment="Center" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="first Name:"/>
-            <TextBox x:Name="firstNameTextBox" Width="120" VerticalAlignment="Center" Text="{Binding firstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="last Name:"/>
-            <TextBox x:Name="lastNameTextBox" Width="120" VerticalAlignment="Center" Text="{Binding lastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Birthday:"/>
-            <DatePicker x:Name="birthdayDatePicker" VerticalAlignment="Center" SelectedDate="{Binding Birthday, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Birthday:"/>
+            <DatePicker x:Name="birthdayDatePicker" VerticalAlignment="Center" SelectedDate="{Binding Birthday, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="cell Phone:"/>
+            <TextBox x:Name="cellPhoneTextBox" Width="120" VerticalAlignment="Center" Text="{Binding cellPhone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="comments:"/>
+            <TextBox x:Name="commentsTextBox" Width="120" VerticalAlignment="Center" Text="{Binding comments, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="first Name:"/>
+            <TextBox x:Name="firstNameTextBox" Width="120" VerticalAlignment="Center" Text="{Binding firstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="google Address:"/>
             <TextBox x:Name="googleAddressTextBox" Width="120" VerticalAlignment="Center" Text="{Binding googleAddress, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="cell Phone:"/>
-            <TextBox x:Name="cellPhoneTextBox" Width="120" VerticalAlignment="Center" Text="{Binding cellPhone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="5" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="6" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="comments:"/>
-            <TextBox x:Name="commentsTextBox" Width="120" VerticalAlignment="Center" Text="{Binding comments, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="66" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="7" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="house Phone:"/>
-            <TextBox x:Name="housePhoneTextBox" Width="120" VerticalAlignment="Center" Text="{Binding housePhone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="0,8,129,5" Height="24" HorizontalAlignment="Right" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="8" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="is Singal Parent:"/>
-            <CheckBox x:Name="isSingalParentCheckBox" VerticalAlignment="Center" Grid.Row="7" Margin="3" IsChecked="{Binding isSingalParent, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Grid.Column="8" Content=""/>
+            <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="house Phone:"/>
+            <TextBox x:Name="housePhoneTextBox" Width="120" VerticalAlignment="Center" Text="{Binding housePhone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="6" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="ID:"/>
+            <TextBox x:Name="iDTextBox" Width="120" VerticalAlignment="Center" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="7" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="is Singal Parent:"/>
+            <CheckBox x:Name="isSingalParentCheckBox" VerticalAlignment="Center" Grid.Row="7" Margin="3" IsChecked="{Binding isSingalParent, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Grid.Column="1" Content=""/>
+            <Label VerticalAlignment="Center" Grid.Row="8" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="last Name:"/>
+            <TextBox x:Name="lastNameTextBox" Width="120" VerticalAlignment="Center" Text="{Binding lastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="8" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="9" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="need Nanny Address:"/>
             <TextBox x:Name="needNannyAddressTextBox" Width="120" VerticalAlignment="Center" Text="{Binding needNannyAddress, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="9" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="10" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="search Area:"/>
             <TextBox x:Name="searchAreaTextBox" Width="120" VerticalAlignment="Center" Text="{Binding searchArea, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="10" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
         </Grid>
-        <Button x:Name="AddMotherButton" Content="Add mother" HorizontalAlignment="Left" Margin="100,390,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="AddMotherButoon" Content="Add mother" HorizontalAlignment="Left" Margin="105,425,0,0" VerticalAlignment="Top" Width="75" Click="AddMotherButoon_Click"/>
 
     </Grid>
 </Window>

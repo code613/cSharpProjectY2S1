@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BL;
+using BE;
 
 namespace PL
 {
@@ -19,11 +21,37 @@ namespace PL
     /// </summary>
     public partial class AddContractWindow : Window
     {
+        IBL bl;
+        Contract contract;
         public AddContractWindow()
         {
             InitializeComponent();
+            contract = new Contract();
+            this.DataContext = contract;
+            bl = BLFactory.getBL();
+            
         }
 
+       
         
+
+
+       
+
+        private void AddContractButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                bl.addContract(contract);
+                MessageBox.Show(bl.getListOfContracts().LastOrDefault().ToString());
+                Close();
+            }
+            catch (Exception x)
+            {
+
+                MessageBox.Show(x.Message);
+            }
+
+        }
     }
 }

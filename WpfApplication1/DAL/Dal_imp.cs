@@ -13,12 +13,14 @@ namespace DAL
     {
 
         static Random r = new Random();
+
         #region child
         public void addChild(Child child)
         {
-            //Child ch = findChild(child.ID);
-            //if (ch != null)
-            //    throw new Exception("child with the same id already exists...");
+            
+            Child ch = findChild(child.ID);
+            if (ch != null)
+                throw new Exception("child with the same id already exists...");
             DS.DataSourse.listOfChildren.Add(child);
         }
         public void deleteChild(string id)
@@ -38,10 +40,13 @@ namespace DAL
         public Child findChild(string ID)
         {
             return DataSourse.listOfChildren.FirstOrDefault(c => c.ID == ID);
+            
         }
-        public List<Child> getListOfChildren()
+        public List<Child> getListOfChildren(Func<Child,bool> predicate=null)
         {
-            return DS.DataSourse.listOfChildren;
+            if (predicate != null)
+                return DataSourse.listOfChildren.Where(predicate).ToList();
+            return DataSourse.listOfChildren;
         }
         #endregion
 
@@ -72,8 +77,10 @@ namespace DAL
         {
             return DS.DataSourse.listOfNannys.FirstOrDefault(n => n.ID == ID);
         }
-        public List<Nanny> getListOfNannies()
+        public List<Nanny> getListOfNannies(Func<Nanny,bool> predicate=null)
         {
+            if (predicate != null)
+                return DataSourse.listOfNannys.Where(predicate).ToList();
             return DS.DataSourse.listOfNannys;
         }
         #endregion
@@ -84,14 +91,13 @@ namespace DAL
             Mother mom = findMother(mother.ID);
             if (mom != null)
                 throw new Exception("mother with the same id already exsist...");
-
             DS.DataSourse.listOfMothers.Add(mother);
         }
         public void deleteMother(string id)
         {
             Mother mom = findMother(id);
             if (mom == null)
-                throw new Exception("mom  not found...");
+                throw new Exception("mother  not found...");
             DS.DataSourse.listOfMothers.Remove(mom);
         }
         public void updateMotherDetalis(Mother mom)
@@ -105,20 +111,18 @@ namespace DAL
         {
             return DS.DataSourse.listOfMothers.FirstOrDefault(m => m.ID == ID);
         }
-        public List<Mother> getListOfMothers()
+        public List<Mother> getListOfMothers(Func<Mother,bool> predicate=null)
         {
+            if (predicate != null)
+                return DataSourse.listOfMothers.Where(predicate).ToList(); 
             return DS.DataSourse.listOfMothers;
         }
         public List<Child> getListOfMothersChildren(Mother mom)
         {
             List<Child> myKidsList = new List<Child>();
-            foreach (var item in getListOfChildren())
-            {
-
-                if (findMother(item.MotherID) == mom)
-                    myKidsList.Add(item);
-            }
-
+            myKidsList.FindAll(C => findMother(C.MotherID) == mom);
+            if (myKidsList.Count == 0)
+                throw new Exception("this mother as No kids in the sistem");
             return myKidsList;
 
 
@@ -139,9 +143,7 @@ namespace DAL
             Nanny nan = findNanny(contract.nanny_ID);
             if (nan == null || mom == null)
                 throw new Exception("error in nanny or mother id...");
-            Contract con = findContract(contract.contract_number);
-            if (con != null)
-                throw new Exception("contract with same number already found...");
+            
             DS.DataSourse.listOfConntracts.Add(contract);
         }
         public void deleteContract(int number)
@@ -162,8 +164,10 @@ namespace DAL
         {
             return DS.DataSourse.listOfConntracts.FirstOrDefault(c => c.contract_number == contract_number);
         }
-        public List<Contract> getListOfContracts()
+        public List<Contract> getListOfContracts(Func<Contract,bool> predicate=null)
         {
+            if (predicate != null)
+                return DataSourse.listOfConntracts.Where(predicate).ToList();
             return DS.DataSourse.listOfConntracts;
         }
         #endregion

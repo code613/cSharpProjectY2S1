@@ -21,8 +21,10 @@ namespace PL
     /// </summary>
     public partial class AddChildWindow : Window
     {
-        Child child;
+        
         IBL bl;
+        Child child;
+        
         public AddChildWindow()
         {
             InitializeComponent();
@@ -31,13 +33,16 @@ namespace PL
             bl = BLFactory.getBL();
             
         }
+        
 
         private void AddChildButton_Click(object sender, RoutedEventArgs e)
         {
+           
             try
             {
+                
                 bl.addChild(child);
-                MessageBox.Show(child.firstName + " was successfully added\n" + bl.getListOfChildren().LastOrDefault().ToString());
+                MessageBox.Show(child.firstName + " was successfully added\n" + bl.getListOfChildren(null).LastOrDefault().ToString());
                 this.Close();
             }
             catch (Exception x)

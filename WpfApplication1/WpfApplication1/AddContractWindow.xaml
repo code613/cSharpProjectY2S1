@@ -6,13 +6,11 @@
         xmlns:local="clr-namespace:PL"
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PL.AddContractWindow"
         mc:Ignorable="d"
-        Title="AddContractWindow" Height="300" Width="300" Loaded="Window_Loaded">
-    <Window.Resources>
-        <CollectionViewSource x:Key="contractViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Contract}, CreateList=True}"/>
-    </Window.Resources>
+        Title="AddContractWindow" Height="300" Width="300" >
+   
     <Grid>
 
-        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="45,10,-125,-163" HorizontalAlignment="Left" DataContext="{StaticResource contractViewSource}" Height="422" Width="372">
+        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="45,10,-125,-163" HorizontalAlignment="Left"  Height="422" Width="372">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>

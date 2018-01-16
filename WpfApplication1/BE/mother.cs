@@ -7,26 +7,40 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Mother : Person
+    public class Mother : Person//person :id, first name,last name,birthday.
     {
+        public Mother()
+        {
+            serviseNeededTimeTable= new DayOfWork[6];
+            for (int i = 0; i < 6; i++)
+            {
+                serviseNeededTimeTable[i]= new DayOfWork();
+            }
+            daysNeedNanny = new bool[6];
+        }
         public string housePhone { get; set; }
         public string cellPhone { get; set; }
-        public string googleAddress { get; set; }
-        public string searchArea { get; set; }//neiberhood?? is better?
-        public bool[] daysNeedNanny = new bool[7];
-        public DateTime[][] serviseNeededTimeTable = new DateTime[2][];
+        public string address { get; set; }
+        public string searchArea { get; set; }
+        public bool[] daysNeedNanny { get; set; }
+        public DayOfWork[] serviseNeededTimeTable { get; set; }
         public bool isSingalParent { get; set; }
         public string comments { get; set; }
         public string needNannyAddress { get; set; }
 
         public override string ToString()
         {
-            return "mother:" + firstName + " " + lastName + " " + cellPhone + " " + googleAddress;
+            return "mother:" + firstName + " " + lastName + " " + cellPhone + " " + address;
         }
-        ////constructer
-        //public Mother(string id, string first_name, string last_name, DateTime Birthday) : base(id, first_name, last_name, Birthday)
-        //{
+        
 
-        //}
     }
+    public class DayOfWork
+    {
+        public int day;
+        public TimeSpan start;
+        public TimeSpan end;
+        public DayOfWork() { start = new TimeSpan(); end = new TimeSpan(); }
+    }
+
 }

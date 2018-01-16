@@ -8,6 +8,11 @@ namespace BE
 {
     public class Contract
     {
+        public Contract()
+        {
+            starts = new DateTime();
+            ends = new DateTime();
+        }
         public int contract_number { get; set; }
         public string nanny_ID { get; set; }
         public string mother_ID { get; set; }
@@ -23,23 +28,6 @@ namespace BE
         {
             return " contract:" + contract_number;
         }
-        //ctor
-        //public Contract(string Nanny_ID, string Child_ID, string mother_id
-        //    , bool haveTheyMet, bool is_Sighned, double inPaymentPerHour, double inPaymentPerMonth,
-        //    string monthOrHour, DateTime startsOfCon, DateTime endsOfCon)
-        //{
-
-        //    nanny_ID = Nanny_ID;
-        //    child_ID = Child_ID;
-        //    mother_ID = mother_id;
-        //    Sighned = is_Sighned;
-        //    meeting = haveTheyMet;
-        //    paymentPerHour = inPaymentPerHour;
-        //    paymentPerMonth = inPaymentPerMonth;
-        //    monthOrHourContract = monthOrHour;
-        //    starts = startsOfCon;
-        //    ends = endsOfCon;
-
-        //}
+        
     }
 }

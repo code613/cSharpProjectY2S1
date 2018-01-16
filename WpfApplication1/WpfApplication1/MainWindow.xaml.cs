@@ -29,6 +29,7 @@ namespace PL
             InitializeComponent();
             this.Title = theTitle;
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            TheBL = BLFactory.getBL();
         }
 
 
@@ -104,8 +105,8 @@ namespace PL
         }
         private void addNanny_Click(object sender, RoutedEventArgs e)
         {
-            //Window addNannyWindow = new AddNannyWindow();
-           // addNannyWindow.Show();
+            Window addNannyWindow = new AddNannyWindow();
+            addNannyWindow.Show();
         }
         private void addContract_Click(object sender, RoutedEventArgs e)
         {

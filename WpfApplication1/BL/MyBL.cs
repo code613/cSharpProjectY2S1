@@ -23,10 +23,10 @@ namespace BL
             get { return instance; }
         }
         #endregion
-        static Idal MyDal;
+        Idal MyDal = DALFactory.FactoryDAL.GetDAL();
         public MyBL()
         {
-            MyDal = DAL.DALFactory.FactoryDAL.GetDAL();
+            
           //  init();
         }
        //// void init()
@@ -81,7 +81,17 @@ namespace BL
         #region child
         public void addChild(Child ch)
         {
-            MyDal.addChild(ch);
+            try
+            {
+                MyDal.addChild(ch);
+                
+            }
+            catch (InvalidCastException e)
+            {
+
+                throw e;
+            }
+            
         }
         public void deleteChild(string id)
         {
@@ -95,9 +105,18 @@ namespace BL
         {
             return MyDal.getListOfMothersChildren(mo);
         }
-        public List<Child> getListOfChildren()
+        public List<Child> getListOfChildren(Func <Child,bool> predicate=null)
         {
-            return MyDal.getListOfChildren();
+            try
+            {
+                return MyDal.getListOfChildren(predicate);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            
         }
         public Child findChild(string ID)
         {
@@ -125,9 +144,18 @@ namespace BL
         {
             MyDal.deleteNanny(id);
         }
-        public List<Nanny> getListOfNannies()
+        public List<Nanny> getListOfNannies(Func<Nanny, bool> predicate=null)
         {
-            return MyDal.getListOfNannies();
+            try
+            {
+                return MyDal.getListOfNannies(predicate);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            
         }
         public void updateNannyDetalis(Nanny nan)
         {
@@ -161,9 +189,18 @@ namespace BL
         {
             MyDal.updateMotherDetalis(mom);
         }
-        public List<Mother> getListOfMothers()
+        public List<Mother> getListOfMothers(Func<Mother,bool> predicate=null)
         {
-            return MyDal.getListOfMothers();
+            try
+            {
+                return MyDal.getListOfMothers(predicate);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+           
         }
         public Mother findMother(string ID)
         {
@@ -183,8 +220,8 @@ namespace BL
             int childAge = DateTime.Now.Month - ch.Birthday.Month;
             if (childAge > nan.MaxAge || childAge < nan.MinAge)
                 throw new Exception("this nanny dosn't take kids at this age");
-            con.paymentPerHour = nan.HourSallary;
-            con.paymentPerMonth = sallary(con);
+            con.paymentPerHour = nan.HourSalary;
+            con.paymentPerMonth = salary(con);
 
             MyDal.addContract(con);
         }
@@ -209,9 +246,17 @@ namespace BL
         {
             MyDal.deleteContract(number);
         }
-        public List<Contract> getListOfContracts()
+        public List<Contract> getListOfContracts(Func<Contract, bool> predicate = null)
         {
-            return MyDal.getListOfContracts();
+            try
+            {
+                return MyDal.getListOfContracts(predicate);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            
         }
         public void updateContractDetalis(Contract con)
         {
@@ -229,7 +274,7 @@ namespace BL
         /// </summary>
         /// <param name="con"></param>
         /// <returns></returns>
-        public double sallary(Contract con)
+        public double salary(Contract con)
         {
             Nanny nan = findNanny(con.nanny_ID);
             Mother mo = findMother(con.mother_ID);
@@ -243,10 +288,10 @@ namespace BL
                 double hours = 0;
                 for (int i = 0; i < 6; i++)
                 {
-                    TimeSpan diff = mo.serviseNeededTimeTable[i][1] - mo.serviseNeededTimeTable[i][0];
+                    TimeSpan diff = mo.serviseNeededTimeTable[i].end - mo.serviseNeededTimeTable[i].start;
                     hours += diff.TotalHours;
                 }
-                nannySalary = (double)4 * hours * nan.HourSallary;
+                nannySalary = (double)4 * hours * nan.HourSalary;
             }
             List<Child> childrenList = getListOfMothersChildren(mo);
             List<Contract> contractList = getListOfContracts();
@@ -277,16 +322,15 @@ namespace BL
             List<Nanny> matchingNannies = new List<Nanny>();
             foreach (var item in getListOfNannies())
             {
-
                 bool isMatch = true;
-                for (int i = 0; i < 7; i++)//check if the days are matching
+                for (int i = 0; i < 6; i++)//check if the days are matching
                 {
                     if (mo.daysNeedNanny[i] && !item.WorkWeek[i])
                         isMatch = false;
                 }
                 for (int i = 0; i < 6; i++)//check if the hours are matching
                 {
-                    if (mo.serviseNeededTimeTable[i][0] < item.TimeTable[i][0] || mo.serviseNeededTimeTable[i][1] > item.TimeTable[i][1])
+                    if (mo.serviseNeededTimeTable[i].start < item.TimeTable[i].start || mo.serviseNeededTimeTable[i].start > item.TimeTable[i].start)
                         isMatch = false;
                 }
                 int childAge = DateTime.Now.Month - ch.Birthday.Month;
@@ -304,10 +348,10 @@ namespace BL
             return matchingNannies;
         }
 
-        /* private List<Nanny> closestToMotherNeeds(Mother mo)
-          {
+        /*public List<Nanny> closestToMotherNeeds(Mother mo)
+        {
 
-          }*/
+        }*/
 
         /// <summary>
           /// return's all nannies that are close to mother required location(15 km)
@@ -317,7 +361,7 @@ namespace BL
         public IEnumerable <Nanny> proximityNannies (Mother mom)
         {
             return from Nanny n in getListOfNannies()
-                   where CalculateDistance(n.Address,(mom.needNannyAddress == "" ? mom.googleAddress : mom.needNannyAddress)) <= 15000
+                   where CalculateDistance(myEnum.TipeOfTravel.walking, n.Address,(mom.needNannyAddress == "" ? mom.address : mom.needNannyAddress)) <= 15000
                    select n;
         }
 
@@ -360,17 +404,7 @@ namespace BL
             return vocation_acording_to_gov;
         }
 
-        /// <summary>
-        /// return's all the nannies that are feet to some condition
-        /// </summary>
-        /// <param name="someDel"></param>
-        /// <returns></returns>
-        public IEnumerable<Nanny> NannyFeetToCondition(Func<Nanny, bool> someDel)
-        {
-            return from  n in getListOfNannies()
-                   where someDel(n)
-                   select n;
-        }
+      
 
         /// <summary>
         /// return's all the contracts that are feet to some condition
@@ -425,11 +459,11 @@ namespace BL
         /// </summary>
         /// <param name="mo"></param>
         /// <returns></returns>
-        public IEnumerable<IGrouping<int, Nanny>> Distance(Mother mo)
+        public IEnumerable<IGrouping<int, Nanny>> Distance(Mother mo,myEnum.TipeOfTravel tipeOfTravel)
         {
 
             IEnumerable<IGrouping<int, Nanny>> query = from nan in getListOfNannies()
-                                                       group nan by CalculateDistance(mo.searchArea, nan.Address) / 5;
+                                                       group nan by CalculateDistance(tipeOfTravel,mo.searchArea, nan.Address) / 5;
             return query;
 
         }
@@ -440,11 +474,12 @@ namespace BL
         /// <param name="source"></param>
         /// <param name="dest"></param>
         /// <returns></returns>
-        public static int CalculateDistance(string source, string dest)
+        public static int CalculateDistance(myEnum.TipeOfTravel tipeOfTravel, string source, string dest)
         {
+
             var drivingDirectionRequest = new DirectionsRequest
             {
-                TravelMode = TravelMode.Walking,
+                TravelMode = tipeOfTravel == myEnum.TipeOfTravel.walking ? TravelMode.Walking : TravelMode.Driving,
                 Origin = source,
                 Destination = dest,
             };
@@ -453,5 +488,7 @@ namespace BL
             Leg leg = route.Legs.First();
             return leg.Distance.Value;
         }
+
+        
     }
 }

@@ -7,11 +7,11 @@ using BE;
 
 namespace DS
 {
-    public class DataSourse//list of things
+    public class DataSourse
     {
-        public static List<Child> listOfChildren;
-        public static List<Mother> listOfMothers;
-        public static List<Nanny> listOfNannys;
-        public static List<Contract> listOfConntracts;
+        public static List<Child> listOfChildren = new List<Child>();
+        public static List<Mother> listOfMothers= new List<Mother>();
+        public static List<Nanny> listOfNannys = new List<Nanny>();
+        public static List<Contract> listOfConntracts = new List<Contract>();
     }
 }

@@ -22,85 +22,168 @@ namespace PL
     /// </summary>
     public partial class MainWindow : Window
     {
-        MyBL TheBL = new MyBL();//need new
+        IBL TheBL ;
         string  theTitle = "premeir Nanny Hiring enterprise";//how to make const?
         public MainWindow()
         {
             InitializeComponent();
             this.Title = theTitle;
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            TheBL = BLFactory.getBL();
         }
 
 
-        private void ButtonToAddChild_Click(object sender, RoutedEventArgs e)
+        private void SetVisibilty()
         {
-            Child theChild;
-            Person tempPer  = personWindow();//get person window
-            if (tempPer == null) { return; }//if exit of window then returns as detils not filled in
-            theChild = theChildWindow(tempPer);//get child window (w/o mistakes)
-            if (theChild == null) { return; }
-            MessageBox.Show("CONGRADUALATIONS!! welcome {0} to {1} ", tempPer.firstName);//, theTitle);
-            TheBL.addChild(theChild);
-        }
-
-        private Child theChildWindow(Person tempPer)
-        {
-    bool flag = false;
-    do
-    {
-         try
-         {
-            ChildDetailsWindow childDet = new ChildDetailsWindow();
-            childDet.ShowDialog();//open's the other window(?!?)//becouse of Dialog()??
-            Mother mom = TheBL.findMother(childDet.momID);
-           if (mom != null)
-           {
-                Child theChild = new Child(tempPer.ID, tempPer.firstName, tempPer.Birthday, TheBL.findMother(childDet.momID),
-                    childDet.childHasSpecailNeeds, childDet.finishSpecalData);//humm wounder if can do some defoult here?
-                return theChild;
-           }
-            else
-            {
-                      throw new Exception ("Error mother ID is not found (or not typed in properly)");
-            }
-                }
-                catch (Exception err)
-                {
-                 MessageBox.Show(err.Message);//need yes and no if no the return else flag = true 
-                    return null;
-                }  
-            } while (flag);
-        }
-        private Person personWindow()
-        {
-            personDeitailsWindow per = new personDeitailsWindow();
-            per.ShowDialog();//i think i need this to open up the window after it was created above
-            return per.temp;//how dose this work ?? with a copyconstructer??
-        }
-
-        private void ButtonToAddContract_Click(object sender, RoutedEventArgs e)
-        {
+            AddMother.Visibility = Visibility.Hidden;
+            DeleteMother.Visibility = Visibility.Hidden;
+            UpdateMother.Visibility = Visibility.Hidden;
+            AddNanny.Visibility = Visibility.Hidden;
+            DeleteNanny.Visibility = Visibility.Hidden;
+            UpdateNanny.Visibility = Visibility.Hidden;
+            AddChild.Visibility = Visibility.Hidden;
+            DeleteChild.Visibility = Visibility.Hidden;
+            UpdateChild.Visibility = Visibility.Hidden;
+            AddContract.Visibility = Visibility.Hidden;
+            DeleteContract.Visibility = Visibility.Hidden;
+            UpdateContract.Visibility = Visibility.Hidden;
+            MotherList.Visibility = Visibility.Hidden;
+            NannyList.Visibility = Visibility.Hidden;
+            ChildrenList.Visibility = Visibility.Hidden;
 
         }
 
-        private void ButtonToAddNanny_Click(object sender, RoutedEventArgs e)
+        private void Mother_Click(object sender, RoutedEventArgs e)
         {
-            Nanny theNanny;
-            Person tempPer = personWindow();
-            if (tempPer == null) { return; }
+            SetVisibilty();
+            AddMother.Visibility = Visibility.Visible;
+            DeleteMother.Visibility = Visibility.Visible;
+            UpdateMother.Visibility = Visibility.Visible; 
+        }
 
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Nanny_Click(object sender, RoutedEventArgs e)
         {
-            Mother theMother;
-            Person tempPer = personWindow();
-            if (tempPer == null) { return; }
+            SetVisibilty();
+            AddNanny.Visibility = Visibility.Visible;
+            DeleteNanny.Visibility = Visibility.Visible;
+            UpdateNanny.Visibility = Visibility.Visible;
         }
+
+        private void Child_Click(object sender, RoutedEventArgs e)
+        {
+            SetVisibilty();
+            AddChild.Visibility = Visibility.Visible;
+            DeleteChild.Visibility = Visibility.Visible;
+            UpdateChild.Visibility = Visibility.Visible;
+        }
+
+        private void Contract_Click(object sender, RoutedEventArgs e)
+        {
+            SetVisibilty();
+            AddContract.Visibility = Visibility.Visible;
+            DeleteContract.Visibility = Visibility.Visible;
+            UpdateContract.Visibility = Visibility.Visible;
+        }
+
+        private void Data_Base_Click(object sender, RoutedEventArgs e)
+        {
+            SetVisibilty();
+            MotherList.Visibility = Visibility.Visible;
+            NannyList.Visibility = Visibility.Visible;
+            ChildrenList.Visibility = Visibility.Visible;
+        }
+
+        private void addChild_Click(object sender, RoutedEventArgs e)
+        {
+            Window addChildWindow = new AddChildWindow();
+            addChildWindow.Show();
+        }
+        private void addMother_Click(object sender, RoutedEventArgs e)
+        {
+            Window addMotherWindow = new AddMotherWindow();
+            addMotherWindow.Show();
+        }
+        private void addNanny_Click(object sender, RoutedEventArgs e)
+        {
+            Window addNannyWindow = new AddNannyWindow();
+            addNannyWindow.Show();
+        }
+        private void addContract_Click(object sender, RoutedEventArgs e)
+        {
+            Window addContractWindow = new AddContractWindow();
+            addContractWindow.Show();
+        }
+
+
 
 
         /* example of meesige box this example will help for initilzing a value of id 
 private void validateUserEntry()
 {
+    //    private void AddChild_Click(object sender, RoutedEventArgs e)
+    //    {
+    //        Child theChild;
+    //        Person tempPer  = personWindow();//get person window
+    //        if (tempPer == null) { return; }//if exit of window then returns as detils not filled in
+    //        theChild = theChildWindow(tempPer);//get child window (w/o mistakes)
+    //        if (theChild == null) { return; }
+    //        MessageBox.Show("CONGRADUALATIONS!! welcome {0} to {1} ", tempPer.firstName);//, theTitle);
+    //        TheBL.addChild(theChild);
+    //    }
+
+    //    private Child theChildWindow(Person tempPer)
+    //    {
+    //bool flag = false;
+    //do
+    //{
+    //     try
+    //     {
+    //        ChildDetailsWindow childDet = new ChildDetailsWindow();
+    //        childDet.ShowDialog();//open's the other window(?!?)//becouse of Dialog()??
+    //        Mother mom = TheBL.findMother(childDet.momID);
+    //       if (mom != null)
+    //       {
+    //            Child theChild = new Child(tempPer.ID, tempPer.firstName, tempPer.Birthday, TheBL.findMother(childDet.momID),
+    //                childDet.childHasSpecailNeeds, childDet.finishSpecalData);//humm wounder if can do some defoult here?
+    //            return theChild;
+    //       }
+    //        else
+    //        {
+    //                  throw new Exception ("Error mother ID is not found (or not typed in properly)");
+    //        }
+    //            }
+    //            catch (Exception err)
+    //            {
+    //             MessageBox.Show(err.Message);//need yes and no if no the return else flag = true 
+    //                return null;
+    //            }  
+    //        } while (flag);
+    //    }
+    //    private Person personWindow()
+    //    {
+    //        personDeitailsWindow per = new personDeitailsWindow();
+    //        per.ShowDialog();//i think i need this to open up the window after it was created above
+    //        return per.temp;//how dose this work ?? with a copyconstructer??
+    //    }
+
+    //    private void ButtonToAddContract_Click(object sender, RoutedEventArgs e)
+    //    {
+
+    //    }
+
+        //private void ButtonToAddNanny_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Nanny theNanny;
+        //    Person tempPer = personWindow();
+        //    if (tempPer == null) { return; }
+
+        //}
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Mother theMother;
+        //    Person tempPer = personWindow();
+        //    if (tempPer == null) { return; }
+        //}
 
 // Checks the value of the text.
 

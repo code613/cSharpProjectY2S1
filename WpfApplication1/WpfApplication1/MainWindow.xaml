@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" ResizeMode="NoResize" Topmost="False"
-         WindowState="Maximized" WindowStartupLocation="CenterScreen" Icon="./resources/single pink flower.png">
+        Title="MainWindow" Height="600" Width="800" WindowState="Maximized"  WindowStartupLocation="CenterScreen" Background="Pink"
+        SizeToContent="Width"  Icon="./resources/single pink flower.png">
     <!-- Here's a valid comment. Notice it's outside the <UserControl> tag's braces -->
     <Window.Resources>
         <!--how is this diffrent then a Grid??-->
@@ -15,55 +15,46 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="155*"/>
-            <RowDefinition Height="81*"/>
-            <RowDefinition Height="86*"/>
-        </Grid.RowDefinitions>
 
-        <TabControl Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5">
-            <TabControl.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.55"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="2.49"/>
-                </TransformGroup>
-            </TabControl.RenderTransform>
-            <TabControl.Items>
-                <TabItem Header="Nanny" Height="23" VerticalAlignment="Top">
-                    <TabItem.Content>
-                        <StackPanel>
-                            <Button Content="Add Nanny" Click="ButtonToAddNanny_Click"/>
-                        </StackPanel>
-                    </TabItem.Content>
-                </TabItem>
-                <TabItem Header="Add Child">
-                    <TabItem.Content>
-                        <StackPanel>
-                            <Button Content="Add Child" Click="ButtonToAddChild_Click"/>
-                        </StackPanel>
-                    </TabItem.Content>
-                </TabItem >
-                <TabItem Header="Add Mother">
-                    <TabItem.Content>
-                        <StackPanel>
-                            <Button Content="Add Mother" Click="Button_Click" />
-                        </StackPanel>
-                    </TabItem.Content>
-                </TabItem >
-                <TabItem Header="Add Contract">
-                    <TabItem.Content>
-                        <StackPanel>
-                            <Button Content="Add Contract" Click="ButtonToAddContract_Click"/>
-                        </StackPanel>
-                    </TabItem.Content>
-                </TabItem >
-            </TabControl.Items>
-        </TabControl>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="359,54,0,0" VerticalAlignment="Top" Width="75" Height="100"/>
-        <Button x:Name="button1" Content="Button" Margin="434,54,10,0"/>
-        <Button x:Name="button2" Grid.Row="1" Content="Button" Width="70" HorizontalAlignment="Right" Margin="0,51,10,0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Button x:Name="Mother" Content="Mother" HorizontalAlignment="Left" Margin="35,65,0,0" VerticalAlignment="Top" Width="100"   RenderTransformOrigin="0.2,1.25" Click="Mother_Click"/>
+        <Button x:Name="Nanny" Content="Nanny" Grid.Column="1" HorizontalAlignment="Left" Margin="32,65,0,0" VerticalAlignment="Top" Width="100" Click="Nanny_Click"/>
+        <Button x:Name="Child" Content="Child" Grid.Column="2" HorizontalAlignment="Left" Margin="39,65,0,0" VerticalAlignment="Top" Width="100" Click="Child_Click"/>
+        <Button x:Name="Contract" Content="Contract" Grid.Column="3" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top" Width="100" Click="Contract_Click"/>
+        <Button x:Name="Data_Base" Content="Data Base" Grid.Column="4" HorizontalAlignment="Left" Margin="42,65,0,0" VerticalAlignment="Top" Width="100" Click="Data_Base_Click"/>
+        <Button x:Name="AddMother" Content="Add Mother" HorizontalAlignment="Left" Margin="35,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden" Click="addMother_Click"/>
+        <Button x:Name="DeleteMother" Content="Delete Mother" HorizontalAlignment="Left" Margin="35,56,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <Button x:Name="UpdateMother" Content="Update Mother" HorizontalAlignment="Left" Margin="35,69,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <Button x:Name="AddNanny"  Content="Add Nanny" Grid.Column="1" HorizontalAlignment="Left" Margin="32,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden"  Click="addNanny_Click"/>
+        <Button x:Name="DeleteNanny" Content="Delete Nanny" Grid.Column="1" HorizontalAlignment="Left" Margin="32,56,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <Button x:Name="UpdateNanny" Content="Update Nanny" Grid.Column="1" HorizontalAlignment="Left" Margin="32,69,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <Button x:Name="AddChild" Content="Add Child" Grid.Column="2" HorizontalAlignment="Left" Margin="39,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden"  Click="addChild_Click"/>
+        <Button x:Name="DeleteChild" Content="Delete Child" Grid.Column="2" HorizontalAlignment="Left" Margin="39,56,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <Button x:Name="UpdateChild" Content="Update Child" Grid.Column="2" HorizontalAlignment="Left" Margin="39,69,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <Button x:Name="AddContract" Content="Add Contract" Grid.Column="3" HorizontalAlignment="Left" Margin="30,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden" Click="addContract_Click"/>
+        <Button x:Name="DeleteContract" Content="Delete Contract" Grid.Column="3" HorizontalAlignment="Left" Margin="30,56,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <Button x:Name="UpdateContract" Content="Update Contract" Grid.Column="3" HorizontalAlignment="Left" Margin="30,69,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <Button x:Name="MotherList"  Content="get list of mothers" Grid.Column="4" HorizontalAlignment="Left" Margin="42,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <Button x:Name="NannyList"  Content="get list of nannies" Grid.Column="4" HorizontalAlignment="Left" Margin="42,56,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <Button x:Name="ChildrenList" Content="get list of children" Grid.Column="4" HorizontalAlignment="Left" Margin="42,69,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        
+
     </Grid>
+
+
 
 </Window>

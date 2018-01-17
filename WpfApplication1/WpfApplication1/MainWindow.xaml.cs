@@ -15,14 +15,14 @@ using System.Windows.Shapes;
 using BE;
 using BL;
 
-namespace WpfApplication1
+namespace PL
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        MyBL TheBL ;
+        MyBL TheBL = new MyBL();//need new
         string  theTitle = "premeir Nanny Hiring enterprise";//how to make const?
         public MainWindow()
         {

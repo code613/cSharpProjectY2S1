@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApplication1"
-        xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="WpfApplication1.contractWindow1"
+        xmlns:local="clr-namespace:PL"
+        xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PL.contractWindow1"
         mc:Ignorable="d"
         Title="contractWindow1" Height="392.754" Width="324.638" Loaded="Window_Loaded">
     <Window.Resources>

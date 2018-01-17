@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfApplication1
+namespace PL
 {
     /// <summary>
-    /// Interaction logic for contractWindow1.xaml
+    /// Interaction logic for GchildWindow1.xaml
     /// </summary>
-    public partial class contractWindow1 : Window
+    public partial class GchildWindow1 : Window
     {
-        public contractWindow1()
+        public GchildWindow1()
         {
             InitializeComponent();
         }
@@ -27,9 +27,9 @@ namespace WpfApplication1
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            System.Windows.Data.CollectionViewSource contractViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("contractViewSource")));
+            System.Windows.Data.CollectionViewSource childViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("childViewSource")));
             // Load data by setting the CollectionViewSource.Source property:
-            // contractViewSource.Source = [generic data source]
+            // childViewSource.Source = [generic data source]
         }
     }
 }

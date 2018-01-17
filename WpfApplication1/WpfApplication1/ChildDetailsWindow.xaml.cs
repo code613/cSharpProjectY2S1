@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using BE;
 using BL;
 
-namespace WpfApplication1
+namespace PL
 {
     /// <summary>
     /// Interaction logic for ChildDetailsWindow.xaml
@@ -50,6 +50,11 @@ namespace WpfApplication1
             momID = textBox.Text;
             finishSpecalData = specailNeedsData;//wait so what happens if non? is it null?
             Close();
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

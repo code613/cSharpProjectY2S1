@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using BE;
 using BL;
 
-namespace WpfApplication1
+namespace PL
 {
     /// <summary>
     /// Interaction logic for personDeitailsWindow.xaml

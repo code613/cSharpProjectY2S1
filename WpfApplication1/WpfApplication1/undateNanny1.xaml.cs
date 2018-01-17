@@ -11,17 +11,31 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BE;
+using BL;
 
-namespace WpfApplication1
+namespace PL
 {
     /// <summary>
     /// Interaction logic for undateNanny1.xaml
     /// </summary>
     public partial class undateNanny1 : Window
     {
+        IBL TheBL;
+        Nanny updateNanny;
         public undateNanny1()
         {
             InitializeComponent();
+            TheBL = BLFactory.FactoryBL.GetBL();
+            //DataContext=
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Data.CollectionViewSource nannyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("nannyViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // nannyViewSource.Source = [generic data source]
         }
     }
 }

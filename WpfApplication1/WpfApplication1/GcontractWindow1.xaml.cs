@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace PL
 {
     /// <summary>
-    /// Interaction logic for childWindow2.xaml
+    /// Interaction logic for contractWindow1.xaml
     /// </summary>
-    public partial class childWindow2 : Window
+    public partial class contractWindow1 : Window
     {
-        public childWindow2()
+        public contractWindow1()
         {
             InitializeComponent();
         }
@@ -27,9 +27,9 @@ namespace PL
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            System.Windows.Data.CollectionViewSource childViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("childViewSource")));
+            System.Windows.Data.CollectionViewSource contractViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("contractViewSource")));
             // Load data by setting the CollectionViewSource.Source property:
-            // childViewSource.Source = [generic data source]
+            // contractViewSource.Source = [generic data source]
         }
     }
 }

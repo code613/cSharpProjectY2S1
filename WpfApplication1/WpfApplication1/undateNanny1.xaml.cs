@@ -26,7 +26,7 @@ namespace PL
         public undateNanny1()
         {
             InitializeComponent();
-            TheBL = BLFactory.FactoryBL.GetBL();
+            TheBL = BLFactory.getBL();
             //DataContext=
         }
 

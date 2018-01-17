@@ -51,7 +51,7 @@
             <Label VerticalAlignment="Center" Grid.Row="10" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="search Area:"/>
             <TextBox x:Name="searchAreaTextBox" Width="120" VerticalAlignment="Center" Text="{Binding searchArea, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="10" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
         </Grid>
-        <Button x:Name="AddMotherButoon" Content="Add mother" HorizontalAlignment="Left" Margin="105,425,0,0" VerticalAlignment="Top" Width="75" Click="AddMotherButoon_Click"/>
+        <Button x:Name="AddMotherButoon" Content="Add mother" HorizontalAlignment="Left" Margin="105,425,0,0" VerticalAlignment="Top" Width="75" />
 
     </Grid>
 </Window>

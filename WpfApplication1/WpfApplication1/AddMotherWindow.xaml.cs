@@ -41,15 +41,15 @@ namespace PL
         {
             try
             {
-                SetTime(mother.daysNeedNanny[0], startSundayTime, endSundayTime);
-                SetTime(mother.daysNeedNanny[1], startMondayTime, endMondayTime);
-                SetTime(mother.daysNeedNanny[2], startTuesdayTime, endTuesdayTime);
-                SetTime(mother.daysNeedNanny[3], startWednesdayTime, endWednesdayTime);
-                SetTime(mother.daysNeedNanny[4], startThursdayTime, endThursdayTime);
-                SetTime(mother.daysNeedNanny[5], startFridayTime, endFridayTime);
-                bl.addMother(mother);
-                System.Windows.MessageBox.Show(mother.ToString(), "This mother has been added:");
-                Close();
+                //SetTime(mother.daysNeedNanny[0], startSundayTime, endSundayTime);
+                //SetTime(mother.daysNeedNanny[1], startMondayTime, endMondayTime);
+                //SetTime(mother.daysNeedNanny[2], startTuesdayTime, endTuesdayTime);
+                //SetTime(mother.daysNeedNanny[3], startWednesdayTime, endWednesdayTime);
+                //SetTime(mother.daysNeedNanny[4], startThursdayTime, endThursdayTime);
+                //SetTime(mother.daysNeedNanny[5], startFridayTime, endFridayTime);
+                //bl.addMother(mother);
+                //System.Windows.MessageBox.Show(mother.ToString(), "This mother has been added:");
+                //Close();
             }
             catch (Exception)
             {
@@ -58,9 +58,9 @@ namespace PL
             }
 
         }
-        Mother m;
+       
         
-        private void SetTime(m. DayOfWork ts, TimePicker tp1, TimePicker tp2)
+        private void SetTime( DayOfWork ts, TimePicker tp1, TimePicker tp2)
         {
             if (tp1.Value != null && tp2.Value != null)
             {

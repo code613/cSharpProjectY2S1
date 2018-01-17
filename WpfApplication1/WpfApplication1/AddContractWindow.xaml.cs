@@ -33,17 +33,13 @@ namespace PL
         }
 
        
-        
-
-
-       
 
         private void AddContractButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 bl.addContract(contract);
-                MessageBox.Show(bl.getListOfContracts().LastOrDefault().ToString());
+                MessageBox.Show(bl.getListOfContracts(null).LastOrDefault().ToString());
                 Close();
             }
             catch (Exception x)

@@ -16,7 +16,7 @@ namespace BE
         {
             return "child:" + firstName + " " + lastName;
         }
-        public Child() { }
+        
         
     }
 }

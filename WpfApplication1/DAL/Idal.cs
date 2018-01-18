@@ -14,7 +14,7 @@ namespace DAL
         void deleteNanny(string id);
         void updateNannyDetalis(Nanny nan);
         Nanny findNanny(string ID);
-        List<Nanny> getListOfNannies(Func<Nanny,bool> predicate);
+        List<Nanny> getListOfNannies(Func<Nanny,bool> predicate = null);
         #endregion
 
         #region mother
@@ -27,7 +27,7 @@ namespace DAL
         /// <param name="ID"></param>
         /// <returns></returns>
         Mother findMother(string ID);
-        List<Mother> getListOfMothers(Func<Mother, bool> predicate);
+        List<Mother> getListOfMothers(Func<Mother, bool> predicate = null);
         List<Child> getListOfMothersChildren(Mother mom);
         #endregion
 
@@ -41,7 +41,7 @@ namespace DAL
         /// <param name="ID"></param>
         /// <returns></returns>
         Child findChild(string ID);
-        List<Child> getListOfChildren(Func<Child, bool> predicate);
+        List<Child> getListOfChildren(Func<Child, bool> predicate = null);
         #endregion
 
         #region contract
@@ -54,7 +54,7 @@ namespace DAL
         /// <param name="contractNum"></param>
         /// <returns></returns>
         Contract findContract(int contractNum);
-        List<Contract> getListOfContracts(Func<Contract, bool> predicate);
+        List<Contract> getListOfContracts(Func<Contract, bool> predicate=null);
         #endregion
 
     }

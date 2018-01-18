@@ -361,7 +361,7 @@ namespace BL
         public IEnumerable <Nanny> proximityNannies (Mother mom)
         {
             return from Nanny n in getListOfNannies()
-                   where CalculateDistance(myEnum.TipeOfTravel.walking, n.Address,(mom.needNannyAddress == "" ? mom.address : mom.needNannyAddress)) <= 15000
+                   where CalculateDistance(myEnum.TipeOfTravel.walking, n.Address,(mom.searchArea == "" ? mom.address : mom.searchArea)) <= 15000
                    select n;
         }
 

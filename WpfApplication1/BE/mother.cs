@@ -26,7 +26,7 @@ namespace BE
         public DayOfWork[] serviseNeededTimeTable { get; set; }
         public bool isSingalParent { get; set; }
         public string comments { get; set; }
-        public string needNannyAddress { get; set; }
+        
 
         public override string ToString()
         {

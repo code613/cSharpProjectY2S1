@@ -31,16 +31,16 @@ namespace PL
             child = new Child();
             this.DataContext = child;
             bl = BLFactory.getBL();
-            
+           motherIdComboBox.ItemsSource = bl.getListOfMothers();
         }
-        
+
 
         private void AddChildButton_Click(object sender, RoutedEventArgs e)
         {
-           
+
             try
             {
-                
+
                 bl.addChild(child);
                 MessageBox.Show(child.firstName + " was successfully added\n" + bl.getListOfChildren(null).LastOrDefault().ToString());
                 this.Close();
@@ -52,6 +52,9 @@ namespace PL
 
         }
 
-        
+        private void motherIdComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

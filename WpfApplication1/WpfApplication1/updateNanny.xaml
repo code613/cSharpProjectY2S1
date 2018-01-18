@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
-        xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PL.undateNanny1"
+        xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PL.UpdateNanny"
         mc:Ignorable="d"
         Title="undateNanny1" Height="633.803" Width="300" Loaded="Window_Loaded">
     <Window.Resources>

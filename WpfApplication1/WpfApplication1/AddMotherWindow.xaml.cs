@@ -37,24 +37,23 @@ namespace PL
 
         }
 
-        private void AddMotherButton_Click(object sender, RoutedEventArgs e)
+        private void AddMotherButoon_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                //SetTime(mother.daysNeedNanny[0], startSundayTime, endSundayTime);
-                //SetTime(mother.daysNeedNanny[1], startMondayTime, endMondayTime);
-                //SetTime(mother.daysNeedNanny[2], startTuesdayTime, endTuesdayTime);
-                //SetTime(mother.daysNeedNanny[3], startWednesdayTime, endWednesdayTime);
-                //SetTime(mother.daysNeedNanny[4], startThursdayTime, endThursdayTime);
-                //SetTime(mother.daysNeedNanny[5], startFridayTime, endFridayTime);
-                //bl.addMother(mother);
-                //System.Windows.MessageBox.Show(mother.ToString(), "This mother has been added:");
-                //Close();
+                SetTime(mother.serviseNeededTimeTable[0], startSundayTime, endSundayTime);
+                SetTime(mother.serviseNeededTimeTable[1], startMondayTime, endMondayTime);
+                SetTime(mother.serviseNeededTimeTable[2], startTuesdayTime, endTuesdayTime);
+                SetTime(mother.serviseNeededTimeTable[3], startWednesdayTime, endWednesdayTime);
+                SetTime(mother.serviseNeededTimeTable[4], startThursdayTime, endThursdayTime);
+                SetTime(mother.serviseNeededTimeTable[5], startFridayTime, endFridayTime);
+                bl.addMother(mother);
+                System.Windows.MessageBox.Show("mother added succesfuly:", mother.ToString() );
+                Close();
             }
-            catch (Exception)
+            catch (Exception x)
             {
-
-                throw;
+                System.Windows.MessageBox.Show(x.Message);
             }
 
         }
@@ -69,5 +68,9 @@ namespace PL
             }
         }
 
+        private void AddMotherButoon_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

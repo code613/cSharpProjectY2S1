@@ -34,10 +34,10 @@ namespace BL
         void deleteContract(int number);
         void updateContractDetalis(Contract con);
 
-        List<Nanny> getListOfNannies(Func <Nanny,bool> predicate);
-        List<Mother> getListOfMothers(Func<Mother, bool> predicate);
+        List<Nanny> getListOfNannies(Func <Nanny,bool> predicate = null);//why = null  ??
+        List<Mother> getListOfMothers(Func<Mother, bool> predicate = null);
         List<Child> getListOfMothersChildren(Mother mom);
-        List<Contract> getListOfContracts(Func<Contract, bool> predicate);
-        List<Child> getListOfChildren(Func<Child, bool> predicate);
+        List<Contract> getListOfContracts(Func<Contract, bool> predicate = null);
+        List<Child> getListOfChildren(Func<Child, bool> predicate = null);
     }
 }

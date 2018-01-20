@@ -93,28 +93,84 @@ namespace PL
             ChildrenList.Visibility = Visibility.Visible;
         }
 
+        #region child Button
         private void addChild_Click(object sender, RoutedEventArgs e)
         {
             Window addChildWindow = new AddChildWindow();
             addChildWindow.Show();
         }
+        private void UpdateChild_Click(object sender, RoutedEventArgs e)
+        {
+            Window updateChildw = new updateChild();
+            updateChildw.Show();
+        }
+        private void DeleteChild_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+        #region mother Button
         private void addMother_Click(object sender, RoutedEventArgs e)
         {
             Window addMotherWindow = new AddMotherWindow();
             addMotherWindow.Show();
         }
+        private void UpdateMother_Click(object sender, RoutedEventArgs e)
+        {
+            Window updateTheMother = new updateMother();
+            updateTheMother.Show();
+        }
+        private void DeleteMother_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+        #region Nanny Button
         private void addNanny_Click(object sender, RoutedEventArgs e)
         {
             Window addNannyWindow = new AddNannyWindow();
             addNannyWindow.Show();
         }
+        private void UpdateNanny_Click(object sender, RoutedEventArgs e)
+        {
+            Window updateTheNanny = new UpdateNanny();
+            updateTheNanny.Show();
+        }
+        private void DeleteNanny_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+        #region Contract Button
         private void addContract_Click(object sender, RoutedEventArgs e)
         {
             Window addContractWindow = new AddContractWindow();
             addContractWindow.Show();
         }
+        private void UpdateContract_Click(object sender, RoutedEventArgs e)
+        {
+            Window updateTheContract = new updateContract();
+            updateTheContract.Show();
+        }
+        private void DeleteContract_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+        #endregion
+        #region Data Base Button
+        private void MotherList_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+        private void ChildrenList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void NannyList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
 
 
         /* example of meesige box this example will help for initilzing a value of id 

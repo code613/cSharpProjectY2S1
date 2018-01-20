@@ -11,6 +11,7 @@ namespace BE
         public Person()
         {
             Birthday = new DateTime();
+           // Birthday = DateTime.Now.AddMonths(-3);
         }
         public string ID { get; set; }
         public string firstName { get; set; }

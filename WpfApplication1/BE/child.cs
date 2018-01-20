@@ -16,7 +16,6 @@ namespace BE
         {
             return "child:" + firstName + " " + lastName;
         }
-        public Child() { }
-        
+        public Child() { Birthday = DateTime.Now.AddMonths(-3); }       
     }
 }

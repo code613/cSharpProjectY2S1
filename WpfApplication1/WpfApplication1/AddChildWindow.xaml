@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:PL"
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PL.AddChildWindow"
         mc:Ignorable="d"
-    Title="AddChildWindow" Height="450" Width="400"  FontSize="16">
+    Title="AddChildWindow" Height="450" Width="600"  FontSize="16"  Icon="./resources/newPinkFlower.png" >
 
-    <Grid>
+    <Grid Background="SkyBlue">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:PL"
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PL.AddMotherWindow"
         mc:Ignorable="d"
-        Title="AddMotherWindow" Height="580" Width="300" >
-    
-    <Grid>
+        Title="AddMotherWindow" Height="600" Width="600"  Icon="./resources/newPinkFlower.png"  >
+
+    <Grid Background="SkyBlue">
 
         <Grid x:Name="grid1" VerticalAlignment="Top" Margin="10,28,0,0" HorizontalAlignment="Left" Width="282">
             <Grid.RowDefinitions>

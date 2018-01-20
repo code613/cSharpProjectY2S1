@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:PL"
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PL.AddNannyWindow"
         mc:Ignorable="d"
-        Title="AddNannyWindow" Height="300" Width="300" Loaded="Window_Loaded">
+        Title="AddNannyWindow" Height="600" Width="600"  Loaded="Window_Loaded"  Icon="./resources/newPinkFlower.png"  >
     <Window.Resources>
         <CollectionViewSource x:Key="nannyViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Nanny}, CreateList=True}"/>
     </Window.Resources>
-    <Grid>
+    <Grid Background="SkyBlue">
 
         <Grid x:Name="grid1" VerticalAlignment="Top" Margin="22,0,0,-266" HorizontalAlignment="Left" DataContext="{StaticResource nannyViewSource}" Height="535" Width="233">
             <Grid.RowDefinitions>

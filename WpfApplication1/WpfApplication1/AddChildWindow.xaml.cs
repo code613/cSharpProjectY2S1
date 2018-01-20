@@ -31,9 +31,10 @@ namespace PL
             child = new Child();
             this.DataContext = child;
             bl = BLFactory.getBL();
-            
+            // motherIdComboBox.ItemsSource = bl.motherList();
+
         }
-        
+
 
         private void AddChildButton_Click(object sender, RoutedEventArgs e)
         {

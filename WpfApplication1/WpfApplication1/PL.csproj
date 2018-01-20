@@ -93,8 +93,29 @@
     <Compile Include="AddNannyWindow.xaml.cs">
       <DependentUpon>AddNannyWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="undateNanny1.xaml.cs">
-      <DependentUpon>undateNanny1.xaml</DependentUpon>
+    <Compile Include="deleteChild.xaml.cs">
+      <DependentUpon>deleteChild.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="deleteContract.xaml.cs">
+      <DependentUpon>deleteContract.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="deleteMother.xaml.cs">
+      <DependentUpon>deleteMother.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="deleteNanny.xaml.cs">
+      <DependentUpon>deleteNanny.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="updateChild.xaml.cs">
+      <DependentUpon>updateChild.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="updateContract.xaml.cs">
+      <DependentUpon>updateContract.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="updateMother.xaml.cs">
+      <DependentUpon>updateMother.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateNanny.xaml.cs">
+      <DependentUpon>UpdateNanny.xaml</DependentUpon>
     </Compile>
     <Page Include="AddChildWindow.xaml">
       <SubType>Designer</SubType>
@@ -112,11 +133,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="childWindow2.xaml">
+    <Page Include="deleteChild.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="contractWindow.xaml">
+    <Page Include="deleteContract.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="deleteMother.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="deleteNanny.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -124,12 +153,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="childWindow2.xaml.cs">
-      <DependentUpon>childWindow2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="contractWindow.xaml.cs">
-      <DependentUpon>contractWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -138,7 +161,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="undateNanny1.xaml">
+    <Page Include="updateChild.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="updateContract.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="updateMother.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateNanny.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,6 +223,15 @@
       <Project>{0de319ec-3133-4e36-bb9f-cce541dd8175}</Project>
       <Name>BL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\newPinkFlower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\nannypic6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\badCaretakerIMG.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

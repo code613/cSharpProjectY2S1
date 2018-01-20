@@ -11,7 +11,8 @@ namespace BE
     {
         public Mother()
         {
-            serviseNeededTimeTable= new DayOfWork[6];
+            Birthday = DateTime.Now.AddYears(-30); 
+        serviseNeededTimeTable= new DayOfWork[6];
             for (int i = 0; i < 6; i++)
             {
                 serviseNeededTimeTable[i]= new DayOfWork();

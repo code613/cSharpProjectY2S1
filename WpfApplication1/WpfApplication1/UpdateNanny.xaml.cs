@@ -19,14 +19,15 @@ namespace PL
     /// <summary>
     /// Interaction logic for undateNanny1.xaml
     /// </summary>
-    public partial class undateNanny1 : Window
+    public partial class UpdateNanny : Window
     {
         IBL TheBL;
         Nanny updateNanny;
-        public undateNanny1()
+        public UpdateNanny()
         {
             InitializeComponent();
             TheBL = BLFactory.getBL();
+            //idNannyComboBox.ItemsSource = bl.nannyList();
             //DataContext=
         }
 

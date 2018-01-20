@@ -11,7 +11,9 @@ namespace BE
         public Contract()
         {
             starts = new DateTime();
+            starts = DateTime.Now;
             ends = new DateTime();
+            ends = DateTime.Now.AddMonths(3);
         }
         public int contract_number { get; set; }
         public string nanny_ID { get; set; }

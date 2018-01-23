@@ -27,15 +27,33 @@ namespace PL
         Child selectedChild;
         int flag;//globel to this scope (i hope)
 
+
         public UpdateWindow(personsEnum thePerson)
         {
             InitializeComponent();
             TheBL = BLFactory.getBL();
            // switch 
-            IDComboBox.ItemsSource = TheBL.getListOfMothers();//for mother obvesly
-            upButton.Content = "Update Mother";
-            headerLabel.Content = "double click the Mother's ID to update";
-            flag = 1;//need double click and switch
+                
+          switch ((personsEnum)thePerson)
+          {
+              case personsEnum.typeOfPerson.nanny1:
+                  Console.WriteLine("The color is red");
+                IDComboBox.ItemsSource = TheBL.getListOfMothers();//for mother obvesly
+                upButton.Content = "Update Mother";
+                headerLabel.Content = "double click the Mother's ID to update";
+                flag = 1;//need double click and switch
+
+                  break;
+              case personsEnum.typeOfPerson.mother2:
+                  Console.WriteLine("The color is green");
+                  break;
+              case personsEnum.typeOfPerson.child3:
+                  Console.WriteLine("The color is blue");
+                  break;
+              default:
+                  Console.WriteLine("The color is unknown.");
+                  break;
+          }
 
             IDComboBox.ItemsSource = TheBL.getListOfChildren();
         }
@@ -54,5 +72,47 @@ namespace PL
                 //selectedChild = IDComboBox.SelectedItem as Child;
             }
         }
+        object _lastObject = null;
+        DateTime _lastPressed = DateTime.MinValue;
+        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+          
+            TimeSpan ts = new TimeSpan(1,1,1);
+            if (_lastObject != null && _lastPressed != null)
+            {
+                ts = DateTime.Now - _lastPressed;
+                if (ts.Milliseconds < 500  && sender.Equals(_lastObject))
+                {
+                    MessageBox.Show("Double clicked");
+                }
+            }
+            _lastObject = sender;
+            _lastPressed = DateTime.Now;
+        }
     }
 }
+
+//public enum Color { Red, Green, Blue }
+
+//public class Example
+//{
+//    public static void Main()
+//    {
+//        Color c = (Color)(new Random()).Next(0, 3);
+//        switch (c)
+//        {
+//            case Color.Red:
+//                Console.WriteLine("The color is red");
+//                break;
+//            case Color.Green:
+//                Console.WriteLine("The color is green");
+//                break;
+//            case Color.Blue:
+//                Console.WriteLine("The color is blue");
+//                break;
+//            default:
+//                Console.WriteLine("The color is unknown.");
+//                break;
+//        }
+//    }
+//}

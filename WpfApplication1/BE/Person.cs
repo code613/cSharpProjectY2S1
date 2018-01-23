@@ -17,6 +17,6 @@ namespace BE
         public string firstName { get; set; }
         public string lastName { get; set; }
         public DateTime Birthday { get; set; }
-        
+        public string ImgPath { get; set; }
     }
 }

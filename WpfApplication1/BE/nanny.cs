@@ -10,6 +10,7 @@ namespace BE
     {
         public Nanny()
         {
+            ImgPath = @"./ resources / badCaretakerIMG.jpg";
             Birthday = DateTime.Now.AddYears(-30);
             TimeTable = new DayOfWork[6];
             for (int i = 0; i < 6; i++)

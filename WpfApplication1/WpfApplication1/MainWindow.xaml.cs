@@ -17,6 +17,7 @@ using BL;
 
 namespace PL
 {
+   
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -101,6 +102,7 @@ namespace PL
         }
         private void UpdateChild_Click(object sender, RoutedEventArgs e)
         {
+            // Window updateChildw = new UpdateWindow(child3);
             Window updateChildw = new updateChild();
             updateChildw.Show();
         }
@@ -112,11 +114,12 @@ namespace PL
         #region mother Button
         private void addMother_Click(object sender, RoutedEventArgs e)
         {
-            Window addMotherWindow = new AddMotherWindow();
+            Window addMotherWindow = new AddMotherWindow();//make cunstruter that gets parameter update
             addMotherWindow.Show();
         }
         private void UpdateMother_Click(object sender, RoutedEventArgs e)
         {
+           // Window updateTheMother = new UpdateWindow(mother2);
             Window updateTheMother = new updateMother();
             updateTheMother.Show();
         }
@@ -133,6 +136,7 @@ namespace PL
         }
         private void UpdateNanny_Click(object sender, RoutedEventArgs e)
         {
+            // Window updateTheNanny = new UpdateWindow(nanny1);
             Window updateTheNanny = new UpdateNanny();
             updateTheNanny.Show();
         }

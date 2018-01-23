@@ -37,7 +37,15 @@ namespace PL
 
         }
 
-        private void AddMotherButoon_Click(object sender, RoutedEventArgs e)
+        public AddMotherWindow(Mother mother)
+        {
+            InitializeComponent();
+            this.DataContext = mother;
+            AddMotherButton.Content = "update mother";
+            bl = BLFactory.getBL();
+        }
+
+        private void AddMotherButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -66,11 +74,6 @@ namespace PL
                 ts.start = tp1.Value.Value.TimeOfDay;
                 ts.end = tp2.Value.Value.TimeOfDay;
             }
-        }
-
-        private void AddMotherButoon_Click_1(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

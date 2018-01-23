@@ -16,6 +16,8 @@ namespace BE
         {
             return "child:" + firstName + " " + lastName;
         }
-        public Child() { Birthday = DateTime.Now.AddMonths(-3); }       
+        public Child() { Birthday = DateTime.Now.AddMonths(-3);
+        ImgPath = @"./ resources / badCaretakerIMG.jpg";
+        }       
     }
 }

@@ -11,7 +11,9 @@ namespace BE
     {
         public Mother()
         {
-            Birthday = DateTime.Now.AddYears(-30); 
+            ImgPath = @"./ resources / badCaretakerIMG.jpg";
+            Birthday = DateTime.Now.AddYears(-30);
+            ID = "33";
         serviseNeededTimeTable= new DayOfWork[6];
             for (int i = 0; i < 6; i++)
             {
@@ -27,7 +29,7 @@ namespace BE
         public DayOfWork[] serviseNeededTimeTable { get; set; }
         public bool isSingalParent { get; set; }
         public string comments { get; set; }
-        
+               
 
         public override string ToString()
         {

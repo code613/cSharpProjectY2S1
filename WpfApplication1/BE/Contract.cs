@@ -10,6 +10,7 @@ namespace BE
     {
         public Contract()
         {
+            ImgPath = @"./ resources / badCaretakerIMG.jpg";
             starts = new DateTime();
             starts = DateTime.Now;
             ends = new DateTime();
@@ -26,6 +27,7 @@ namespace BE
         public string monthOrHourContract { get; set; }
         public DateTime starts { get; set; }
         public DateTime ends { get; set; }
+        public string ImgPath { get; set; }
         public override string ToString()
         {
             return " contract:" + contract_number;

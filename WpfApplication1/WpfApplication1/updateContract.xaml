@@ -12,7 +12,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <Label VerticalAlignment="Center" Margin="0,20" Grid.Row="0"  HorizontalAlignment="center"  Content="Enter the number of the contract to update:" FontSize="25" FontFamily="Berlin Sans FB Demi"/>
+        <Label VerticalAlignment="Center" Margin="0,20" Grid.Row="0"  HorizontalAlignment="center"  Content="Choose the contract number to update:" FontSize="25" FontFamily="Berlin Sans FB Demi"/>
         <ComboBox x:Name="contractNumberComboBox" DisplayMemberPath="ContractNumber" SelectionChanged="contractNumberComboBox_SelectionChanged"  HorizontalContentAlignment="Stretch"  Background="Beige" Margin="0,0,0,10" Grid.Row="1" Width="200" Height="50" FontSize="28" VerticalAlignment="Center" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  HorizontalAlignment="Center" BorderThickness="3" BorderBrush="Gray"/>
         <Button Content="Update Contract" Grid.Row="2" Background="LightSkyBlue" VerticalAlignment="Top" HorizontalAlignment="Center" Height="40" FontSize="16"  Width="150"   BorderThickness="3" Click="Button_Click" >
             <Button.Style>

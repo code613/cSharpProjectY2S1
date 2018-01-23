@@ -5,11 +5,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
-        xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PL.AddMotherWindow"
+        xmlns:BE="clr-namespace:BE;assembly=BE"
+        x:Class="PL.AddMotherWindow"
         mc:Ignorable="d"
-        Title="AddMotherWindow" Height="580" Width="300" >
-    
-    <Grid>
+        Title="AddMotherWindow" Height="700" Width="700"  Icon="./resources/newPinkFlower.png" >
+
+    <Grid Background="SkyBlue">
 
         <Grid x:Name="grid1" VerticalAlignment="Top" Margin="50,60,50,0" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
@@ -35,7 +36,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-           
+
             <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="ID:"/>
             <TextBox x:Name="iDTextBox" Width="120" VerticalAlignment="Center" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="1" Margin="2,0,0,6" HorizontalAlignment="Left" Grid.Column="0" Content="first Name:"/>
@@ -111,7 +112,8 @@
 
 
         </Grid>
-        <Button x:Name="AddMotherButoon" Content="Add mother" HorizontalAlignment="Left" Margin="350,403,0,0" VerticalAlignment="Top" Width="75" Click="AddMotherButoon_Click" />
+        <Button x:Name="AddMotherButton" Content="Add mother" HorizontalAlignment="Left" Margin="136,469,0,0" VerticalAlignment="Top" Width="75" Click="AddMotherButton_Click" />
+        <Image x:Name="image" Source="./resources/badCaretakerIMG.jpg" HorizontalAlignment="Left" Height="315" Margin="347,345,0,0" VerticalAlignment="Top" Width="316"/>
 
     </Grid>
 </Window>

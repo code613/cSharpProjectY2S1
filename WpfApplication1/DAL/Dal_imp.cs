@@ -173,7 +173,54 @@ namespace DAL
         #endregion
         /*
          * 
-         * 
+          //// void init()  //tokk from MyBL
+       // {
+       //     Nanny shifi_levy = new Nanny
+       //     {
+       //         ID = "123",
+       //         firstName = "shifi",
+       //         lastName = "levy",
+       //         Birthday = DateTime.Parse("31.12.88"),
+       //         Address = "HaRav Shalom Shabazi St 12, Jerusalem",
+       //         elevator = true,
+       //         floor = 2,
+       //         Expirence = 3,
+       //         phone = "0529344513",
+       //         MaxAge = 15,
+       //         MinAge = 3,
+       //         MaxChildren = 8,
+       //         isPerHour = false,
+       //         SallaryPerMonths = 900,
+       //         GovVacation = false,
+       //         WorkWeek = new bool[] { true, true, true, true, true, true, false },
+       //         Recommendations = ""
+
+       //     };
+       //     Nanny Tsipi_Hotoveli = new Nanny
+       //     {
+       //         ID = "654",
+       //         firstName = "Tsipi",
+       //         lastName = "Hotoveli",
+       //         Birthday = new DateTime(1989, 3, 29),
+       //         Address = "HaRav Kuk St 8, Jerusalem",
+       //         elevator = true,
+       //         floor = 2,
+       //         Expirence = 3,
+       //         phone = "0521001001",
+       //         MaxAge = 18,
+       //         MinAge = 3,
+       //         MaxChildren = 8,
+       //         isPerHour = true,
+       //         HourSallary = 10,
+       //         SallaryPerMonths = 900,
+       //         GovVacation = true,
+       //         WorkWeek = new bool[] { true, true, true, true, true, false, false },
+
+
+
+       //         Recommendations = ""
+       //     };
+       // }
         private void initNanysMothersandChilds()
         {
             addNanny(new Nanny
@@ -584,5 +631,5 @@ namespace DAL
                 Theyknow = false
             });
             */
-        }
+    }
 }

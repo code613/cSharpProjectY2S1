@@ -28,24 +28,22 @@ namespace PL
         int flag;//globel to this scope (i hope)
 
 
-        public UpdateWindow(personsEnum thePerson)
+        public UpdateWindow(personsEnum.typeOfPerson thePerson)
         {
             InitializeComponent();
             TheBL = BLFactory.getBL();
            // switch 
                 
-          switch ((personsEnum)thePerson)
+          switch (thePerson)
           {
               case personsEnum.typeOfPerson.nanny1:
-                  Console.WriteLine("The color is red");
+                  break;
+              case personsEnum.typeOfPerson.mother2:
                 IDComboBox.ItemsSource = TheBL.getListOfMothers();//for mother obvesly
                 upButton.Content = "Update Mother";
                 headerLabel.Content = "double click the Mother's ID to update";
-                flag = 1;//need double click and switch
+                flag = 2;//need double click and switch
 
-                  break;
-              case personsEnum.typeOfPerson.mother2:
-                  Console.WriteLine("The color is green");
                   break;
               case personsEnum.typeOfPerson.child3:
                   Console.WriteLine("The color is blue");

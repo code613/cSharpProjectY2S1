@@ -102,8 +102,8 @@ namespace PL
         }
         private void UpdateChild_Click(object sender, RoutedEventArgs e)
         {
-            // Window updateChildw = new UpdateWindow(child3);
-            Window updateChildw = new updateChild();
+            Window updateChildw = new UpdateWindow(personsEnum.typeOfPerson.child3);
+            //Window updateChildw = new updateChild();
             updateChildw.Show();
         }
         private void DeleteChild_Click(object sender, RoutedEventArgs e)
@@ -119,8 +119,8 @@ namespace PL
         }
         private void UpdateMother_Click(object sender, RoutedEventArgs e)
         {
-           // Window updateTheMother = new UpdateWindow(mother2);
-            Window updateTheMother = new updateMother();
+            Window updateTheMother = new UpdateWindow(personsEnum.typeOfPerson.mother2);
+           // Window updateTheMother = new updateMother();
             updateTheMother.Show();
         }
         private void DeleteMother_Click(object sender, RoutedEventArgs e)
@@ -136,8 +136,8 @@ namespace PL
         }
         private void UpdateNanny_Click(object sender, RoutedEventArgs e)
         {
-            // Window updateTheNanny = new UpdateWindow(nanny1);
-            Window updateTheNanny = new UpdateNanny();
+            Window updateTheNanny = new UpdateWindow(personsEnum.typeOfPerson.nanny1);
+            //Window updateTheNanny = new UpdateNanny();
             updateTheNanny.Show();
         }
         private void DeleteNanny_Click(object sender, RoutedEventArgs e)

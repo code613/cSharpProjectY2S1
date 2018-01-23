@@ -37,31 +37,33 @@ namespace PL
           switch (thePerson)
           {
               case personsEnum.typeOfPerson.nanny1:
-                  break;
+                    IDComboBox.ItemsSource = TheBL.getListOfNannies();
+                 //   upButton.Content = "Update Nanny";
+                    headerLabel.Content = "double click the Nanny's ID to update";
+                    flag = 1;//need double click and switch 
+                    //need a thread?? like will this flag save .. it should
+                    break;
               case personsEnum.typeOfPerson.mother2:
                 IDComboBox.ItemsSource = TheBL.getListOfMothers();//for mother obvesly
-                upButton.Content = "Update Mother";
+               // upButton.Content = "Update Mother";
                 headerLabel.Content = "double click the Mother's ID to update";
                 flag = 2;//need double click and switch
-
                   break;
               case personsEnum.typeOfPerson.child3:
-                  Console.WriteLine("The color is blue");
-                  break;
-              default:
-                  Console.WriteLine("The color is unknown.");
-                  break;
+                IDComboBox.ItemsSource = TheBL.getListOfChildren();
+                //   upButton.Content = "Update Child";
+                headerLabel.Content = "double click the Child's ID to update";
+                flag = 2;//need double click and switch
+                    break;
           }
-
-            IDComboBox.ItemsSource = TheBL.getListOfChildren();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if(flag == 1)//oh but i was supposed to do double click
-            selectedMother = IDComboBox.SelectedItem as Mother;
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if(flag == 1)//oh but i was supposed to do double click
+        //    selectedMother = IDComboBox.SelectedItem as Mother;
             
-        }
+        //}
 
         private void IDComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -82,6 +84,22 @@ namespace PL
                 if (ts.Milliseconds < 500  && sender.Equals(_lastObject))
                 {
                     MessageBox.Show("Double clicked");
+                    switch (flag)
+                    {
+                        case 1:
+                            //nanny
+
+                            break;
+                        case 2:
+                            //mother
+
+                            break;
+                        case 3:
+                            //child
+                            selectedChild = IDComboBox.SelectedItem as Child;
+                            Window updateTC = new AddChildWindow(selectedChild);
+                            break;
+                    }
                 }
             }
             _lastObject = sender;
@@ -114,3 +132,27 @@ namespace PL
 //        }
 //    }
 //}
+ //switch (thePerson)
+ //         {
+ //             case personsEnum.typeOfPerson.nanny1:
+ //                   IDComboBox.ItemsSource = TheBL.getListOfNannies();
+ //                   upButton.Content = "Update Nanny";
+ //                   headerLabel.Content = "double click the Nanny's ID to update";
+ //                   flag = 1;//need double click and switch 
+ //                   //need a thread?? like will this flag save .. it should
+
+ //                   break;
+ //             case personsEnum.typeOfPerson.mother2:
+ //               IDComboBox.ItemsSource = TheBL.getListOfMothers();//for mother obvesly
+ //               upButton.Content = "Update Mother";
+ //               headerLabel.Content = "double click the Mother's ID to update";
+ //               flag = 2;//need double click and switch
+
+ //                 break;
+ //             case personsEnum.typeOfPerson.child3:
+ //               IDComboBox.ItemsSource = TheBL.getListOfChildren();
+ //                  upButton.Content = "Update Child";
+ //               headerLabel.Content = "double click the Child's ID to update";
+ //               flag = 2;//need double click and switch
+
+ //                   break;

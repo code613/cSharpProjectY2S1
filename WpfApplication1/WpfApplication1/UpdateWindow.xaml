@@ -14,8 +14,27 @@
             <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
         <Label x:Name="headerLabel" VerticalAlignment="Center" Grid.Row="0"  HorizontalAlignment="center"   FontSize="25" FontFamily="Berlin Sans FB Demi"/>
-        <ComboBox x:Name="IDComboBox" SelectionChanged="IDComboBox_SelectionChanged" DisplayMemberPath="Id" Background="Beige" Margin="0,0,0,10" Grid.Row="1" Width="200" Height="50" FontSize="28" VerticalAlignment="Center" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  HorizontalAlignment="Center" BorderThickness="3" BorderBrush="Gray"/>
-
+        <ComboBox x:Name="IDComboBox" SelectionChanged="IDComboBox_SelectionChanged" DisplayMemberPath="Id" Background="Beige" Margin="0,0,0,10" Grid.Row="1" Width="200" Height="50" FontSize="28" VerticalAlignment="Center" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  HorizontalAlignment="Center" BorderThickness="3" BorderBrush="Gray">
+        <!--<ComboBox x:Name="cbobox" Height="30">-->
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Template" >
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <TextBlock Text="{Binding .}" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+            <ComboBox.ItemsSource>
+                <x:Array Type="sys:String" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                    <sys:String>One</sys:String>
+                    <sys:String>Two</sys:String>
+                    <sys:String>Three</sys:String>
+                </x:Array >
+            </ComboBox.ItemsSource>
+        </ComboBox>
         <Button x:Name="upButton" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" Height="40" FontSize="16"  Width="150"   BorderThickness="3" Click="Button_Click" Margin="221,0"  >
             <Button.Style>
                 <Style>
@@ -29,9 +48,9 @@
         </Button>
         <Image Source="./resources/badCaretakerIMG.jpg" Grid.Row="2" Height="300" Width=" 300" />
         <ContentControl x:Name="c"   Grid.Row="1" Height="428" VerticalAlignment="Bottom" Margin="0,0,0,10" Grid.RowSpan="2">
-            <Grid  >
-                <!--"   <local:UpdateChildControl x:Name="update" Visibility="Hidden"/> -->
-            </Grid>
+            <!--<Grid  >
+                --><!--"   <local:UpdateChildControl x:Name="update" Visibility="Hidden"/> --><!--
+            </Grid>-->
         </ContentControl>
 
     </Grid>

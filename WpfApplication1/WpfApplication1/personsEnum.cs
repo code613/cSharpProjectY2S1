@@ -10,7 +10,7 @@ namespace PL
     {
         public enum typeOfPerson
         {
-            nanny1,
+           nanny1,
            mother2,
            child3//added numbers so not to mix up with other names
         }

@@ -10,9 +10,8 @@
 
     <Grid Background="SkyBlue">
 
-        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="45,10,-125,-163" HorizontalAlignment="Left"  Height="422" Width="372">
+        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="0,50"  HorizontalAlignment="Center" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -28,29 +27,62 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="child ID:"/>
-            <TextBox x:Name="child_IDTextBox" Width="120" VerticalAlignment="Center" Text="{Binding child_ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="contract number:"/>
-            <TextBox x:Name="contract_numberTextBox" Width="120" VerticalAlignment="Center" Text="{Binding contract_number, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="ends:"/>
-            <DatePicker x:Name="endsDatePicker" VerticalAlignment="Center" SelectedDate="{Binding ends, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="meeting:"/>
-            <CheckBox x:Name="meetingCheckBox" VerticalAlignment="Center" Grid.Row="3" Margin="3" IsChecked="{Binding meeting, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Grid.Column="1" Content=""/>
-            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="month Or Hour Contract:"/>
-            <TextBox x:Name="monthOrHourContractTextBox" Width="120" VerticalAlignment="Center" Text="{Binding monthOrHourContract, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="mother ID:"/>
-            <TextBox x:Name="mother_IDTextBox" Width="120" VerticalAlignment="Center" Text="{Binding mother_ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="6" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="nanny ID:"/>
-            <TextBox x:Name="nanny_IDTextBox" Width="120" VerticalAlignment="Center" Text="{Binding nanny_ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="7" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="payment Per Hour:"/>
-            <TextBox x:Name="paymentPerHourTextBox" Width="120" VerticalAlignment="Center" Text="{Binding paymentPerHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="7" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="8" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="payment Per Month:"/>
-            <TextBox x:Name="paymentPerMonthTextBox" Width="120" VerticalAlignment="Center" Text="{Binding paymentPerMonth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="8" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="9" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Sighned:"/>
-            <CheckBox x:Name="sighnedCheckBox" VerticalAlignment="Center" Grid.Row="9" Margin="3" IsChecked="{Binding Sighned, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Grid.Column="1" Content=""/>
-            <Label VerticalAlignment="Center" Grid.Row="10" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="starts:"/>
-            <DatePicker x:Name="startsDatePicker" VerticalAlignment="Center" SelectedDate="{Binding starts, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="10" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+            
+            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="End Date:"/>
+            <DatePicker x:Name="endDateDatePicker"  VerticalAlignment="Center" SelectedDate="{Binding EndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Id Nanny:"/>
+            <ComboBox x:Name="id_NannyComboBox" DisplayMemberPath="Id"  Width="120" VerticalAlignment="Center" Text="{Binding Id_Nanny, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" />
+            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Id Child:"/>
+            <ComboBox x:Name="idChildComboBox" DisplayMemberPath="Id"  Width="120" VerticalAlignment="Center" Text="{Binding IdChild, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Is Per Month:"/>
+            <CheckBox x:Name="isPerMonthCheckBox"  VerticalAlignment="Center" Grid.Row="4" Margin="3" IsChecked="{Binding IsPerMonth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Grid.Column="1" Content=""/>
+            <Label VerticalAlignment="Center" Grid.Row="8" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Is Signed:"/>
+            <CheckBox x:Name="SignedCheckBox" VerticalAlignment="Center"  Grid.Row="8" Margin="3" IsChecked="{Binding IsSigned, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Grid.Column="1" Content=""/>
+            <Label VerticalAlignment="Center" Grid.Row="6" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Sal Per Hour:"/>
+            <TextBox x:Name="sal_Per_HourTextBox" Width="120"  VerticalAlignment="Center" Text="{Binding Sal_Per_Hour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Sal Per Month:"/>
+            <TextBox x:Name="sal_Per_MonthTextBox"  Width="120" VerticalAlignment="Center" Text="{Binding Sal_Per_Month, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" IsEnabled="{Binding ElementName=isPerMonthCheckBox, Path=IsChecked}"/>
+            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Start Date:"/>
+            <DatePicker x:Name="startDateDatePicker" Background="LightPink" VerticalAlignment="Center" SelectedDate="{Binding StartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="7" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="have they met?"/>
+            <CheckBox x:Name="meetingCheckBox" VerticalAlignment="Center"  Grid.Row="7" Margin="3" IsChecked="{Binding Theyknow, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Grid.Column="1" Content=""/>
         </Grid>
+        <Button x:Name="AddContractButton" Background="LightSkyBlue" Content="Add Contract" Margin="0,0,0,75" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="120" Height="40" Click="AddContractButton_Click" >
 
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=endDateDatePicker, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=id_NannyTextBox, Path=Text  }" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=idChildTextBox, Path=Text  }" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=isPerMonthCheckBox, Path=IsChecked  }" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=startDateDatePicker, Path=Text  }" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=theyknowCheckBox, Path=IsChecked  }" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+
+        </Button>
+
+       
+
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Fill the details of the contract:" FontWeight="Medium" FontSize="18" VerticalAlignment="Top"/>
+        
+
+    
     </Grid>
 </Window>

@@ -31,8 +31,16 @@ namespace PL
             bl = BLFactory.getBL();
             
         }
+        public AddContractWindow(Contract contract)
+        {
+            InitializeComponent();
+            this.DataContext = contract;
+            AddContractButton.Content = "update child";
+            bl = BLFactory.getBL();
+        }
 
-       
+
+
 
         private void AddContractButton_Click(object sender, RoutedEventArgs e)
         {
@@ -50,9 +58,6 @@ namespace PL
 
         }
 
-        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+       
     }
 }

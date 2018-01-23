@@ -33,6 +33,13 @@ namespace PL
             bl = BLFactory.getBL();
            motherIdComboBox.ItemsSource = bl.getListOfMothers();
         }
+        public AddChildWindow(Child child)
+        {
+            InitializeComponent();
+            this.DataContext = child;
+            AddChildButton.Content = "update child";
+            bl = BLFactory.getBL();
+        }
 
 
         private void AddChildButton_Click(object sender, RoutedEventArgs e)

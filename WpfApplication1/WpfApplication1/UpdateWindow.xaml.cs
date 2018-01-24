@@ -34,6 +34,8 @@ namespace PL
             InitializeComponent();
             TheBL = BLFactory.getBL();
             DELButton.Visibility = Visibility.Hidden;
+            slowButton.Visibility = Visibility.Hidden;
+            setPic(thePerson);
            // switch 
 
             switch (thePerson)
@@ -83,6 +85,29 @@ namespace PL
             }
         }
 
+        private void setPic(personsEnum.typeOfPerson thePerson)
+        {
+            switch (thePerson)
+            {
+                case personsEnum.typeOfPerson.nannyDelete5:
+                case personsEnum.typeOfPerson.nanny1:
+                        updateWindowThemePicture.Source = new BitmapImage(new Uri("./ resources / badCaretakerIMG.jpg", UriKind.Relative));
+                    break;
+                case personsEnum.typeOfPerson.motherDelete6:
+                case personsEnum.typeOfPerson.mother2:
+                    break;
+                case personsEnum.typeOfPerson.childDelete7:
+                case personsEnum.typeOfPerson.child3:
+                    break;
+                case personsEnum.typeOfPerson.contractDelete8:
+                case personsEnum.typeOfPerson.contract4:
+             
+                    break;
+                default://for numbers 5-8
+                    break;
+            }
+        }
+
         private void IDComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             switch (flag)
@@ -110,16 +135,20 @@ namespace PL
                     break;
             }
         }
+        #region double click combobox both for update and delete
+        int count;
         object _lastObject = null;
         DateTime _lastPressed = DateTime.MinValue;
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-          
-            TimeSpan ts = new TimeSpan(1,1,1);
+            if (_lastObject == sender && DELButton.Visibility == Visibility.Hidden) { count++; }
+            else { count = 0; }
+            if (count > 4) { slowButton.Visibility = Visibility.Visible; }
+            TimeSpan ts = new TimeSpan(1, 1, 1);
             if (_lastObject != null && _lastPressed != null)
             {
                 ts = DateTime.Now - _lastPressed;
-                if (ts.Milliseconds < 500  && sender.Equals(_lastObject))
+                if (ts.Milliseconds < 500 && sender.Equals(_lastObject))
                 {
                     MessageBox.Show("Double clicked");
                     switch (flag)
@@ -127,10 +156,14 @@ namespace PL
                         case 1:
                             //nanny
                             selectedNanny = IDComboBox.SelectedItem as Nanny;
+                            Window addNannyWindow = new AddNannyWindow(selectedNanny);
+                            addNannyWindow.Show();
                             break;
                         case 2:
                             //mother
                             selectedMother = IDComboBox.SelectedItem as Mother;
+                            Window addMotherWindow = new AddMotherWindow(selectedMother);//make cunstruter that gets parameter update
+                            addMotherWindow.Show();
                             break;
                         case 3:
                             //child
@@ -140,8 +173,10 @@ namespace PL
                             break;
                         case 4:
                             selectedContract = IDComboBox.SelectedItem as Contract;
+                            Window addContractWindow = new AddContractWindow(selectedContract);
+                            addContractWindow.Show();
                             break;
-                        default ://for numbers 5-8
+                        default://for numbers 5-8
                             break;
                     }
                 }
@@ -149,40 +184,71 @@ namespace PL
             _lastObject = sender;//sender is the object
             //make flag += sender and if 5 time then make the update button pop up
             _lastPressed = DateTime.Now;
-        }
+        } 
+        #endregion
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            switch (flag)
+        {//delete button
+            try
             {
+                switch (flag)
+            {
+             // selectedMother;
+             // selectedNanny;
+             // selectedChild;
+             // selectedContract;
                 case 1:
                 case 5:
-                    //nanny
-                    //here need 3 way text box to ask if sure want to delete
-                    //the below line isn't currect (not needed)
-                    selectedNanny = IDComboBox.SelectedItem as Nanny;
+                        var result = MessageBox.Show(selectedNanny.ToString(), "Are you sure you want to remove this Nanny?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            TheBL.deleteNanny(selectedNanny.ToString());
+                            Close();
+                        }
+                    //WMPLib.WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
+                    //player.URL = @"track.mp3";
+                    //player.controls.play();
                     break;
                 case 2:
                 case 6:
-                    //mother
-                    selectedMother = IDComboBox.SelectedItem as Mother;
+                        var result2 = MessageBox.Show(selectedMother.ToString(), "Are you sure you want to remove this Mother?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        if (result2 == MessageBoxResult.Yes)
+                        {
+                            TheBL.deleteMother(selectedMother.ToString());
+                            Close();
+                        }
                     break;
                 case 3:
                 case 7:
-                    //child
-                    selectedChild = IDComboBox.SelectedItem as Child;
-                    break;
+                        var result3 = MessageBox.Show(selectedChild.ToString(), "Are you sure you want to remove this child?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        if (result3 == MessageBoxResult.Yes)
+                        {
+                            TheBL.deleteChild(selectedChild.ToString());
+                            Close();
+                        }
+                        break;
                 case 4:
                 case 8:
-                    selectedContract = IDComboBox.SelectedItem as Contract;
-                    break;
+                        var result4 = MessageBox.Show(selectedContract.ToString(), "Are you sure you want to remove this contract?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        if (result4 == MessageBoxResult.Yes)
+                        {
+                            TheBL.deleteChild(selectedContract.ToString());
+                            Close();
+                        }
+                        break;
                 default://for numbers 5-8
                     break;
+            }
+            }
+            catch (Exception x)
+            {
+
+                MessageBox.Show(x.Message);
             }
         }
 
         private void slowButton_Click(object sender, RoutedEventArgs e)
-        {
+        {//update button
 
         }
     }

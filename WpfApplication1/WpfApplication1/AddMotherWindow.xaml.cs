@@ -47,15 +47,16 @@ namespace PL
 
         private void AddMotherButton_Click(object sender, RoutedEventArgs e)
         {
+            if(!(AddMotherButton.Content.ToString() == "update mother"))
+            try
+            {
+                mother = new Mother();
                 SetTime(mother.serviseNeededTimeTable[0], startSundayTime, endSundayTime);
                 SetTime(mother.serviseNeededTimeTable[1], startMondayTime, endMondayTime);
                 SetTime(mother.serviseNeededTimeTable[2], startTuesdayTime, endTuesdayTime);
                 SetTime(mother.serviseNeededTimeTable[3], startWednesdayTime, endWednesdayTime);
                 SetTime(mother.serviseNeededTimeTable[4], startThursdayTime, endThursdayTime);
                 SetTime(mother.serviseNeededTimeTable[5], startFridayTime, endFridayTime);
-            if(!(AddMotherButton.Content.ToString() == "update mother"))
-            try
-            {
                 bl.addMother(mother);
                 System.Windows.MessageBox.Show("mother added succesfuly:", mother.ToString() );
                 Close();
@@ -66,8 +67,18 @@ namespace PL
             }
             else
             {
+
                 try
                 {
+                    SetTime(mother.serviseNeededTimeTable[0], startSundayTime, endSundayTime);
+                    SetTime(mother.serviseNeededTimeTable[1], startMondayTime, endMondayTime);
+                    SetTime(mother.serviseNeededTimeTable[2], startTuesdayTime, endTuesdayTime);
+                    SetTime(mother.serviseNeededTimeTable[3], startWednesdayTime, endWednesdayTime);
+                    SetTime(mother.serviseNeededTimeTable[4], startThursdayTime, endThursdayTime);
+                    SetTime(mother.serviseNeededTimeTable[5], startFridayTime, endFridayTime);
+                    bl.addMother(mother);
+                    System.Windows.MessageBox.Show("mother added succesfuly:", mother.ToString());
+                    Close();
                     bl.updateMotherDetalis(mother);
                     System.Windows.MessageBox.Show("mother succesfuly updated :", mother.ToString());
                     Close();

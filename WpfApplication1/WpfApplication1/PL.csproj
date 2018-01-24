@@ -94,17 +94,11 @@
       <DependentUpon>AddNannyWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="personsEnum.cs" />
+    <Compile Include="sampleMediaSound.xaml.cs">
+      <DependentUpon>sampleMediaSound.xaml</DependentUpon>
+    </Compile>
     <Compile Include="updateChild.xaml.cs">
       <DependentUpon>updateChild.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="updateContract.xaml.cs">
-      <DependentUpon>updateContract.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="updateMother.xaml.cs">
-      <DependentUpon>updateMother.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UpdateNanny.xaml.cs">
-      <DependentUpon>UpdateNanny.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpdateWindow.xaml.cs">
       <DependentUpon>UpdateWindow.xaml</DependentUpon>
@@ -141,19 +135,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="sampleMediaSound.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="updateChild.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="updateContract.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="updateMother.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UpdateNanny.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

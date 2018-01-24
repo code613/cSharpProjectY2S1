@@ -21,12 +21,13 @@ namespace DAL
         #endregion
         public class FactoryDAL
         {
-            static Idal MyDal = null;
+            //static Idal MyDal = null;
             public static Idal GetDAL()
             {
-                if (MyDal == null)
-                    MyDal = new Dal_imp();
-                return MyDal;
+                //if (MyDal == null)
+                //    MyDal = new Dal_imp();
+                //  return MyDal;
+                return Dal_imp.Dal;
             }
         }
 

@@ -34,7 +34,7 @@
                 </x:Array >
             </ComboBox.ItemsSource>
         </ComboBox>
-        <Button x:Name="DELButton" Grid.Row="2" Visibility="Visible" Content="DELETE" VerticalAlignment="Top" HorizontalAlignment="Center" Height="40" FontSize="16"  Width="150"   BorderThickness="3" Click="Button_Click" Margin="221,0"  >
+        <Button x:Name="DELButton" Grid.Row="2" Visibility="Hidden" Content="DELETE" VerticalAlignment="Top" HorizontalAlignment="Center" Height="40" FontSize="16"  Width="150"   BorderThickness="3" Click="Button_Click" Margin="221,0"  >
             <Button.Style>
                 <Style TargetType ="Button">
                     <Style.Triggers>
@@ -50,7 +50,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button Content="Update Button" Grid.Row="2"  x:Name="slowButton"  VerticalAlignment="Top" HorizontalAlignment="Center" Height="40" FontSize="16"  Width="150"   BorderThickness="3" Click="slowButton_Click" >
+        <Button Content="Update Button" Grid.Row="2" Visibility="Visible"  x:Name="slowButton"  VerticalAlignment="Top" HorizontalAlignment="Center" Height="40" FontSize="16"  Width="150"   BorderThickness="3" Click="slowButton_Click" >
             <Button.Style>
                 <Style>
                     <Style.Triggers>
@@ -61,7 +61,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Image Source="./resources/badCaretakerIMG.jpg" Grid.Row="2" Height="300" Width=" 300" />
+        <Image x:Name="updateWindowThemePicture" Grid.Row="2" Height="300" Width=" 300" />
         <!--<ContentControl x:Name="c"   Grid.Row="1" Height="428" VerticalAlignment="Bottom" Margin="0,0,0,10" Grid.RowSpan="2">
             --><!--<Grid  >
                 --><!--"   <local:UpdateChildControl x:Name="update" Visibility="Hidden"/> --><!--

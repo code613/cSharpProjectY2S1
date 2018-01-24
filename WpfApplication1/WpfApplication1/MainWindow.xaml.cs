@@ -17,14 +17,15 @@ using BL;
 
 namespace PL
 {
-   
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        IBL TheBL ;
-        string  theTitle = "premeir Nanny Hiring enterprise";//how to make const?
+        string theTitle = "premeir Nanny Hiring enterprise";//how to make const?
+        IBL TheBL;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +33,6 @@ namespace PL
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             TheBL = BLFactory.getBL();
         }
-
 
         private void SetVisibilty()
         {
@@ -51,7 +51,6 @@ namespace PL
             MotherList.Visibility = Visibility.Hidden;
             NannyList.Visibility = Visibility.Hidden;
             ChildrenList.Visibility = Visibility.Hidden;
-
         }
 
         private void Mother_Click(object sender, RoutedEventArgs e)
@@ -59,7 +58,7 @@ namespace PL
             SetVisibilty();
             AddMother.Visibility = Visibility.Visible;
             DeleteMother.Visibility = Visibility.Visible;
-            UpdateMother.Visibility = Visibility.Visible; 
+            UpdateMother.Visibility = Visibility.Visible;
         }
 
         private void Nanny_Click(object sender, RoutedEventArgs e)
@@ -120,7 +119,7 @@ namespace PL
         private void UpdateMother_Click(object sender, RoutedEventArgs e)
         {
             Window updateTheMother = new UpdateWindow(personsEnum.typeOfPerson.mother2);
-           // Window updateTheMother = new updateMother();
+            // Window updateTheMother = new updateMother();
             updateTheMother.Show();
         }
         private void DeleteMother_Click(object sender, RoutedEventArgs e)
@@ -174,7 +173,17 @@ namespace PL
         {
 
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Window sampleMedia = new sampleMediaSound();
+            sampleMedia.Show();
+        }
         #endregion
+
+    }
+}
+
 
 
         /* example of meesige box this example will help for initilzing a value of id 
@@ -273,8 +282,6 @@ if (result == System.Windows.Forms.DialogResult.Yes)
 }
 
 }*/
-    }
-}
             #region threeMonthSaga commented out
             //bool Month3flag;
             //do

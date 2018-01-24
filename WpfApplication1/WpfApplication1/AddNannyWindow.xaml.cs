@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BE;
 
 namespace PL
 {
@@ -19,9 +20,16 @@ namespace PL
     /// </summary>
     public partial class AddNannyWindow : Window
     {
+        private Nanny selectedNanny;
+
         public AddNannyWindow()
         {
             InitializeComponent();
+        }
+
+        public AddNannyWindow(Nanny selectedNanny)
+        {
+            this.selectedNanny = selectedNanny;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

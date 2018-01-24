@@ -12,7 +12,12 @@ namespace PL
         {
            nanny1,
            mother2,
-           child3//added numbers so not to mix up with other names
+           child3,//added numbers so not to mix up with other names
+           contract4,
+           nannyDelete5,
+           motherDelete6,
+           childDelete7,
+           contractDelete8
         }
     }
 }

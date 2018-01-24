@@ -153,7 +153,7 @@ namespace PL
         }
         private void UpdateContract_Click(object sender, RoutedEventArgs e)
         {
-            Window updateTheContract = new updateContract();
+            Window updateTheContract = new UpdateWindow(personsEnum.typeOfPerson.contract4);
             updateTheContract.Show();
         }
         private void DeleteContract_Click(object sender, RoutedEventArgs e)

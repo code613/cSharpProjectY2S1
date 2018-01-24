@@ -23,8 +23,9 @@ namespace PL
     {
         IBL TheBL;
         Mother selectedMother;
-        Nanny updateNanny;
+        Nanny selectedNanny;
         Child selectedChild;
+        Contract selectedContract;
         int flag;//globel to this scope (i hope)
 
 
@@ -32,9 +33,10 @@ namespace PL
         {
             InitializeComponent();
             TheBL = BLFactory.getBL();
+            DELButton.Visibility = Visibility.Hidden;
            // switch 
-                
-          switch (thePerson)
+
+            switch (thePerson)
           {
               case personsEnum.typeOfPerson.nanny1:
                     IDComboBox.ItemsSource = TheBL.getListOfNannies();
@@ -53,23 +55,59 @@ namespace PL
                 IDComboBox.ItemsSource = TheBL.getListOfChildren();
                 //   upButton.Content = "Update Child";
                 headerLabel.Content = "double click the Child's ID to update";
-                flag = 2;//need double click and switch
+                flag = 3;//need double click and switch
                     break;
-          }
+                case personsEnum.typeOfPerson.contract4:
+                    IDComboBox.ItemsSource = TheBL.getListOfContracts();
+                    headerLabel.Content = "double click on the Contract ID to update";
+                    flag = 4;//need double click and switch
+                    break;
+                case personsEnum.typeOfPerson.nannyDelete5:
+                    IDComboBox.ItemsSource = TheBL.getListOfNannies();
+                    DELButton.Visibility = Visibility.Visible;
+                  flag = 5;
+                    break;
+                case personsEnum.typeOfPerson.motherDelete6:
+                    IDComboBox.ItemsSource = TheBL.getListOfMothers();
+                    flag = 6;
+                    break;
+                case personsEnum.typeOfPerson.childDelete7:
+                    IDComboBox.ItemsSource = TheBL.getListOfChildren();
+                    headerLabel.Content = "click Child to delete";
+                    flag = 7;
+                    break;
+                case personsEnum.typeOfPerson.contractDelete8:
+                    IDComboBox.ItemsSource = TheBL.getListOfContracts();
+                    flag = 8;
+                    break;
+            }
         }
-
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if(flag == 1)//oh but i was supposed to do double click
-        //    selectedMother = IDComboBox.SelectedItem as Mother;
-            
-        //}
 
         private void IDComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (flag == 3)
+            switch (flag)
             {
-                //selectedChild = IDComboBox.SelectedItem as Child;
+                case 1:
+                case 5:
+                    //nanny
+                    selectedNanny = IDComboBox.SelectedItem as Nanny;
+                    break;
+                case 2:
+                case 6:
+                    //mother
+                    selectedMother = IDComboBox.SelectedItem as Mother;
+                    break;
+                case 3:
+                case 7:
+                    //child
+                    selectedChild = IDComboBox.SelectedItem as Child;
+                    break;
+                case 4:
+                case 8:
+                    selectedContract = IDComboBox.SelectedItem as Contract;
+                    break;
+                default://for numbers 5-8
+                    break;
             }
         }
         object _lastObject = null;
@@ -88,22 +126,64 @@ namespace PL
                     {
                         case 1:
                             //nanny
-
+                            selectedNanny = IDComboBox.SelectedItem as Nanny;
                             break;
                         case 2:
                             //mother
-
+                            selectedMother = IDComboBox.SelectedItem as Mother;
                             break;
                         case 3:
                             //child
                             selectedChild = IDComboBox.SelectedItem as Child;
                             Window updateTC = new AddChildWindow(selectedChild);
+                            updateTC.Show();//so will keep this window open that means
+                            break;
+                        case 4:
+                            selectedContract = IDComboBox.SelectedItem as Contract;
+                            break;
+                        default ://for numbers 5-8
                             break;
                     }
                 }
             }
-            _lastObject = sender;
+            _lastObject = sender;//sender is the object
+            //make flag += sender and if 5 time then make the update button pop up
             _lastPressed = DateTime.Now;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            switch (flag)
+            {
+                case 1:
+                case 5:
+                    //nanny
+                    //here need 3 way text box to ask if sure want to delete
+                    //the below line isn't currect (not needed)
+                    selectedNanny = IDComboBox.SelectedItem as Nanny;
+                    break;
+                case 2:
+                case 6:
+                    //mother
+                    selectedMother = IDComboBox.SelectedItem as Mother;
+                    break;
+                case 3:
+                case 7:
+                    //child
+                    selectedChild = IDComboBox.SelectedItem as Child;
+                    break;
+                case 4:
+                case 8:
+                    selectedContract = IDComboBox.SelectedItem as Contract;
+                    break;
+                default://for numbers 5-8
+                    break;
+            }
+        }
+
+        private void slowButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

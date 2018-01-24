@@ -93,18 +93,6 @@
     <Compile Include="AddNannyWindow.xaml.cs">
       <DependentUpon>AddNannyWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="deleteChild.xaml.cs">
-      <DependentUpon>deleteChild.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="deleteContract.xaml.cs">
-      <DependentUpon>deleteContract.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="deleteMother.xaml.cs">
-      <DependentUpon>deleteMother.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="deleteNanny.xaml.cs">
-      <DependentUpon>deleteNanny.xaml</DependentUpon>
-    </Compile>
     <Compile Include="personsEnum.cs" />
     <Compile Include="updateChild.xaml.cs">
       <DependentUpon>updateChild.xaml</DependentUpon>
@@ -134,22 +122,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddNannyWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="deleteChild.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="deleteContract.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="deleteMother.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="deleteNanny.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -244,6 +216,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\badCaretakerIMG.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\pink102.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

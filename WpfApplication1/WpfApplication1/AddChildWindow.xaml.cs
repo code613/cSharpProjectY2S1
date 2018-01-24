@@ -27,10 +27,10 @@ namespace PL
         
         public AddChildWindow()
         {
-            InitializeComponent();
-            child = new Child();
-            this.DataContext = child;
-            bl = BLFactory.getBL();
+           InitializeComponent();
+           child = new Child();
+           this.DataContext = child;
+           bl = BLFactory.getBL();
            motherIdComboBox.ItemsSource = bl.getListOfMothers();
         }
         public AddChildWindow(Child child)
@@ -39,24 +39,38 @@ namespace PL
             this.DataContext = child;
             AddChildButton.Content = "update child";
             bl = BLFactory.getBL();
+            motherIdComboBox.ItemsSource = bl.getListOfMothers();
         }
 
 
         private void AddChildButton_Click(object sender, RoutedEventArgs e)
         {
-
-            try
+            if (!(AddChildButton.Content.ToString() == "update child"))//lol make sure this is currect
             {
-
-                bl.addChild(child);
-                MessageBox.Show(child.firstName + " was successfully added\n" + bl.getListOfChildren(null).LastOrDefault().ToString());
-                this.Close();
+                try
+                {
+                    bl.addChild(child);
+                    MessageBox.Show(child.firstName + " was successfully added\n" + bl.getListOfChildren(null).LastOrDefault().ToString());//what is this??
+                    this.Close();
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show(x.Message);
+                }
             }
-            catch (Exception x)
+            else
             {
-                MessageBox.Show(x.Message);
+                try
+                {
+                    bl.updateChildDetalis(child);
+                    MessageBox.Show(child.firstName + " was successfully updated \n" + bl.getListOfChildren(null).LastOrDefault().ToString());
+                    this.Close();//wait is the abouve the curect thing to return
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show(x.Message);
+                }
             }
-
         }
 
         private void motherIdComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

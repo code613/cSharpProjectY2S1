@@ -35,7 +35,7 @@ namespace PL
         {
             InitializeComponent();
             this.DataContext = contract;
-            AddContractButton.Content = "update child";
+            AddContractButton.Content = "update contract";
             bl = BLFactory.getBL();
         }
 
@@ -44,18 +44,32 @@ namespace PL
 
         private void AddContractButton_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (!(AddContractButton.Content.ToString() == "update contract"))
             {
-                bl.addContract(contract);
-                MessageBox.Show(bl.getListOfContracts(null).LastOrDefault().ToString());
-                Close();
-            }
-            catch (Exception x)
-            {
+                try
+                {
+                    bl.addContract(contract);
+                    MessageBox.Show(bl.getListOfContracts(null).LastOrDefault().ToString());
+                    Close();
+                }
+                catch (Exception x)
+                {
 
-                MessageBox.Show(x.Message);
+                    MessageBox.Show(x.Message);
+                }
             }
-
+            else {
+                try
+                {
+                    bl.updateContractDetalis(contract);
+                    MessageBox.Show(bl.getListOfContracts(null).LastOrDefault().ToString());
+                    Close();
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show(x.Message);
+                }
+            }
         }
 
        

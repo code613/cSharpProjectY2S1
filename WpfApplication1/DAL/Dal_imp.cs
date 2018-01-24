@@ -11,6 +11,19 @@ namespace DAL
 
     public class Dal_imp : Idal
     {
+        #region Singleton
+        private static readonly Dal_imp instance = new Dal_imp();
+
+        public static Dal_imp Instance
+        {
+            get { return instance; }
+        }
+        #endregion
+
+        public Dal_imp()
+        {
+             //init();
+        }
 
         static Random r = new Random();
 
@@ -40,9 +53,9 @@ namespace DAL
         public Child findChild(string ID)
         {
             return DataSourse.listOfChildren.FirstOrDefault(c => c.ID == ID);
-            
+
         }
-        public List<Child> getListOfChildren(Func<Child,bool> predicate=null)
+        public List<Child> getListOfChildren(Func<Child, bool> predicate = null)
         {
             if (predicate != null)
                 return DataSourse.listOfChildren.Where(predicate).ToList();
@@ -77,7 +90,7 @@ namespace DAL
         {
             return DS.DataSourse.listOfNannys.FirstOrDefault(n => n.ID == ID);
         }
-        public List<Nanny> getListOfNannies(Func<Nanny,bool> predicate=null)
+        public List<Nanny> getListOfNannies(Func<Nanny, bool> predicate = null)
         {
             if (predicate != null)
                 return DataSourse.listOfNannys.Where(predicate).ToList();
@@ -111,10 +124,10 @@ namespace DAL
         {
             return DS.DataSourse.listOfMothers.FirstOrDefault(m => m.ID == ID);
         }
-        public List<Mother> getListOfMothers(Func<Mother,bool> predicate=null)
+        public List<Mother> getListOfMothers(Func<Mother, bool> predicate = null)
         {
             if (predicate != null)
-                return DataSourse.listOfMothers.Where(predicate).ToList(); 
+                return DataSourse.listOfMothers.Where(predicate).ToList();
             return DS.DataSourse.listOfMothers;
         }
         public List<Child> getListOfMothersChildren(Mother mom)
@@ -143,7 +156,7 @@ namespace DAL
             Nanny nan = findNanny(contract.nanny_ID);
             if (nan == null || mom == null)
                 throw new Exception("error in nanny or mother id...");
-            
+
             DS.DataSourse.listOfConntracts.Add(contract);
         }
         public void deleteContract(int number)
@@ -164,472 +177,285 @@ namespace DAL
         {
             return DS.DataSourse.listOfConntracts.FirstOrDefault(c => c.contract_number == contract_number);
         }
-        public List<Contract> getListOfContracts(Func<Contract,bool> predicate=null)
+        public List<Contract> getListOfContracts(Func<Contract, bool> predicate = null)
         {
             if (predicate != null)
                 return DataSourse.listOfConntracts.Where(predicate).ToList();
             return DS.DataSourse.listOfConntracts;
         }
         #endregion
-        /*
-         * 
-          //// void init()  //tokk from MyBL
-       // {
-       //     Nanny shifi_levy = new Nanny
-       //     {
-       //         ID = "123",
-       //         firstName = "shifi",
-       //         lastName = "levy",
-       //         Birthday = DateTime.Parse("31.12.88"),
-       //         Address = "HaRav Shalom Shabazi St 12, Jerusalem",
-       //         elevator = true,
-       //         floor = 2,
-       //         Expirence = 3,
-       //         phone = "0529344513",
-       //         MaxAge = 15,
-       //         MinAge = 3,
-       //         MaxChildren = 8,
-       //         isPerHour = false,
-       //         SallaryPerMonths = 900,
-       //         GovVacation = false,
-       //         WorkWeek = new bool[] { true, true, true, true, true, true, false },
-       //         Recommendations = ""
 
-       //     };
-       //     Nanny Tsipi_Hotoveli = new Nanny
-       //     {
-       //         ID = "654",
-       //         firstName = "Tsipi",
-       //         lastName = "Hotoveli",
-       //         Birthday = new DateTime(1989, 3, 29),
-       //         Address = "HaRav Kuk St 8, Jerusalem",
-       //         elevator = true,
-       //         floor = 2,
-       //         Expirence = 3,
-       //         phone = "0521001001",
-       //         MaxAge = 18,
-       //         MinAge = 3,
-       //         MaxChildren = 8,
-       //         isPerHour = true,
-       //         HourSallary = 10,
-       //         SallaryPerMonths = 900,
-       //         GovVacation = true,
-       //         WorkWeek = new bool[] { true, true, true, true, true, false, false },
-
-
-
-       //         Recommendations = ""
-       //     };
-       // }
-        private void initNanysMothersandChilds()
+        private void init()  //took from MyBL
         {
-            addNanny(new Nanny
+            Nanny shifi_levy = new Nanny
             {
-                Address = "10, avenue de la paix, strasbourg, france",
-                Birthday = new DateTime(1990, 3, 3),
+                ID = "123",
+                firstName = "shifi",
+                lastName = "levy",
+                Birthday = DateTime.Parse("31.12.88"),
+                Address = "HaRav Shalom Shabazi St 12, Jerusalem",
                 elevator = true,
-                ExpYears = 12,
-                SalPerHour = 23,
-                lastName = "Baya",
-                firstName = "sari",
-                Floor = 2,
-                ID = 300,
-                Phone = "0548455555",
-                IsSalPerHour = true,
-                IsTamat = false,
-                MaxAgeMonth = 36,
-                MaxChildren = 5,
-                SalPerMonth = 4000,
-                MinAgeMonth = 4,
-                DaysOfWork = new bool[] { true, true, true, true, true, true },
-                Week_of_work = new DayOfWork[]
-{
-                   new DayOfWork { day = 0, end = new TimeSpan(8, 30, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 1, end = new TimeSpan(9, 20, 0), start = new TimeSpan(9, 0, 0) } ,
-                   new DayOfWork { day = 2, end = new TimeSpan(9, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 3, end = new TimeSpan(9, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 4, end = new TimeSpan(9, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 5, end = new TimeSpan(8, 0, 0), start = new TimeSpan(7, 0, 0) } ,
-},
-
-            });
-            addNanny(new Nanny
-            {
-                Address = "14, avenue de la paix, strasbourg,france",
-                Dob = new DateTime(1990, 3, 3),
-                Elevator = true,
-                ExpYears = 12,
-                SalPerHour = 23,
-                FamilyName = "gutman5",
-                FirstName = "sari5",
-                Floor = 2,
-                Id = 301,
-                Phone = "0548455555",
-                IsSalPerHour = true,
-                IsTamat = false,
-                MaxAgeMonth = 36,
-                MaxChildren = 5,
-                SalPerMonth = 4000,
-                MinAgeMonth = 4,
-                DaysOfWork = new bool[] { true, true, true, true, true, true },
-                Week_of_work = new DayOfWork[]
-                {
-                   new DayOfWork { day = 0, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 1, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 2, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 3, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 4, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 5, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                },
-
-            });
-            addNanny(new Nanny
-            {
-                Address = "20 rue de la paix, paris,france",
-                Dob = new DateTime(1990, 3, 3),
-                Elevator = true,
-                ExpYears = 12,
-                SalPerHour = 23,
-                FamilyName = "gutman1",
-                FirstName = "sari1",
-                Floor = 2,
-                Id = 302,
-                Phone = "0548455555",
-                IsSalPerHour = true,
-                IsTamat = false,
-                MaxAgeMonth = 36,
-                MaxChildren = 5,
-                SalPerMonth = 4000,
-                MinAgeMonth = 4,
-                DaysOfWork = new bool[] { true, true, true, true, true, true },
-                Week_of_work = new DayOfWork[]
-              {
-                   new DayOfWork { day = 0, end = new TimeSpan(15, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 1, end = new TimeSpan(11, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 2, end = new TimeSpan(14, 0, 0), start = new TimeSpan(10, 30, 0) } ,
-                   new DayOfWork { day = 3, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 4, end = new TimeSpan(19, 0, 0), start = new TimeSpan(9, 0, 0) } ,
-                   new DayOfWork { day = 5, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-              },
-
-            });
-            addNanny(new Nanny
-            {
-                Address = "10 rue des arquebusiers,strasbourg,france",
-                Dob = new DateTime(1990, 3, 3),
-                Elevator = true,
-                ExpYears = 12,
-                SalPerHour = 23,
-                FamilyName = "gutman3",
-                FirstName = "sari3",
-                Floor = 2,
-                Id = 303,
-                Phone = "0548455555",
-                IsSalPerHour = true,
-                IsTamat = false,
-                MaxAgeMonth = 36,
-                MaxChildren = 5,
-                SalPerMonth = 4000,
-                MinAgeMonth = 4,
-                DaysOfWork = new bool[] { true, true, true, true, true, true },
-                Week_of_work = new DayOfWork[]
-             {
-                   new DayOfWork { day = 0, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 1, end = new TimeSpan(15, 0, 0), start = new TimeSpan(9, 0, 0) } ,
-                   new DayOfWork { day = 2, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 3, end = new TimeSpan(11, 0, 0), start = new TimeSpan(9, 0, 0) } ,
-                   new DayOfWork { day = 4, end = new TimeSpan(20, 0, 0), start = new TimeSpan(10, 0, 0) } ,
-                   new DayOfWork { day = 5, end = new TimeSpan(11, 0, 0), start = new TimeSpan(7, 0, 0) } ,
-             },
-
-            });
-            addNanny(new Nanny
-            {
-                Address = "5 rue turenne,strasbourg,france",
-                Dob = new DateTime(1990, 3, 3),
-                Elevator = true,
-                ExpYears = 12,
-                SalPerHour = 23,
-                FamilyName = "gutman2",
-                FirstName = "sari2",
-                Floor = 2,
-                Id = 304,
-                Phone = "0548455555",
-                IsSalPerHour = true,
-                IsTamat = false,
-                MaxAgeMonth = 36,
-                MaxChildren = 5,
-                SalPerMonth = 4000,
-                MinAgeMonth = 1,
-                DaysOfWork = new bool[] { true, true, true, true, true, true },
-                Week_of_work = new DayOfWork[]
-           {
-                   new DayOfWork { day = 0, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 1, end = new TimeSpan(12, 0, 0), start = new TimeSpan(9, 0, 0) } ,
-                   new DayOfWork { day = 2, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 3, end = new TimeSpan(11, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 4, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 5, end = new TimeSpan(11, 0, 0), start = new TimeSpan(7, 0, 0) } ,
-           },
-
-            });
-            addNanny(new Nanny
-            {
-                Address = "40 avenue des vosges,strasbourg,france",
-                Dob = new DateTime(1990, 3, 3),
-                Elevator = true,
-                ExpYears = 1,
-                SalPerHour = 23,
-                FamilyName = "gutman4",
-                FirstName = "sari4",
-                Floor = 2,
-                Id = 305,
-                Phone = "0548455555",
-                IsSalPerHour = true,
-                IsTamat = false,
-                MaxAgeMonth = 36,
-                MaxChildren = 5,
-                SalPerMonth = 4000,
-                MinAgeMonth = 4,
-                DaysOfWork = new bool[] { true, true, true, true, true, true },
-                Week_of_work = new DayOfWork[]
-             {
-                   new DayOfWork { day = 0, end = new TimeSpan(15, 0, 0), start = new TimeSpan(7, 0, 0) } ,
-                   new DayOfWork { day = 1, end = new TimeSpan(15, 0, 0), start = new TimeSpan(9, 20, 0) } ,
-                   new DayOfWork { day = 2, end = new TimeSpan(15, 30, 0), start = new TimeSpan(7, 0, 0) } ,
-                   new DayOfWork { day = 3, end = new TimeSpan(15, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 4, end = new TimeSpan(17, 45, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 5, end = new TimeSpan(10, 0, 0), start = new TimeSpan(7, 0, 0) } ,
-             },
-
-            });
-
-            addNanny(new Nanny
-            {
-                Address = "120 Pesach Chevroni,Jerusalem",
-                FirstName = "Ruhami",
-                FamilyName = "Vorona",
-                Id = 306,
-
-                //rangeOfAge="gg",
-
-                Dob = new DateTime(1996, 09, 22),
+                floor = 2,
+                Expirence = 3,
+                phone = "0529344513",
+                MaxAge = 15,
+                MinAge = 3,
                 MaxChildren = 8,
-                MinAgeMonth = 0,
-                MaxAgeMonth = 6,
-                Elevator = false,
-                SalPerHour = 40,
-                SalPerMonth = 4000,
-                Recommendations = "good",
-                Phone = "0543216766",
-                ExpYears = 0,
-                Floor = 1,
-                IsSalPerHour = true,
-                IsTamat = false,
-                Week_of_work = new DayOfWork[]
+                isPerHour = false,
+                monthSalary = 900,
+                GovVacation = false,
+                WorkWeek = new bool[] { true, true, true, true, true, true, false },
+                TimeTable = new DayOfWork[]
                 {
-                   new DayOfWork { day = 0, end = new TimeSpan(17, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 1, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 2, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 3, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 4, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 5, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
+                    new DayOfWork { day = 0, end = new TimeSpan(17, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 1, end = new TimeSpan(17, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 2, end = new TimeSpan(17, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 3, end = new TimeSpan(17, 0, 0), start = new TimeSpan(9, 0, 0) },
+                    new DayOfWork { day = 4, end = new TimeSpan(17, 0, 0), start = new TimeSpan(9, 0, 0) },
+                    new DayOfWork { day = 5, end = new TimeSpan(17, 0, 0), start = new TimeSpan(9, 0, 0) }
                 },
-                DaysOfWork = new bool[] { true, true, true, true, true, true },
+                Recommendations = ""
 
-            });
-            addNanny(new Nanny
+            };
+            addNanny(shifi_levy);
+            Nanny Tsipi_Hotoveli = new Nanny
             {
-                Address = "10 avenue des vosges,strasbourg",
-                FirstName = "Sarah",
-                FamilyName = "Cohen",
-                Id = 307,
-
-                //rangeOfAge="gg",
-
-                Dob = new DateTime(1970, 09, 22),
+                ID = "654",
+                firstName = "Tsipi",
+                lastName = "Hotoveli",
+                Birthday = new DateTime(1989, 3, 29),
+                Address = "HaRav Kuk St 8, Jerusalem",
+                elevator = true,
+                floor = 2,
+                Expirence = 3,
+                phone = "0521001001",
+                MaxAge = 18,
+                MinAge = 3,
                 MaxChildren = 8,
-                MinAgeMonth = 0,
-                MaxAgeMonth = 6,
-                Elevator = false,
-                SalPerHour = 40,
-                SalPerMonth = 4000,
-                Recommendations = "good",
-                Phone = "0543216766",
-                ExpYears = 0,
-                Floor = 1,
-                IsSalPerHour = true,
-                IsTamat = true,
-                Week_of_work = new DayOfWork[]
+                isPerHour = true,
+                HourSalary = 10,
+                monthSalary = 900,
+                GovVacation = true,
+                WorkWeek = new bool[] { true, true, true, true, true, false, false },
+                TimeTable = new DayOfWork[]
                 {
-                   new DayOfWork { day = 0, end = new TimeSpan(17, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 1, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 2, end = new TimeSpan(18, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 3, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 4, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 5, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                 },
-                DaysOfWork = new bool[] { true, false, true, true, true, true },
-
-            });
-
-
-            addMother(new Mother
-            {
-                MotherAddress = "14 avenue de la paix,strasbourg,france",
-                Id = 203,
-                FirstName = "Avia",
-                FamilyName = "Abitan",
-                Phone = "056787677",
-                ResearchAddress = "14 avenue de la paix,strasbourg,france",
-                Remarks = "not good",
-                Day_of_keep = new DayOfWork[]
-                {
-                   new DayOfWork { day = 0, end = new TimeSpan(17, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 1, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 2, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 3, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 4, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 5, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
+                    new DayOfWork { day = 0, end = new TimeSpan(17, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 1, end = new TimeSpan(17, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 2, end = new TimeSpan(17, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 3, end = new TimeSpan(17, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 4, end = new TimeSpan(17, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 5, end = new TimeSpan(17, 0, 0), start = new TimeSpan(8, 0, 0) }
                 },
-                NeedsDay = new bool[] { true, true, true, true, true, true },
 
-            });
-            addMother(new Mother
+
+                Recommendations = ""
+            };
+            addNanny(Tsipi_Hotoveli);
+            Nanny hanat_uoveli = new Nanny
             {
-                MotherAddress = "12 allee de la robertsau,strasbourg",
-                Id = 202,
-                FirstName = "Chaya",
-                FamilyName = "Levi",
-                Phone = "056787677",
-                ResearchAddress = "Jerusalem Pesach Chevroni 120 Israel",
-                Remarks = "not good",
-                Day_of_keep = new DayOfWork[]
+                ID = "904",
+                firstName = "hanat",
+                lastName = "uoveli",
+                Birthday = new DateTime(1989, 5, 29),
+                Address = "HaRav Kuk St 8, Jerusalem",
+                elevator = true,
+                floor = 4,
+                Expirence = 3,
+                phone = "0521211001",
+                MaxAge = 24,
+                MinAge = 6,
+                MaxChildren = 10,
+                isPerHour = true,
+                HourSalary = 20,
+                monthSalary = 900,
+                GovVacation = true,
+                WorkWeek = new bool[] { true, true, true, true, true, false, false },
+                TimeTable = new DayOfWork[]
                 {
-                   new DayOfWork { day = 0, end = new TimeSpan(17, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 1, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 2, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 3, end = new TimeSpan(16, 0, 0), start = new TimeSpan(9, 0, 0) } ,
-                   new DayOfWork { day = 4, end = new TimeSpan(11, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 5, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
+                    new DayOfWork { day = 0, end = new TimeSpan(18, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 1, end = new TimeSpan(18, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 2, end = new TimeSpan(18, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 3, end = new TimeSpan(18, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 4, end = new TimeSpan(18, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 5, end = new TimeSpan(18, 0, 0), start = new TimeSpan(8, 0, 0) }
                 },
-                NeedsDay = new bool[] { true, true, true, true, true, true },
-            });
-            addMother(new Mother
-            {
-                FamilyName = "geleer",
-                Phone = "0556691448",
-                ResearchAddress = "4 rue strauss durkheim,strasbourg",
-                FirstName = "chaya",
-                Id = 200,
-                MotherAddress = "פסח חברוני 120, ירושלים",
-                Day_of_keep
-    = new DayOfWork[]
-    {
-                   new DayOfWork { day = 0, end = new TimeSpan(17, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 1, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 2, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 3, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 4, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 5, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-    },
-                NeedsDay = new bool[] { true, true, true, true, true, true },
 
-            });
-            addMother(new Mother
+                Recommendations = ""
+            };
+            addNanny(hanat_uoveli);
+            Nanny tamar_cohen = new Nanny
             {
-                FamilyName = "cohen",
-                Phone = "0556691448",
-                ResearchAddress = "2 avenue des vosges, strasbourg",
-                FirstName = "rivki",
-                Id = 201,
-                MotherAddress = "פסח חברוני 120, ירושלים",
-                Day_of_keep
-                = new DayOfWork[]
+                ID = "306",
+                firstName = "tamar",
+                lastName = "cohen",
+                Birthday = new DateTime(1987, 5, 29),
+                Address = "HaRav Kuk St 8, Jerusalem",
+                elevator = true,
+                floor = 1,
+                Expirence = 9,
+                phone = "0521300001",
+                MaxAge = 20,
+                MinAge = 3,
+                MaxChildren = 7,
+                isPerHour = true,
+                HourSalary = 15,
+                monthSalary = 1000,
+                GovVacation = true,
+                WorkWeek = new bool[] { true, true, true, true, true, true, false },
+                TimeTable = new DayOfWork[]
                 {
-                   new DayOfWork { day = 0, end = new TimeSpan(17, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 1, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 2, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 3, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 4, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
-                   new DayOfWork { day = 5, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) } ,
+                    new DayOfWork { day = 0, end = new TimeSpan(16, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 1, end = new TimeSpan(16, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 2, end = new TimeSpan(16, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 3, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 4, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 5, end = new TimeSpan(16, 0, 0), start = new TimeSpan(8, 0, 0) }
                 },
-                NeedsDay = new bool[] { true, true, true, true, true, true },
 
-            });
+                Recommendations = ""
+            };
+            addNanny(tamar_cohen);
+            Nanny sara_levy = new Nanny
+            {
+                ID = "500",
+                firstName = "sara",
+                lastName = "levy",
+                Birthday = new DateTime(1983, 2, 15),
+                Address = "Ha-Va'ad ha-Le'umi St 21, Jerusalem, 93721",
+                elevator = false,
+                floor = 5,
+                Expirence = 2,
+                phone = "0586000001",
+                MaxAge = 19,
+                MinAge = 6,
+                MaxChildren = 9,
+                isPerHour = true,
+                HourSalary = 12,
+                monthSalary = 950,
+                GovVacation = false,
+                WorkWeek = new bool[] { true, true, true, true, true, true, false },
+                TimeTable = new DayOfWork[]
+                {
+                    new DayOfWork { day = 0, end = new TimeSpan(14, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 1, end = new TimeSpan(14, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 2, end = new TimeSpan(14, 0, 0), start = new TimeSpan(7, 3, 0) },
+                    new DayOfWork { day = 3, end = new TimeSpan(14, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 4, end = new TimeSpan(14, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 5, end = new TimeSpan(14, 0, 0), start = new TimeSpan(8, 0, 0) }
+                },
 
-            addChild(new Child
+                Recommendations = ""
+            };
+            addNanny(sara_levy);
+            Mother sara_kon = new Mother
             {
-                Id = 100,
-                DobChild = new DateTime(2014, 11, 27),
-                FirstName = "yosi",
-                IsSpecialNeeds = false,
-                MotherId = 200
+                ID = "450",
+                firstName = "sara",
+                lastName = "kon",
+                Birthday = new DateTime(1973, 2, 15),
+                housePhone = "0586200021",
+                cellPhone = "0586222222",
+                address = "Ha-Va'ad ha-Le'umi St 21, Jerusalem, 93721",
+                searchArea = "HaRav Kuk St 8, Jerusalem",
+                daysNeedNanny = new bool[] { true, true, true, true, true, true },
+                serviseNeededTimeTable = new DayOfWork[]
+                {
+                    new DayOfWork { day = 0, end = new TimeSpan(13, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 1, end = new TimeSpan(13, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 2, end = new TimeSpan(13, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 3, end = new TimeSpan(13, 0, 0), start = new TimeSpan(9, 0, 0) },
+                    new DayOfWork { day = 4, end = new TimeSpan(13, 0, 0), start = new TimeSpan(9, 0, 0) },
+                    new DayOfWork { day = 5, end = new TimeSpan(13, 0, 0), start = new TimeSpan(9, 0, 0) }
+                },
+                isSingalParent = false,
+                comments = ""
+            };
+            addMother(sara_kon);
+            Mother mushka_levin = new Mother
+            {
+                ID = "961",
+                firstName = "mushka",
+                lastName = "levin",
+                Birthday = new DateTime(1976, 2, 14),
+                housePhone = "0582220021",
+                cellPhone = "0581112222",
+                address = "Ha-Va'ad ha-Le'umi St 21, Jerusalem, 93721",
+                searchArea = "HaRav Kuk St 8, Jerusalem",
+                daysNeedNanny = new bool[] { true, true, true, true, true, false },
+                serviseNeededTimeTable = new DayOfWork[]
+               {
+                    new DayOfWork { day = 0, end = new TimeSpan(14, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 1, end = new TimeSpan(14, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 2, end = new TimeSpan(14, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 3, end = new TimeSpan(14, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 4, end = new TimeSpan(14, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 5, end = new TimeSpan(14, 0, 0), start = new TimeSpan(9, 0, 0) }
+               },
+                isSingalParent = false,
+                comments = ""
+            };
+            addMother(mushka_levin);
+            Mother chana_israel = new Mother
+            {
+                ID = "482",
+                firstName = "chana",
+                lastName = "israel",
+                Birthday = new DateTime(1978, 2, 14),
+                housePhone = "0577770021",
+                cellPhone = "0586666222",
+                address = "Ha-Va'ad ha-Le'umi St 21, Jerusalem, 93721",
+                searchArea = "HaRav Kuk St 8, Jerusalem",
+                daysNeedNanny = new bool[] { true, true, true, true, true, false },
+                serviseNeededTimeTable = new DayOfWork[]
+               {
+                    new DayOfWork { day = 0, end = new TimeSpan(15, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 1, end = new TimeSpan(15, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 2, end = new TimeSpan(15, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 3, end = new TimeSpan(15, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 4, end = new TimeSpan(15, 0, 0), start = new TimeSpan(8, 0, 0) },
+                    new DayOfWork { day = 5, end = new TimeSpan(15, 0, 0), start = new TimeSpan(9, 0, 0) }
+               },
+                isSingalParent = false,
+                comments = ""
+            };
+            addMother(chana_israel);
+            Child yeude_israel = new Child
+            {
+                ID = "120",
+                firstName = "yeude",
+                lastName = "israel",
+                Birthday = new DateTime(2016, 2, 14),
+                MotherID = "482",
+                hasSpecialNeeds = false,
+                specificationOfNeeds = ""
+            };
+            addChild(yeude_israel);
+            Child moshe_levin = new Child
+            {
+                ID = "783",
+                firstName = "moshe",
+                lastName = "levin",
+                Birthday = new DateTime(2016, 11, 14),
+                MotherID = "961",
+                hasSpecialNeeds = false,
+                specificationOfNeeds = ""
+            };
+            addChild(moshe_levin);
+            Child chaim_kon = new Child
+            {
+                ID = "783",
+                firstName = "chaim",
+                lastName = "kon",
+                Birthday = new DateTime(2016, 11, 14),
+                MotherID = "450",
+                hasSpecialNeeds = false,
+                specificationOfNeeds = ""
+            };
+            addChild(chaim_kon);
 
-            });
-            addChild(new Child
-            {
-                Id = 101,
-                DobChild = new DateTime(1990, 4, 28),
-                FirstName = "yosi2",
-                IsSpecialNeeds = false,
-                MotherId = 200
-            });
-            addChild(new Child
-            {
-                Id = 102,
-                DobChild = new DateTime(2015, 4, 28),
-                FirstName = "yosi5",
-                IsSpecialNeeds = true,
-                MotherId = 201
-            });
-            addChild(new Child
-            {
-                Id = 103,
-                DobChild = new DateTime(2016, 4, 28),
-                FirstName = "yosi7",
-                IsSpecialNeeds = false,
-                MotherId = 201
-            });
+        }
 
 
 
-            addContract(contract: new Contract
-            {
-                Id_Nanny = 300,
-                IdChild = 100,
-                EndDate = new DateTime(2017, 12, 30),
-                StartDate = new DateTime(2017, 11, 30),
-                IsPerMonth = true,
-                IsSigned = true,
-                Sal_Per_Hour = 30,
-                Sal_Per_Month = 4500,
-                Theyknow = false
-            });
-            addContract(contract: new Contract
-            {
-                Id_Nanny = 301,
-                IdChild = 101,
-                EndDate = new DateTime(2017, 12, 30),
-                StartDate = new DateTime(2017, 11, 30),
-                IsPerMonth = true,
-                IsSigned = true,
-                Sal_Per_Hour = 30,
-                Sal_Per_Month = 4500,
-                Theyknow = false
-            });
-            addContract(contract: new Contract
-            {
-                Id_Nanny = 300,
-                IdChild = 102,
-                EndDate = new DateTime(2017, 12, 30),
-                StartDate = new DateTime(2017, 11, 30),
-                IsPerMonth = true,
-                IsSigned = true,
-                Sal_Per_Hour = 30,
-                Sal_Per_Month = 4500,
-                Theyknow = false
-            });
-            */
-    }
+    } 
 }

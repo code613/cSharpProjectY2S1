@@ -15,6 +15,7 @@ namespace BL
 {
     public class MyBL : IBL
     {
+        Idal MyDal;
         #region Singleton
         private static readonly MyBL instance = new MyBL();
 
@@ -23,14 +24,15 @@ namespace BL
             get { return instance; }
         }
         #endregion
-        Idal MyDal = DALFactory.FactoryDAL.GetDAL();
+        
         public MyBL()
         {
-            
-          //  init();
+            MyDal = DALFactory.getDAL();
+           
         }
-      
        
+
+
         #region child
         public void addChild(Child ch)
         {

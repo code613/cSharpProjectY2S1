@@ -13,8 +13,7 @@ namespace BE
         {
             ImgPath = @"./ resources / badCaretakerIMG.jpg";
             Birthday = DateTime.Now.AddYears(-30);
-            ID = "33";
-        serviseNeededTimeTable= new DayOfWork[6];
+            serviseNeededTimeTable= new DayOfWork[6];
             for (int i = 0; i < 6; i++)
             {
                 serviseNeededTimeTable[i]= new DayOfWork();

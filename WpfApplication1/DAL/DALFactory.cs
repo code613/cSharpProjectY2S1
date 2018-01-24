@@ -6,29 +6,15 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public sealed class DALFactory
+    public class DALFactory
     {
-        #region Singleton
-        private static readonly DALFactory instance = new DALFactory();
 
-        static DALFactory() { }
-        private DALFactory() { }
-
-        public static DALFactory Instance
+        static Idal dal = null;
+        public static Idal getDAL()
         {
-            get { return instance; }
+            if (dal == null)
+                dal = new Dal_imp();
+            return dal;
         }
-        #endregion
-        public class FactoryDAL
-        {
-            static Idal MyDal = null;
-            public static Idal GetDAL()
-            {
-                if (MyDal == null)
-                    MyDal = new Dal_imp();
-                return MyDal;
-            }
-        }
-
     }
 }

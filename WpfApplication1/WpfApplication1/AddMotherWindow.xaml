@@ -12,7 +12,7 @@
 
     <Grid Background="SkyBlue">
 
-        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="50,60,50,0" HorizontalAlignment="Center">
+        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="47,34,10,0" HorizontalAlignment="Center" Height="364" Width="735">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>

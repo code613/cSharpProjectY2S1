@@ -41,21 +41,20 @@ namespace PL
             switch (thePerson)
           {
               case personsEnum.typeOfPerson.nanny1:
-                    IDComboBox.ItemsSource = TheBL.getListOfNannies();
-                 //   upButton.Content = "Update Nanny";
-                    headerLabel.Content = "double click the Nanny's ID to update";
-                    flag = 1;//need double click and switch 
-                    //need a thread?? like will this flag save .. it should
+                IDComboBox.ItemsSource = TheBL.getListOfNannies();
+                slowButton.Content = "Update Nanny";
+                headerLabel.Content = "double click the Nanny's ID to update";
+                flag = 1;
                     break;
               case personsEnum.typeOfPerson.mother2:
                 IDComboBox.ItemsSource = TheBL.getListOfMothers();//for mother obvesly
-               // upButton.Content = "Update Mother";
+                slowButton.Content = "Update Mother";
                 headerLabel.Content = "double click the Mother's ID to update";
                 flag = 2;//need double click and switch
                   break;
               case personsEnum.typeOfPerson.child3:
                 IDComboBox.ItemsSource = TheBL.getListOfChildren();
-                //   upButton.Content = "Update Child";
+                slowButton.Content = "Update Child";
                 headerLabel.Content = "double click the Child's ID to update";
                 flag = 3;//need double click and switch
                     break;
@@ -71,15 +70,18 @@ namespace PL
                     break;
                 case personsEnum.typeOfPerson.motherDelete6:
                     IDComboBox.ItemsSource = TheBL.getListOfMothers();
+                    DELButton.Visibility = Visibility.Visible;
                     flag = 6;
                     break;
                 case personsEnum.typeOfPerson.childDelete7:
                     IDComboBox.ItemsSource = TheBL.getListOfChildren();
                     headerLabel.Content = "click Child to delete";
+                    DELButton.Visibility = Visibility.Visible;
                     flag = 7;
                     break;
                 case personsEnum.typeOfPerson.contractDelete8:
                     IDComboBox.ItemsSource = TheBL.getListOfContracts();
+                    DELButton.Visibility = Visibility.Visible;
                     flag = 8;
                     break;
             }
@@ -150,7 +152,7 @@ namespace PL
                 ts = DateTime.Now - _lastPressed;
                 if (ts.Milliseconds < 500 && sender.Equals(_lastObject))
                 {
-                    MessageBox.Show("Double clicked");
+                    //MessageBox.Show("Double clicked");
                     switch (flag)
                     {
                         case 1:

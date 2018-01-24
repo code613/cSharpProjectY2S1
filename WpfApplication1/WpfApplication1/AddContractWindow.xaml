@@ -47,7 +47,7 @@
             <Label VerticalAlignment="Center" Grid.Row="7" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="have they met?"/>
             <CheckBox x:Name="meetingCheckBox" VerticalAlignment="Center"  Grid.Row="7" Margin="3" IsChecked="{Binding Theyknow, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Grid.Column="1" Content=""/>
         </Grid>
-        <Button x:Name="AddContractButton" Background="LightSkyBlue" Content="Add Contract" Margin="0,0,0,75" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="120" Height="40" Click="AddContractButton_Click" >
+        <Button x:Name="AddContractButton" Background="LightSkyBlue" Content="Add Contract" Margin="0,0,247,164" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="120" Height="40" Click="AddContractButton_Click" >
 
             <Button.Style>
                 <Style>

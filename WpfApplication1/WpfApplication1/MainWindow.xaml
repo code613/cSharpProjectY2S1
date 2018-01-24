@@ -58,7 +58,7 @@
         <Button x:Name="MotherList"  Content="get list of mothers" Grid.Column="4" HorizontalAlignment="Left" Margin="42,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Style="{StaticResource otherButtens}"  Click="MotherList_Click" />
         <Button x:Name="NannyList"  Content="get list of nannies" Grid.Column="4" HorizontalAlignment="Left" Margin="42,56,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100" Style="{StaticResource otherButtens}" Click="NannyList_Click" />
         <Button x:Name="ChildrenList" Content="get list of children" Grid.Column="4" HorizontalAlignment="Left" Margin="42,69,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" Style="{StaticResource otherButtens}" Click="ChildrenList_Click" />
-        <Button x:Name="button" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="46,24,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button" Visibility="Hidden" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="46,24,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Grid.Background>
 
             <ImageBrush ImageSource="./resources/nannypic6.png"/>

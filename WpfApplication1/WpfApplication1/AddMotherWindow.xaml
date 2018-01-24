@@ -8,7 +8,7 @@
         xmlns:BE="clr-namespace:BE;assembly=BE"
         x:Class="PL.AddMotherWindow"
         mc:Ignorable="d"
-        Title="AddMotherWindow" Height="700" Width="700"  Icon="./resources/newPinkFlower.png" >
+        Title="AddMotherWindow" Height="700" Width="800"  Icon="./resources/newPinkFlower.png" >
 
     <Grid Background="SkyBlue">
 

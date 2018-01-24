@@ -42,8 +42,8 @@ namespace DAL
         {
 
             Child ch = findChild(child.ID);
-            if (ch != null)
-                throw new Exception("child with the same id already exists...");
+            //if (ch != null)
+            //    throw new Exception("child with the same id already exists...");
             DS.DataSourse.listOfChildren.Add(child);
         }
         public void deleteChild(string id)

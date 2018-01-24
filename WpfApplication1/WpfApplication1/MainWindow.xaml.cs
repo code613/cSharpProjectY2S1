@@ -107,7 +107,9 @@ namespace PL
         }
         private void DeleteChild_Click(object sender, RoutedEventArgs e)
         {
-
+            Window updateChildw = new UpdateWindow(personsEnum.typeOfPerson.childDelete7);
+            //Window updateChildw = new updateChild();
+            updateChildw.Show();
         }
         #endregion
         #region mother Button
@@ -124,7 +126,9 @@ namespace PL
         }
         private void DeleteMother_Click(object sender, RoutedEventArgs e)
         {
-
+            Window updateTheMother = new UpdateWindow(personsEnum.typeOfPerson.motherDelete6);
+            // Window updateTheMother = new updateMother();
+            updateTheMother.Show();
         }
         #endregion
         #region Nanny Button
@@ -141,7 +145,9 @@ namespace PL
         }
         private void DeleteNanny_Click(object sender, RoutedEventArgs e)
         {
-
+            Window updateTheNanny = new UpdateWindow(personsEnum.typeOfPerson.nannyDelete5);
+            //Window updateTheNanny = new UpdateNanny();
+            updateTheNanny.Show();
         }
         #endregion
         #region Contract Button
@@ -157,7 +163,8 @@ namespace PL
         }
         private void DeleteContract_Click(object sender, RoutedEventArgs e)
         {
-
+            Window updateTheContract = new UpdateWindow(personsEnum.typeOfPerson.contractDelete8);
+            updateTheContract.Show();
         }
         #endregion
         #region Data Base Button

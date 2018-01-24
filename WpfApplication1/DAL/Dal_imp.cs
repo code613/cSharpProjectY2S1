@@ -117,8 +117,8 @@ namespace DAL
         public void deleteMother(string id)
         {
             Mother mom = findMother(id);
-            if (mom == null)
-                throw new Exception("mother  not found...");
+            //if (mom == null)
+            //    throw new Exception("mother  not found...");
             DS.DataSourse.listOfMothers.Remove(mom);
         }
         public void updateMotherDetalis(Mother mom)

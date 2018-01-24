@@ -29,7 +29,9 @@ namespace PL
             contract = new Contract();
             this.DataContext = contract;
             bl = BLFactory.getBL();
-            
+            id_NannyComboBox.ItemsSource = bl.getListOfNannies();
+            idChildComboBox.ItemsSource = bl.getListOfChildren();
+
         }
         public AddContractWindow(Contract contract)
         {
@@ -37,6 +39,8 @@ namespace PL
             this.DataContext = contract;
             AddContractButton.Content = "update contract";
             bl = BLFactory.getBL();
+            id_NannyComboBox.ItemsSource = bl.getListOfNannies();
+            idChildComboBox.ItemsSource = bl.getListOfChildren();
         }
 
 
@@ -72,6 +76,5 @@ namespace PL
             }
         }
 
-       
     }
 }

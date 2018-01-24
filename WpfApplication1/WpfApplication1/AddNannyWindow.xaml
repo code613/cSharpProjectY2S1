@@ -11,7 +11,7 @@
 
     <Grid Background="SkyBlue">
 
-        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="51,0,-30,0" HorizontalAlignment="Left"  Height="577" Width="771">
+        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="51,0,-30,0" HorizontalAlignment="Left"  Height="581" Width="771">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -139,6 +139,7 @@
 
 
         </Grid>
-
+        <Button x:Name="AddNannyButton" Content="Button" HorizontalAlignment="Left" Margin="196,608,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Image x:Name="image" Source="./resources/badCaretakerIMG.jpg" HorizontalAlignment="Left" Height="315" Margin="419,297,0,0" VerticalAlignment="Top" Width="257"/>
     </Grid>
 </Window>

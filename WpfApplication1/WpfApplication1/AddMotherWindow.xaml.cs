@@ -35,6 +35,7 @@ namespace PL
             this.DataContext = mother;
             bl = BLFactory.getBL();
 
+
         }
 
         public AddMotherWindow(Mother mother)
@@ -89,9 +90,7 @@ namespace PL
                 }
             }
 
-        }
-       
-        
+        }  
         private void SetTime( DayOfWork ts, TimePicker tp1, TimePicker tp2)
         {
             if (tp1.Value != null && tp2.Value != null)

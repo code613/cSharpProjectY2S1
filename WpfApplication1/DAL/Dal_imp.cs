@@ -20,10 +20,9 @@ namespace DAL
         }
         #endregion
         private Dal_imp()
-        {
-         
-        }
+        {       
 
+        }
         protected static Dal_imp dal;
 
         public static Dal_imp Dal
@@ -40,7 +39,6 @@ namespace DAL
         #region child
         public void addChild(Child child)
         {
-
             Child ch = findChild(child.ID);
             if (ch != null)
                 throw new Exception("child with the same id already exists...");

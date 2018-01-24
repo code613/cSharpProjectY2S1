@@ -28,22 +28,19 @@ namespace BL
         public MyBL()
         {
             
-            //  init();
+           //  init();
         }   
         #region child
         public void addChild(Child ch)
         {
             try
             {
-                MyDal.addChild(ch);
-                
+                MyDal.addChild(ch);    
             }
             catch (InvalidCastException e)
             {
-
                 throw e;
-            }
-            
+            }   
         }
         public void deleteChild(string id)
         {

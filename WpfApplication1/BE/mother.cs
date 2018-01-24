@@ -14,6 +14,7 @@ namespace BE
             ImgPath = @"./ resources / badCaretakerIMG.jpg";
             Birthday = DateTime.Now.AddYears(-30);
             serviseNeededTimeTable= new DayOfWork[6];
+            ID = "33";
             for (int i = 0; i < 6; i++)
             {
                 serviseNeededTimeTable[i]= new DayOfWork();

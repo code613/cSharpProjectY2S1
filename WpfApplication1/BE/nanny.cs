@@ -40,7 +40,6 @@ namespace BE
             return "nanny: " + firstName + " " + lastName + " " + phone + " " + Address;
         }
 
-        
     }
 }
 

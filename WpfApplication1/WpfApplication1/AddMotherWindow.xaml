@@ -113,7 +113,7 @@
 
         </Grid>
         <Button x:Name="AddMotherButton" Content="Add mother" HorizontalAlignment="Left" Margin="136,469,0,0" VerticalAlignment="Top" Width="75" Click="AddMotherButton_Click" />
-        <Image x:Name="image" Source="./resources/badCaretakerIMG.jpg" HorizontalAlignment="Left" Height="315" Margin="347,345,0,0" VerticalAlignment="Top" Width="316"/>
+        <Image x:Name="image" Source="./resources/badCaretakerIMG.jpg" HorizontalAlignment="Left" Height="315" Margin="347,345,0,0" VerticalAlignment="Top" Width="257"/>
 
     </Grid>
 </Window>

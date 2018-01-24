@@ -25,9 +25,9 @@ namespace DAL
             public static Idal GetDAL()
             {
                 //if (MyDal == null)
-                //    MyDal = new Dal_imp();
+                //    MyDal = new Dal_imp1();
                 //  return MyDal;
-                return Dal_imp.Dal;
+                return Dal_imp1.Dal;
             }
         }
 

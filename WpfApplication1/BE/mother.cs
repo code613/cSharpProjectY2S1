@@ -35,8 +35,6 @@ namespace BE
         {
             return "mother:" + firstName + " " + lastName + " " + cellPhone + " " + address;
         }
-        
-
     }
     public class DayOfWork
     {

@@ -44,20 +44,20 @@ namespace PL
                     IDComboBox.ItemsSource = TheBL.getListOfNannies();
                  //   upButton.Content = "Update Nanny";
                     headerLabel.Content = "double click the Nanny's ID to update";
-                    flag = 1;//need double click and switch 
-                    //need a thread?? like will this flag save .. it should
+                    flag = 1;
+                   
                     break;
               case personsEnum.typeOfPerson.mother2:
                 IDComboBox.ItemsSource = TheBL.getListOfMothers();//for mother obvesly
                // upButton.Content = "Update Mother";
                 headerLabel.Content = "double click the Mother's ID to update";
-                flag = 2;//need double click and switch
+                flag = 2;
                   break;
               case personsEnum.typeOfPerson.child3:
                 IDComboBox.ItemsSource = TheBL.getListOfChildren();
                 //   upButton.Content = "Update Child";
                 headerLabel.Content = "double click the Child's ID to update";
-                flag = 3;//need double click and switch
+                flag = 3;
                     break;
                 case personsEnum.typeOfPerson.contract4:
                     IDComboBox.ItemsSource = TheBL.getListOfContracts();

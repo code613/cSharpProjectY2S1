@@ -27,7 +27,7 @@ namespace BL
         
         public MyBL()
         {
-            mother = new Mother();
+            MyDal = DALFactory.FactoryDAL.GetDAL();
             //  init();
         }   
         #region child

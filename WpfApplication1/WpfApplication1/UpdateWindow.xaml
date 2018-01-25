@@ -38,7 +38,7 @@
         <StackPanel Grid.Row="1">
             <ComboBox x:Name="IDComboBox"  DisplayMemberPath="ID"
                   Background="Beige" Margin="0,0,0,10" Grid.Row="1" Width="200" Height="50" FontSize="28" VerticalAlignment="Center"
-                  Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+                  Text="{Binding ID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
                   HorizontalAlignment="Center" BorderThickness="3" BorderBrush="Gray">
         <!--<ComboBox x:Name="cbobox" Height="30">-->       
             <ComboBox.ItemContainerStyle>

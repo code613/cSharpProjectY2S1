@@ -28,6 +28,18 @@ namespace PL
         Contract selectedContract;
         int flag;//globel to this scope (i hope)
 
+        //property wraper
+        public int MyProperty //CLR property
+        {
+            get { return (int)GetValue(BensDependincyProperty); }
+            set { SetValue(BensDependincyProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty BensDependincyProperty =
+            DependencyProperty.Register("MyProperty", typeof(int), typeof(UpdateWindow), new PropertyMetadata(0));
+
+
 
         public UpdateWindow(personsEnum.typeOfPerson thePerson)
         {

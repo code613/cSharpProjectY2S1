@@ -12,15 +12,41 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="headerLabel" VerticalAlignment="Center" Grid.Row="0"  HorizontalAlignment="center"   FontSize="25" FontFamily="Berlin Sans FB Demi"/>
-        <ComboBox x:Name="IDComboBox" SelectionChanged="IDComboBox_SelectionChanged" DisplayMemberPath="Id" Background="Beige" Margin="0,0,0,10" Grid.Row="1" Width="200" Height="50" FontSize="28" VerticalAlignment="Center" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  HorizontalAlignment="Center" BorderThickness="3" BorderBrush="Gray">
-        <!--<ComboBox x:Name="cbobox" Height="30">-->
+       <Label x:Name="headerLabel" VerticalAlignment="Center" Grid.Row="0"  HorizontalAlignment="center"   FontSize="25" FontFamily="Berlin Sans FB Demi"/>
+        <StackPanel Margin="0,78,20,299" Grid.Row="2" Visibility="Visible">
+            <ComboBox>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/WpfTutorialSamples;component/Images/bullet_red.png" />
+                        <TextBlock Foreground="Red"><Run Text="Red"/></TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/WpfTutorialSamples;component/Images/bullet_green.png" />
+                        <TextBlock Foreground="Green"><Run Text="Green"/></TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/WpfTutorialSamples;component/Images/bullet_blue.png" />
+                        <TextBlock Foreground="Blue"><Run Text="Blue"/></TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <ComboBox x:Name="IDComboBox"  DisplayMemberPath="ID"
+                  Background="Beige" Margin="0,0,0,10" Grid.Row="1" Width="200" Height="50" FontSize="28" VerticalAlignment="Center"
+                  Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+                  HorizontalAlignment="Center" BorderThickness="3" BorderBrush="Gray">
+        <!--<ComboBox x:Name="cbobox" Height="30">-->       
             <ComboBox.ItemContainerStyle>
                 <Style TargetType="{x:Type ComboBoxItem}">
                     <Setter Property="Template" >
                         <Setter.Value>
                             <ControlTemplate>
-                                <TextBlock Text="{Binding .}" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
+                                <TextBlock Text="{Binding Path=ID}" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
@@ -34,6 +60,7 @@
                 </x:Array >
             </ComboBox.ItemsSource>
         </ComboBox>
+        </StackPanel>
         <Button x:Name="DELButton" Grid.Row="2" Visibility="Hidden" Content="DELETE" VerticalAlignment="Top" HorizontalAlignment="Center" Height="40" FontSize="16"  Width="150"   BorderThickness="3" Click="Button_Click" Margin="221,0"  >
             <Button.Style>
                 <Style TargetType ="Button">

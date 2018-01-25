@@ -11,20 +11,23 @@ namespace DAL
 
     public class Dal_imp1 : Idal
     {
-        #region Singleton
-        private static readonly Dal_imp1 instance = new Dal_imp1();
+        //#region Singleton              this is not a singelton!!!!
+        //private static readonly Dal_imp1 instance = new Dal_imp1();
 
-        public static Dal_imp1 Instance
-        {
-            get { return instance; }
-        }
-        #endregion
+        //public static Dal_imp1 Instance
+        //{
+        //    get { return instance; }
+        //}
+        //#endregion
         private Dal_imp1()
         {
          init();
         }
-        protected static Dal_imp1 dal;
         public int flag { get {return flag; } set { flag = 0; } }
+
+
+
+        private static Dal_imp1 dal = null;//singelton
         public static Dal_imp1 Dal
         {
             get

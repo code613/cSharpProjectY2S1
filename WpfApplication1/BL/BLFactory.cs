@@ -9,7 +9,6 @@ namespace BL
     public class BLFactory
     {
         private static IBL instance = null;
-
         public static IBL getBL()
         {
             if (instance == null)

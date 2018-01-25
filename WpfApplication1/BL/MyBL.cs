@@ -16,12 +16,20 @@ namespace BL
     public class MyBL : IBL
     {
         //Idal MyDal;
-        #region Singleton
-        private static readonly MyBL instance = new MyBL();
+
+        #region Singleton//think made 2 times as also in factory
+        private static  MyBL instance = null;//readonly
 
         public static MyBL Instance
         {
-            get { return instance; }
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new MyBL();
+                }
+                    return instance;
+            }
         }
         #endregion
 

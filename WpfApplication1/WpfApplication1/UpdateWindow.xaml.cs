@@ -36,27 +36,27 @@ namespace PL
             DELButton.Visibility = Visibility.Hidden;
             slowButton.Visibility = Visibility.Hidden;
             setPic(thePerson);
-           // switch 
+            // switch 
 
             switch (thePerson)
-          {
-              case personsEnum.typeOfPerson.nanny1:
-                IDComboBox.ItemsSource = TheBL.getListOfNannies();
-                slowButton.Content = "Update Nanny";
-                headerLabel.Content = "double click the Nanny's ID to update";
-                flag = 1;
+            {
+                case personsEnum.typeOfPerson.nanny1:
+                    IDComboBox.ItemsSource = TheBL.getListOfNannies();
+                    slowButton.Content = "Update Nanny";
+                    headerLabel.Content = "double click the Nanny's ID to update";
+                    flag = 1;
                     break;
-              case personsEnum.typeOfPerson.mother2:
-                IDComboBox.ItemsSource = TheBL.getListOfMothers();//for mother obvesly
-                slowButton.Content = "Update Mother";
-                headerLabel.Content = "double click the Mother's ID to update";
-                flag = 2;//need double click and switch
-                  break;
-              case personsEnum.typeOfPerson.child3:
-                IDComboBox.ItemsSource = TheBL.getListOfChildren();
-                slowButton.Content = "Update Child";
-                headerLabel.Content = "double click the Child's ID to update";
-                flag = 3;//need double click and switch
+                case personsEnum.typeOfPerson.mother2:
+                    IDComboBox.ItemsSource = TheBL.getListOfMothers();//for mother obvesly
+                    slowButton.Content = "Update Mother";
+                    headerLabel.Content = "double click the Mother's ID to update";
+                    flag = 2;//need double click and switch
+                    break;
+                case personsEnum.typeOfPerson.child3:
+                    IDComboBox.ItemsSource = TheBL.getListOfChildren();
+                    slowButton.Content = "Update Child";
+                    headerLabel.Content = "double click the Child's ID to update";
+                    flag = 3;//need double click and switch
                     break;
                 case personsEnum.typeOfPerson.contract4:
                     IDComboBox.ItemsSource = TheBL.getListOfContracts();
@@ -66,7 +66,7 @@ namespace PL
                 case personsEnum.typeOfPerson.nannyDelete5:
                     IDComboBox.ItemsSource = TheBL.getListOfNannies();
                     DELButton.Visibility = Visibility.Visible;
-                  flag = 5;
+                    flag = 5;
                     break;
                 case personsEnum.typeOfPerson.motherDelete6:
                     IDComboBox.ItemsSource = TheBL.getListOfMothers();
@@ -93,7 +93,7 @@ namespace PL
             {
                 case personsEnum.typeOfPerson.nannyDelete5:
                 case personsEnum.typeOfPerson.nanny1:
-                        updateWindowThemePicture.Source = new BitmapImage(new Uri("./ resources / badCaretakerIMG.jpg", UriKind.Relative));
+                    updateWindowThemePicture.Source = new BitmapImage(new Uri("./ resources / badCaretakerIMG.jpg", UriKind.Relative));
                     break;
                 case personsEnum.typeOfPerson.motherDelete6:
                 case personsEnum.typeOfPerson.mother2:
@@ -103,7 +103,7 @@ namespace PL
                     break;
                 case personsEnum.typeOfPerson.contractDelete8:
                 case personsEnum.typeOfPerson.contract4:
-             
+
                     break;
                 default://for numbers 5-8
                     break;
@@ -152,41 +152,14 @@ namespace PL
                 ts = DateTime.Now - _lastPressed;
                 if (ts.Milliseconds < 500 && sender.Equals(_lastObject))
                 {
+                    openwindowActionFunction();
                     //MessageBox.Show("Double clicked");
-                    switch (flag)
-                    {
-                        case 1:
-                            //nanny
-                            selectedNanny = IDComboBox.SelectedItem as Nanny;
-                            Window addNannyWindow = new AddNannyWindow(selectedNanny);
-                            addNannyWindow.Show();
-                            break;
-                        case 2:
-                            //mother
-                            selectedMother = IDComboBox.SelectedItem as Mother;
-                            Window addMotherWindow = new AddMotherWindow(selectedMother);//make cunstruter that gets parameter update
-                            addMotherWindow.Show();
-                            break;
-                        case 3:
-                            //child
-                            selectedChild = IDComboBox.SelectedItem as Child;
-                            Window updateTC = new AddChildWindow(selectedChild);
-                            updateTC.Show();//so will keep this window open that means
-                            break;
-                        case 4:
-                            selectedContract = IDComboBox.SelectedItem as Contract;
-                            Window addContractWindow = new AddContractWindow(selectedContract);
-                            addContractWindow.Show();
-                            break;
-                        default://for numbers 5-8
-                            break;
-                    }
                 }
             }
             _lastObject = sender;//sender is the object
             //make flag += sender and if 5 time then make the update button pop up
             _lastPressed = DateTime.Now;
-        } 
+        }
         #endregion
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -194,34 +167,34 @@ namespace PL
             try
             {
                 switch (flag)
-            {
-             // selectedMother;
-             // selectedNanny;
-             // selectedChild;
-             // selectedContract;
-                case 1:
-                case 5:
+                {
+                    // selectedMother;
+                    // selectedNanny;
+                    // selectedChild;
+                    // selectedContract;
+                    case 1:
+                    case 5:
                         var result = MessageBox.Show(selectedNanny.ToString(), "Are you sure you want to remove this Nanny?", MessageBoxButton.YesNo, MessageBoxImage.Question);
                         if (result == MessageBoxResult.Yes)
                         {
                             TheBL.deleteNanny(selectedNanny.ToString());
                             Close();
                         }
-                    //WMPLib.WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
-                    //player.URL = @"track.mp3";
-                    //player.controls.play();
-                    break;
-                case 2:
-                case 6:
+                        //WMPLib.WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
+                        //player.URL = @"track.mp3";
+                        //player.controls.play();
+                        break;
+                    case 2:
+                    case 6:
                         var result2 = MessageBox.Show(selectedMother.ToString(), "Are you sure you want to remove this Mother?", MessageBoxButton.YesNo, MessageBoxImage.Question);
                         if (result2 == MessageBoxResult.Yes)
                         {
                             TheBL.deleteMother(selectedMother.ToString());
                             Close();
                         }
-                    break;
-                case 3:
-                case 7:
+                        break;
+                    case 3:
+                    case 7:
                         var result3 = MessageBox.Show(selectedChild.ToString(), "Are you sure you want to remove this child?", MessageBoxButton.YesNo, MessageBoxImage.Question);
                         if (result3 == MessageBoxResult.Yes)
                         {
@@ -229,8 +202,8 @@ namespace PL
                             Close();
                         }
                         break;
-                case 4:
-                case 8:
+                    case 4:
+                    case 8:
                         var result4 = MessageBox.Show(selectedContract.ToString(), "Are you sure you want to remove this contract?", MessageBoxButton.YesNo, MessageBoxImage.Question);
                         if (result4 == MessageBoxResult.Yes)
                         {
@@ -238,9 +211,9 @@ namespace PL
                             Close();
                         }
                         break;
-                default://for numbers 5-8
-                    break;
-            }
+                    default://for numbers 5-8
+                        break;
+                }
             }
             catch (Exception x)
             {
@@ -251,7 +224,42 @@ namespace PL
 
         private void slowButton_Click(object sender, RoutedEventArgs e)
         {//update button
-
+            openwindowActionFunction();
+        }
+        private void openwindowActionFunction()
+        {
+            switch (flag)
+            {
+                case 1:
+                    //nanny
+                    selectedNanny = IDComboBox.SelectedItem as Nanny;
+                    Window addNannyWindow = new AddNannyWindow(selectedNanny);
+                    addNannyWindow.Show();
+                    this.Close();
+                    break;
+                case 2:
+                    //mother
+                    selectedMother = IDComboBox.SelectedItem as Mother;
+                    Window addMotherWindow = new AddMotherWindow(selectedMother);//make cunstruter that gets parameter update
+                    addMotherWindow.Show();
+                    this.Close();
+                    break;
+                case 3:
+                    //child
+                    selectedChild = IDComboBox.SelectedItem as Child;
+                    Window updateTC = new AddChildWindow(selectedChild);
+                    updateTC.Show();//so will keep this window open that means
+                    this.Close();
+                    break;
+                case 4:
+                    selectedContract = IDComboBox.SelectedItem as Contract;
+                    Window addContractWindow = new AddContractWindow(selectedContract);
+                    addContractWindow.Show();
+                    this.Close();
+                    break;
+                default://for numbers 5-8
+                    break;
+            }
         }
     }
 }

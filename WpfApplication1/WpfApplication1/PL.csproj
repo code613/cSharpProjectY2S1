@@ -201,10 +201,10 @@
     <Resource Include="resources\nannypic6.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resources\badCaretakerIMG.jpg" />
+    <Resource Include="resources\pink102.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resources\pink102.png" />
+    <Resource Include="resources\badCaretakerIMG.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
